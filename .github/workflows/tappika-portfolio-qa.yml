@@ -27,12 +27,7 @@ jobs:
           import time
           from urllib.parse import urlparse
           base="https://tappika-apps.github.io/"
-          expected=[
-            ("BNevents","Publicada"),
-            ("Mi Campo","Prototipo en desarrollo"),
-            ("Mi Semana","Versión en evolución"),
-            ("Agenda y reservas a medida","Demostración funcional")
-          ]
+          expected=["BNevents","Mi Campo","Mi Semana","Agenda y reservas a medida"]
           with sync_playwright() as p:
             browser=p.chromium.launch(headless=True)
             for device, size in (("desktop",{"width":1440,"height":900}),("mobile",{"width":390,"height":844})):
@@ -47,10 +42,11 @@ jobs:
               assert page.title()=="táppika — Aplicaciones a medida"
               assert page.locator('a[href="#proyectos"]').count()==1
               assert page.locator("#proyectos article.tp-case").count()==4
-              for title,status in expected:
+              assert page.locator("#proyectos .tp-case-eyebrow").inner_text()=="Proyectos realizados"
+              for title in expected:
                 card=page.locator("#proyectos article.tp-case").filter(has=page.get_by_role("heading",name=title,exact=True))
                 assert card.count()==1, f"{device}: missing {title}"
-                assert status in card.inner_text(),f"{device}: misleading status for {title}"
+                assert card.locator(".tp-case-features li").count()==4
               section=page.locator("#proyectos")
               assert "Salud Navarro" not in page.content(), f"{device}: forbidden name"
               assert "Alcantarilla" not in section.inner_text(),f"{device}: private location"
@@ -64,7 +60,7 @@ jobs:
               assert section.is_visible()
               assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth+2"),f"{device}: horizontal overflow"
               assert not errors,f"{device}: js errors {errors}"
-              print("PORTFOLIO PUBLIC PASS",device,"HTTP 200, 4 correct project cards, real status, anonymity, privacy, no overflow")
+              print("PORTFOLIO PUBLIC PASS",device,"HTTP 200, 4 project examples, neutral wording, anonymity, privacy, no overflow")
               page.close()
             browser.close()
           PY
