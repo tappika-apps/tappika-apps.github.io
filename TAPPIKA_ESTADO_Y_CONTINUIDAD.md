@@ -225,3 +225,10 @@ Se reutilizaron **los datos legales de la misma persona responsable**, preservan
 - Despliegue Pages asociado 39125844770, **completed/success**, confirma entrega en la web pública. Los documentos funcionan y son accesibles, sin que esto constituya asesoramiento ni certificación jurídica externa.
 - Páginas verificadas: https://tappika-apps.github.io/aviso-legal.html , https://tappika-apps.github.io/privacidad.html , https://tappika-apps.github.io/cookies.html .
 - Se ha releído `index.html` posterior, SHA `adad17db177c229379755643f876c1e6bf3d1985`, y conserva enlaces legales, `noindex`, correo `info.tappika@gmail.com` mientras el nuevo buzón y dominio `tappika.es` están pendientes de activación. El diseño existente se conserva.
+
+### Dominio activado según DonDominio — correo sin comprobar (18/10/2026)
+
+- La titular informa que el dominio `tappika.es` **ya figura como activo en DonDominio** después de la compra del dominio y del plan Mail. Es una confirmación desde su panel; aún no existe comprobación independiente de DNS, funcionamiento del dominio web, titularidad registral técnica ni del correo.
+- **Siguiente paso priorizado:** crear la cuenta **real** `info@tappika.es` en el panel de Mail (Correo → Crear, sin marcar «Crear alias»), utilizar credenciales privadas y verificar recepción/envío/respuesta en Webmail. Fuente del proveedor: https://www.dondominio.com/es/help/81/como-doy-alta-las-cuentas-correo/ .
+- No cambiar los servidores de nombres ni MX/TXT para conectar Pages: el correo de DonDominio debe preservarse. Después de verificar correo, preparar DNS A para la raíz y CNAME para www en su zona DNS, configuración de dominio personalizado en GitHub Pages y HTTPS; no crear `CNAME` ni cambiar el sitio hasta validar la secuencia con la titular.
+- No mostrar `info@tappika.es` públicamente ni sustituir el Gmail en HTML/legal hasta que el buzón envíe y reciba de verdad. Mantener `noindex` hasta certificación final. Ningún cambio de código de la web se realizó en este paso.
