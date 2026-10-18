@@ -1,8 +1,16 @@
-# TÁPPIKA — CONTINUIDAD DEL PROYECTO
+# táppika — CONTINUIDAD DEL PROYECTO
 Actualizado: 18/10/2026. Fuente de verdad del estado y decisiones; no sustituye a los archivos completos de la web.
 
+## NORMA INNEGOCIABLE — escritura de la marca
+**El nombre de la marca se escribe SIEMPRE como `táppika` (todo en minúsculas y con tilde en la á). NUNCA usar mayúsculas, ni inicial mayúscula, ni la versión sin tilde al mostrar la marca.**
+- Aplica a logotipo, favicon, cabeceras, títulos, páginas, metadatos visibles, correos, redes, portfolios, documentos, firmas y menciones en productos de terceros.
+- En BNevents el crédito exacto será: **Designed by táppika**, siempre discreto y enlazado únicamente cuando exista una URL pública verificada.
+- Para identificadores técnicos que no admiten tilde (GitHub, dominio, rutas, nombre de repositorio, dirección de email) se mantiene la forma técnica `tappika` en minúsculas. Esto NO cambia la grafía pública de la marca.
+- No cambiar esta norma por preferencias tipográficas o criterios automáticos de capitalización.
+
+
 ## 1. Identidad y propósito
-- Marca candidata: **TÁPPIKA**; grafía de logotipo preferida: **táppika.**; pronunciación buscada: «táp-pi-ka».
+- Marca candidata: **táppika**; grafía de logotipo preferida: **táppika.**; pronunciación buscada: «táp-pi-ka».
 - Actividad: diseño y desarrollo de aplicaciones y microapps a medida para negocios y profesionales de distintos sectores.
 - Descriptor comercial aprobado: **APLICACIONES A MEDIDA**, más pequeño que el nombre.
 - Estética: tecnológica, moderna, profesional, cuidada, no infantil; base azul noche/navy, blanco, acentos violeta.
@@ -12,12 +20,12 @@ Actualizado: 18/10/2026. Fuente de verdad del estado y decisiones; no sustituye 
 - Disponibilidad registral OEPM/EUIPO y dominio propio **aún NO certificadas**; evitar afirmar que la marca está legalmente libre o registrada.
 
 ## 2. Cuentas, titularidad e independencia
-- GitHub propio de TÁPPIKA: **tappika-apps**, cuenta vinculada a **info.tappika@gmail.com**; conexión a GitHub comprobada en ChatGPT el 18/10/2026.
+- GitHub propio de táppika: **tappika-apps**, cuenta vinculada a **info.tappika@gmail.com**; conexión a GitHub comprobada en ChatGPT el 18/10/2026.
 - Repositorio propio: **tappika-apps/tappika-apps.github.io**, público, rama por defecto **main**, permisos de escritura confirmados.
 - URL prevista de GitHub Pages: https://tappika-apps.github.io/ — **NO afirmar que está publicada hasta verificarla en navegador**.
 - Correo público real: **info.tappika@gmail.com** (no existe todavía correo en dominio propio).
 - Teléfono público: **620 843 264**.
-- TÁPPIKA es completamente independiente de WeddlySmartDesign, ONE, GUEST, STUDIO, BNevents y de las cuentas y datos de los clientes. No alterar esos proyectos para publicar la web.
+- táppika es completamente independiente de WeddlySmartDesign, ONE, GUEST, STUDIO, BNevents y de las cuentas y datos de los clientes. No alterar esos proyectos para publicar la web.
 - No se han facilitado contraseñas. No solicitarlas en chat.
 
 ## 3. Web creada, pero NO publicada/verificada todavía
@@ -35,7 +43,7 @@ Actualizado: 18/10/2026. Fuente de verdad del estado y decisiones; no sustituye 
 3. Publicar la web en **GitHub Pages** desde el repositorio propio; configurar Pages (main/root), probar la URL real en ordenador y móvil y verificar enlaces y contacto.
 4. Mantener `noindex` mientras se completan los datos legales. Identificar de forma clara cualquier limitación del formulario.
 5. Completar legalidad y verificación de marca/dominio antes del lanzamiento comercial definitivo.
-6. A partir de la URL pública confirmada, preparar una mención **muy discreta** al pie de **BNevents**: «Designed by TÁPPIKA» con enlace. No modificar BNevents sin revisar previamente la aplicación publicada y preservar su titularidad, seguridad y funcionamiento. No atribuir a TÁPPIKA la propiedad de BNevents.
+6. A partir de la URL pública confirmada, preparar una mención **muy discreta** al pie de **BNevents**: «Designed by táppika» con enlace. No modificar BNevents sin revisar previamente la aplicación publicada y preservar su titularidad, seguridad y funcionamiento. No atribuir a táppika la propiedad de BNevents.
 
 ## 5. Norma de trabajo
 - El usuario delega la dirección de principio a fin; no imponerle trabajo técnico ni microdecisiones evitables.
