@@ -29,7 +29,7 @@ jobs:
           expected = (
             '<title>táppika — Aplicaciones a medida</title>',
             '<meta name="robots" content="noindex, nofollow">',
-            'href="mailto:info.tappika@gmail.com"',
+            'href="mailto:info@tappika.es"',
             'href="https://wa.me/34620843264',
             'Esta página prepara tu mensaje, pero no guarda tus respuestas.',
             '¿Prefieres que te llamemos?',
@@ -106,7 +106,7 @@ jobs:
               wa = page.locator('#tp-wa').get_attribute('href')
               assert wa.startswith("https://wa.me/34620843264?text=Hola%2C%20t%C3%A1ppika."), f"{device}: whatsapp text"
               assert "mi%20negocio" in wa, f"{device}: whatsapp answers"
-              assert page.locator('#tp-mail').get_attribute('href').startswith("mailto:info.tappika@gmail.com?subject="), f"{device}: mail link"
+              assert page.locator('#tp-mail').get_attribute('href').startswith("mailto:info@tappika.es?subject="), f"{device}: mail link"
               assert page.locator('[data-t="answered"]').inner_text() == "3", f"{device}: questionnaire progress"
               page.locator('#tp-wa').scroll_into_view_if_needed()
               assert page.locator('#tp-wa').is_visible() and page.locator('#tp-mail').is_visible(), f"{device}: contact buttons"
