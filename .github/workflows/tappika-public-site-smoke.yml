@@ -31,9 +31,9 @@ jobs:
             '<meta name="robots" content="noindex, nofollow">',
             'href="mailto:info.tappika@gmail.com"',
             'href="https://wa.me/34620843264',
-            'Tus respuestas aparecerán ya escritas en tu correo o en WhatsApp',
+            'Esta página prepara tu mensaje, pero no guarda tus respuestas.',
             '¿Prefieres que te llamemos?',
-            'Web en evolución · Datos legales pendientes de completar',
+            'Información legal de táppika',
           )
           error = None
           for attempt in range(1, 13):
