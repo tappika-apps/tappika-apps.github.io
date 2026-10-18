@@ -30,10 +30,9 @@ jobs:
             '<title>táppika — Aplicaciones a medida</title>',
             '<meta name="robots" content="noindex, nofollow">',
             'href="mailto:info.tappika@gmail.com"',
-            'href="tel:+34620843264"',
-            '620 843 264',
-            "const CONTACT_EMAIL = 'info.tappika@gmail.com';",
-            'Esta web no envía el mensaje automáticamente.',
+            'href="https://wa.me/34620843264',
+            'Tus respuestas aparecerán ya escritas en tu correo o en WhatsApp',
+            'Web en evolución · Datos legales pendientes de completar',
           )
           error = None
           for attempt in range(1, 13):
@@ -50,11 +49,13 @@ jobs:
                 raise AssertionError("Published content missing: " + repr(missing))
               if "TÁPPIKA" in html or "Táppika" in html or "Tappika" in html:
                 raise AssertionError("Wrong public brand capitalization")
+              if "620 843 264" in html or "tel:+34620843264" in html:
+                raise AssertionError("Personal phone number must not be shown")
               with urllib.request.urlopen(base + "favicon.svg?qa=" + nonce, timeout=20) as icon:
                 svg = icon.read().decode("utf-8")
                 if icon.status != 200 or 'stroke="#9770FF"' not in svg or 'M51 17 64 10' not in svg:
                   raise AssertionError("Published favicon mismatch")
-              print("PUBLIC PASS: HTTPS 200, HTML, táppika, email, phone, mailto warning, noindex, favicon.")
+              print("PUBLIC PASS: HTTPS 200, HTML, táppika, email, WhatsApp link, no visible phone, mailto notice, noindex, favicon.")
               print("URL:", base)
               print("HTML UTF-8 bytes:", len(html.encode("utf-8")))
               break
@@ -93,26 +94,26 @@ jobs:
               response = page.goto(url, wait_until="domcontentloaded", timeout=45000)
               assert response and response.status == 200, f"{device}: page HTTP"
               assert page.title() == "táppika — Aplicaciones a medida", f"{device}: title"
-              assert page.locator(".wordmark").first.inner_text().strip() == "táppika.", f"{device}: logo"
-              mail = page.locator('a[href="mailto:info.tappika@gmail.com"]')
-              phone = page.locator('a[href="tel:+34620843264"]')
-              mail.scroll_into_view_if_needed()
-              assert mail.is_visible() and phone.is_visible(), f"{device}: contact visibility"
-              if device == "mobile":
-                menu = page.locator("#menu-toggle")
-                assert menu.is_visible(), "mobile: missing menu"
-                menu.click()
-                assert menu.get_attribute("aria-expanded") == "true", "mobile: menu not opened"
-                page.locator('#navlinks a[href="#experiencias"]').click()
-                assert menu.get_attribute("aria-expanded") == "false", "mobile: menu not closed"
-              page.locator("#tab-reservas").click()
-              assert page.locator("#tab-reservas").get_attribute("aria-selected") == "true", f"{device}: reservations tab"
-              page.locator("#tab-eventos").click()
-              assert page.locator("#tab-eventos").get_attribute("aria-selected") == "true", f"{device}: events tab"
+              assert page.locator(".wordmark").first.inner_text().strip() == "táppika", f"{device}: logo"
+              page.locator('.tp-tbtn[data-type="pedidos"]').click()
+              assert page.locator('[data-t="typeLabel"]').first.inner_text() == "Pedidos", f"{device}: generator type"
+              assert page.locator('[data-screen="reservas"]').evaluate("e => e.hidden"), f"{device}: generator screen"
+              page.locator('.tp-cbtn').nth(2).click()
+              assert page.evaluate("document.documentElement.style.getPropertyValue('--c')") == "#D93A26", f"{device}: generator color"
+              page.select_option('#q-quien', 'mi negocio')
+              page.select_option('#q-plazo', 'lo antes posible')
+              wa = page.locator('#tp-wa').get_attribute('href')
+              assert wa.startswith("https://wa.me/34620843264?text=Hola%2C%20t%C3%A1ppika."), f"{device}: whatsapp text"
+              assert "mi%20negocio" in wa, f"{device}: whatsapp answers"
+              assert page.locator('#tp-mail').get_attribute('href').startswith("mailto:info.tappika@gmail.com?subject="), f"{device}: mail link"
+              assert page.locator('[data-t="answered"]').inner_text() == "3", f"{device}: questionnaire progress"
+              page.locator('#tp-wa').scroll_into_view_if_needed()
+              assert page.locator('#tp-wa').is_visible() and page.locator('#tp-mail').is_visible(), f"{device}: contact buttons"
+              assert page.locator('a[href^="tel:"]').count() == 0, f"{device}: phone must stay hidden"
               page.wait_for_timeout(400)
               assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), f"{device}: horizontal overflow"
               assert not errors, f"{device}: script errors {errors}"
-              print(f"BROWSER PASS: {device}, HTTP 200, logo, contact links, navigation, demos, no overflow/errors.")
+              print(f"BROWSER PASS: {device}, HTTP 200, logo, generator, questionnaire, contact links, no overflow/errors.")
               page.close()
             browser.close()
           PY

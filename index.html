@@ -1,163 +1,811 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090D1C">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="táppika crea aplicaciones a medida que convierten necesidades reales en herramientas digitales intuitivas y bien diseñadas.">
-  <meta property="og:title" content="táppika — Aplicaciones a medida">
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="Tus ideas, en movimiento. Aplicaciones útiles, personalizadas y con un diseño excepcional.">
-  <title>táppika — Aplicaciones a medida</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2080%2080%22%3E%0A%20%20%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%2276%22%20height%3D%2276%22%20rx%3D%2219%22%20fill%3D%22%230b1020%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M25%2021h12v12h17v10H37v12c0%204%202%205%206%205h10v10H41c-12%200-16-6-16-15V43h-8V33h8Z%22%20fill%3D%22%23fff%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M51%2017%2064%2010%22%20stroke%3D%22%239770FF%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A">
-  <style>
-    :root{--ink:#0b1020;--ink2:#11182b;--slate:#64708b;--white:#fff;--cream:#f8f9ff;--purple:#7546ff;--violet:#a78bfa;--cyan:#54d6ed;--line:rgba(255,255,255,.13);--ease:cubic-bezier(.22,1,.36,1);--serif:Georgia,serif;--sans:Inter,"Avenir Next",Avenir,"Segoe UI",Arial,sans-serif}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:94px}body{margin:0;font-family:var(--sans);font-feature-settings:"ss01" on,"cv11" on;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img,svg{display:block;max-width:100%}::selection{background:var(--violet);color:#080a17}
-    .sr-only{position:absolute;overflow:hidden;clip:rect(0,0,0,0);height:1px;width:1px;white-space:nowrap}
-    .container{width:min(1240px,calc(100% - 80px));margin:auto}
-    .skip{position:fixed;z-index:120;top:-80px;left:20px;background:white;color:#111;padding:12px;border-radius:10px}.skip:focus{top:20px}
-    :focus-visible{outline:3px solid #7d68ff;outline-offset:4px}
-    .dark-stage{background:#090d1c;color:#fff;position:relative;isolation:isolate;overflow:hidden}
-    .dark-stage::before{content:"";position:absolute;width:780px;height:780px;border-radius:50%;left:54%;top:-380px;background:radial-gradient(circle,rgba(86,62,240,.32),rgba(90,67,244,.09) 42%,transparent 68%);filter:blur(15px);z-index:-1;pointer-events:none}
-    .dark-stage::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:85px 85px;mask-image:linear-gradient(to bottom,black,transparent 88%);pointer-events:none;z-index:-1}
-    .nav-wrap{position:relative;z-index:20}.nav{display:flex;align-items:center;justify-content:space-between;gap:30px;height:100px;border-bottom:1px solid rgba(255,255,255,.095)}
-    .brand{display:inline-flex;align-items:center;gap:13px;white-space:nowrap;flex-shrink:0}
-    .brand-mark{position:relative;display:grid;place-items:center;background:linear-gradient(145deg,#202849,#0d1430);border:1px solid rgba(255,255,255,.20);color:#fff;border-radius:15px;height:45px;width:45px;box-shadow:0 9px 30px rgba(30,15,115,.23)}
-    .brand-mark .tee{position:relative;font-weight:850;letter-spacing:-.08em;font-size:37px;line-height:1;transform:translate(-2px,2px)}.brand-mark .acute{position:absolute;width:13px;height:5px;top:8px;right:8px;background:#986cff;transform:rotate(-40deg);border-radius:3px;box-shadow:0 0 15px rgba(141,85,255,.5)}
-    .wordmark{font-size:29px;font-weight:790;letter-spacing:-1.9px;line-height:1}.wordmark .accent{color:#9870ff}.wordmark .brand-i{color:#9870ff}.wordmark .accent strong{font:inherit}.wordmark.light{color:#fff}.wordmark.dark{color:#101428}
-    .navlinks{display:flex;align-items:center;gap:31px;margin-left:auto}.navlinks a{font-size:13px;font-weight:650;letter-spacing:.03em;color:#c6cade;transition:color .2s}.navlinks a:hover{color:#fff}.nav-contact{background:#fff;color:#13172b!important;border-radius:100px;padding:14px 20px;display:inline-flex;gap:11px;align-items:center;font-size:12px!important;font-weight:790!important;transition:transform .3s var(--ease),background .2s}.nav-contact:hover{transform:translateY(-2px);background:#eee7ff}.arrow-icon{width:14px;height:14px}
-    .menu-button{display:none;align-items:center;justify-content:center;width:44px;height:44px;color:white;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:13px}
-    .hero{min-height:735px;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center;gap:25px;padding-top:55px;padding-bottom:108px;position:relative}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10.5px;font-weight:850;letter-spacing:.18em;text-transform:uppercase;color:#c4b4ff}
-    .eyebrow .dot{width:7px;height:7px;background:#a68cff;border-radius:50%;box-shadow:0 0 0 5px rgba(160,126,255,.12)}
-    .hero h1{font-size:clamp(60px,6.3vw,94px);line-height:.99;letter-spacing:-.075em;font-weight:760;margin:30px 0 25px;max-width:730px}
-    .hero h1 .hero-color{display:block;background:linear-gradient(105deg,#fff 0%,#b7a5ff 34%,#956cff 78%);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero p{font-size:17px;line-height:1.85;max-width:470px;color:#acb4ce;margin:0 0 33px;font-weight:400}
-    .actions{display:flex;align-items:center;gap:23px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:54px;padding:0 24px;border-radius:14px;font-size:13px;font-weight:780;transition:transform .25s var(--ease),box-shadow .25s ease,border .25s ease}
-    .btn-primary{border:1px solid #9072ff;background:linear-gradient(125deg,#8650ff,#6233e8);color:white;box-shadow:0 17px 40px rgba(86,45,246,.30)}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 22px 47px rgba(103,59,247,.43)}
-    .btn-text{background:transparent;color:white;border:1px solid rgba(255,255,255,.26)}.btn-text:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.60)}
-    .hero-bottom{display:flex;align-items:center;gap:13px;margin-top:59px;color:#7d88a4;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:720}.hero-bottom .line{width:45px;height:1px;background:#6e6a99}
-    .hero-visual{position:relative;height:570px;display:flex;align-items:center;justify-content:center;perspective:1200px}
-    .visual-glow{position:absolute;inset:60px 0 50px 30px;border-radius:60%;background:radial-gradient(ellipse,rgba(98,58,255,.36),rgba(53,54,185,.14) 48%,transparent 70%);filter:blur(40px)}
-    .orb{position:absolute;z-index:0;border-radius:50%;filter:blur(.2px)}.orb.one{width:225px;height:225px;right:5%;top:-1%;border:1px solid rgba(172,152,255,.24);background:radial-gradient(circle at 30% 30%,rgba(150,126,255,.38),rgba(93,49,183,.06) 55%,transparent);animation:float 9s ease-in-out infinite}.orb.two{width:99px;height:99px;left:8%;bottom:14%;border:1px solid rgba(148,133,255,.35);background:radial-gradient(circle,rgba(68,80,178,.50),transparent);animation:float 8s ease-in-out -2s infinite}
-    .screen{width:min(540px,100%);position:relative;z-index:2;transform:rotateY(-8deg) rotateX(4deg) rotateZ(1deg);transition:transform .75s var(--ease);filter:drop-shadow(0 44px 65px rgba(0,0,0,.38))}
-    .screen:hover{transform:rotateY(-3deg) rotateX(1deg) rotateZ(0)}
-    .screen-frame{padding:11px;border-radius:26px;background:linear-gradient(145deg,#273150,#10182e);border:1px solid rgba(184,171,252,.24)}
-    .app-window{border:1px solid rgba(167,161,212,.12);border-radius:17px;overflow:hidden;background:#121a31;min-height:401px}
-    .app-top{display:flex;justify-content:space-between;align-items:center;padding:18px 20px 17px;border-bottom:1px solid rgba(255,255,255,.085)}
-    .app-logo{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:850;color:#fff;letter-spacing:-.03em}.app-logo em{width:21px;height:21px;display:grid;place-items:center;background:#7546ff;border-radius:7px;font-size:12px;font-style:normal}
-    .app-micro{display:flex;align-items:center;gap:7px;color:#7384ab;font-size:10px}.app-micro span{width:6px;height:6px;border-radius:50%;background:#49d5b2}
-    .app-body{display:grid;grid-template-columns:105px 1fr;min-height:344px}.app-side{border-right:1px solid rgba(255,255,255,.07);padding:26px 11px}.side-item{height:9px;border-radius:8px;background:#27304a;margin-bottom:21px;width:85%}.side-item.active{background:#6250ce;width:95%;height:25px;margin-top:-8px;border-radius:7px}.side-item:nth-child(3){width:60%}.side-item:nth-child(5){width:75%}
-    .app-main{padding:26px 24px}.app-greeting{color:#8795b6;font-size:10px;margin-bottom:8px}.app-title{color:white;font-size:21px;font-weight:750;letter-spacing:-.045em;margin:0 0 24px}.app-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:17px}.app-stat{border:1px solid #2a3556;background:#19223e;border-radius:12px;padding:13px 11px 11px}.app-stat .k{font-size:9px;color:#8491b5}.app-stat .v{font-weight:800;letter-spacing:-.05em;font-size:23px;color:white;margin-top:11px}.app-stat .v.purple{color:#ad95ff}
-    .app-chart{height:127px;border-radius:11px;padding:17px 16px 12px;background:#18213b;border:1px solid #2d3655;overflow:hidden}.chart-head{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:#e5e8f7;font-weight:760}.chart-head small{color:#7fa0da;font-size:9px}.plot{height:76px;position:relative;margin-top:7px}.plot svg{height:100%;width:100%;overflow:visible}
-    .float-card{position:absolute;z-index:3;padding:16px 19px;background:rgba(255,255,255,.97);color:#0e152b;border:1px solid rgba(255,255,255,.92);border-radius:16px;box-shadow:0 21px 46px rgba(0,0,0,.24);animation:float 7.5s ease-in-out infinite}.float-card.left{left:-12%;bottom:80px}.float-card.right{right:-7%;top:82px;animation-delay:-2.5s}.float-card .label{font-size:10px;color:#6f7890;font-weight:700;margin-bottom:8px}.float-card .num{font-size:22px;letter-spacing:-.055em;font-weight:850}.float-card .sub{font-size:10px;margin-top:6px;color:#0f997b}.float-card.right .mini-row{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:750}.float-card.right .mini-row .check{background:#e5f9f3;color:#15977f;border-radius:8px;height:28px;width:28px;display:grid;place-items:center}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-17px)}}
-    .stripe{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.11);padding:25px 0 28px;background:rgba(255,255,255,.025)}.stripe-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.stripe-item{font-size:11px;font-weight:720;letter-spacing:.07em;text-transform:uppercase;color:#a8b1ca;display:flex;gap:11px;align-items:center}.stripe-item .symbol{font-size:17px;color:#9b78ff;font-weight:550}
-    .section{padding:130px 0}.kicker{font-size:11px;font-weight:850;letter-spacing:.2em;color:#6c47e7;text-transform:uppercase;margin:0 0 22px}.section h2{font-size:clamp(40px,4.9vw,65px);letter-spacing:-.067em;line-height:1.08;margin:0;font-weight:740}.section h2 .muted{color:#929bb0}.section-intro{display:flex;align-items:end;justify-content:space-between;gap:50px;margin-bottom:54px}.section-intro p{max-width:355px;color:#5b667d;line-height:1.86;font-size:15px;margin:0 0 5px}
-    .solutions{background:var(--cream)}.solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.solution-card{border:1px solid #e8e9f3;background:#fff;border-radius:25px;padding:33px 32px 30px;min-height:360px;display:flex;flex-direction:column;transition:transform .36s var(--ease),box-shadow .36s;position:relative;overflow:hidden}.solution-card:hover{transform:translateY(-7px);box-shadow:0 24px 55px rgba(39,31,91,.10)}.solution-card:after{content:"";position:absolute;height:160px;width:160px;border-radius:50%;filter:blur(34px);top:-99px;right:-99px;background:#eee7ff;transition:transform .3s}.solution-card:hover:after{transform:translate(-50px,35px)}.sc-icon{height:63px;width:63px;display:grid;place-items:center;border-radius:18px;background:#f1edff;color:#7047e8;margin-bottom:77px}.sc-icon svg{width:28px;height:28px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}.solution-card h3{font-size:22px;letter-spacing:-.04em;margin:0 0 14px}.solution-card p{font-size:14px;color:#6a758b;line-height:1.75;margin:0}
-    .statement{padding:125px 0;background:#fff}.statement .statement-inner{display:grid;grid-template-columns:.93fr 1.07fr;gap:100px;align-items:center}.orbit-art{height:450px;border-radius:30px;position:relative;overflow:hidden;background:#0b1020;display:grid;place-items:center}.orbit-art:before{content:"";width:330px;height:330px;position:absolute;border:1px solid rgba(164,128,255,.3);border-radius:50%;box-shadow:0 0 0 52px rgba(147,118,255,.045),0 0 0 105px rgba(147,118,255,.034)}.orbit-art:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,rgba(106,75,255,.22),transparent 54%)}.orb-core{position:relative;z-index:1;width:165px;height:165px;border-radius:43px;background:linear-gradient(140deg,#8b58ff,#4124bc);box-shadow:0 30px 85px rgba(88,50,240,.42),inset 0 2px 3px rgba(255,255,255,.35);transform:rotate(-12deg);display:grid;place-items:center}.orb-core span{font-size:85px;font-weight:850;letter-spacing:-.11em;color:#fff;transform:rotate(12deg) translateX(-8px)}.orb-core:after{content:"";position:absolute;top:33px;right:27px;width:23px;height:8px;border-radius:5px;background:#d0baff;transform:rotate(-38deg)}.orbit-chip{position:absolute;z-index:2;background:rgba(255,255,255,.96);font-weight:780;font-size:12px;border-radius:12px;padding:12px 16px;color:#192036;box-shadow:0 10px 36px rgba(0,0,0,.2)}.orbit-chip.a{top:20%;left:8%;transform:rotate(-5deg)}.orbit-chip.b{right:7%;bottom:22%;transform:rotate(5deg)}
-    .statement-copy .text{font-size:16px;line-height:1.9;color:#626d83;max-width:490px;margin:27px 0 36px}.point{display:flex;align-items:start;gap:15px;padding:17px 0;border-top:1px solid #e9eaf1}.point:last-child{border-bottom:1px solid #e9eaf1}.point .tick{width:24px;height:24px;background:#eeeaff;color:#7342ed;display:grid;place-items:center;border-radius:50%;font-weight:850;flex-shrink:0;margin-top:2px}.point b{font-size:14px}.point span{font-size:13px;color:#6c788e;line-height:1.65;display:block;margin-top:4px}
-    .showcase{background:#0b1020;color:white;overflow:hidden}.showcase .kicker{color:#b8a4ff}.showcase .section-intro p{color:#a5aec9}.showcase h2 .muted{color:#797da4}.showcase-shell{display:grid;grid-template-columns:330px minmax(0,1fr);gap:28px}.selector{display:flex;flex-direction:column;gap:11px}.scenario{display:flex;gap:14px;align-items:center;text-align:left;padding:19px 18px;min-height:89px;color:#acb7d4;border:1px solid #283048;background:#161d33;border-radius:16px;transition:background .2s,border .2s,transform .25s var(--ease)}.scenario:hover{transform:translateX(3px)}.scenario[aria-selected="true"]{border-color:#865af5;background:#272046;color:white;box-shadow:inset 3px 0 0 #965efe}.scenario .scenario-num{font-size:12px;color:#7e6fb6;font-weight:800}.scenario .scenario-text{display:flex;flex-direction:column;gap:6px}.scenario strong{font-size:14px}.scenario small{font-size:11px;color:#8e9aba;line-height:1.5}.demo-disclaimer{font-size:11px;line-height:1.65;color:#8390ad;margin-top:16px}
-    .demo-surface{border:1px solid #34334f;border-radius:24px;background:radial-gradient(circle at 100% 0%,#292050 0%,#151d35 48%,#11182a 100%);padding:29px;min-height:430px;position:relative;overflow:hidden}.demo-surface:after{content:"";position:absolute;right:-125px;bottom:-150px;background:#6744e7;width:300px;height:300px;border-radius:50%;filter:blur(130px);opacity:.45;pointer-events:none}.demo-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #303952;padding:0 0 20px;gap:10px;position:relative;z-index:2}.demo-top small{color:#a0a9bf;font-size:11px}.demo-top .pill{background:#242d44;color:#c1b4ff;border:1px solid #4b3f78;padding:8px 10px;border-radius:99px;font-size:10px;font-weight:780}.demo-heading{font-size:32px;letter-spacing:-.05em;margin:24px 0 8px;position:relative;z-index:2}.demo-lead{color:#9ba8c0;font-size:13px;position:relative;z-index:2}.mock-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:13px;margin-top:26px;position:relative;z-index:2}.mock-tile{background:#212b47;border:1px solid #394462;padding:19px;border-radius:16px;min-height:136px;display:flex;flex-direction:column;justify-content:space-between}.mock-tile .mock-name{font-size:12px;color:#c3cce1}.mock-tile .mock-value{font-size:30px;font-weight:800;letter-spacing:-.05em;color:white}.mock-tile .mock-detail{color:#a395ff;font-size:11px}.demo-footer{position:relative;z-index:2;margin-top:24px;height:33px;border-radius:12px;background:linear-gradient(90deg,#6242e9 0 56%,#2f3b58 56% 100%);opacity:.85}.mock-tile:nth-child(2){background:#2c245a}.mock-tile:nth-child(2) .mock-value{color:#b9a8ff}
-    .how{background:#f8f9fc}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:55px}.step{border-top:2px solid #dfe2eb;padding:27px 12px 0 0}.step .step-no{font-size:12px;font-weight:810;color:#7445f3;margin-bottom:62px;display:block}.step h3{font-size:19px;letter-spacing:-.04em;margin:0 0 12px}.step p{color:#677388;font-size:13px;line-height:1.75;margin:0}
-    .contact{background:#0a0e1e;color:white;position:relative;overflow:hidden}.contact:before{content:"";position:absolute;top:-310px;right:-270px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(109,68,245,.28),transparent 65%)}.contact-wrap{display:grid;grid-template-columns:.93fr 1.07fr;gap:110px;position:relative;z-index:1}.contact .kicker{color:#b8a4ff}.contact p{color:#a9b1cc;font-size:15px;line-height:1.85;max-width:380px;margin:25px 0 29px}.contact-tag{display:flex;align-items:center;gap:10px;color:#b7a5fa;font-size:12px;font-weight:700}.contact-card{border:1px solid rgba(255,255,255,.14);padding:30px;border-radius:26px;background:rgba(255,255,255,.04);backdrop-filter:blur(18px)}.form-title{font-size:20px;font-weight:750;letter-spacing:-.04em;margin:0 0 24px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:8px}.field.wide{grid-column:1/-1}.field label{font-size:12px;color:#d0d6e9;font-weight:650}.field input,.field textarea,.field select{width:100%;border:1px solid #353d55;background:#141b2f;color:white;outline:none;border-radius:12px;padding:13px 14px;font-size:13px;min-height:47px;transition:border-color .2s}.field input:focus,.field textarea:focus,.field select:focus{border-color:#9c7dff;box-shadow:0 0 0 3px rgba(141,91,255,.12)}.field textarea{height:92px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:#6f7b9b}.field select{appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9"%3E%3Cpath d="m1 1 6 6 6-6" fill="none" stroke="%23999fbc" stroke-width="2"/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 13px center}.field option{background:#151c30}.form-submit{margin-top:19px;width:100%;border:0}.form-info{font-size:11px;line-height:1.6;color:#8894b0;margin-top:13px}.form-feedback{min-height:19px;color:#d0bdff;font-size:12px;margin:12px 0 0}
-    .footer{background:#070b16;color:#909bb4;border-top:1px solid #23283c;padding:37px 0 44px}.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:22px}.footer .brand-mark{height:39px;width:39px}.footer .brand-mark .tee{font-size:32px}.footer .wordmark{font-size:25px}.footer small{font-size:11px;line-height:1.75}.footer a.text-link{font-size:12px;color:#aeb9d0}.footer a.text-link:hover{color:#fff}
-    .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.is-visible{opacity:1;transform:none}
-    @media(max-width:1100px){.container{width:min(1160px,calc(100% - 50px))}.navlinks{gap:17px}.hero h1{font-size:clamp(52px,6.1vw,78px)}.float-card.left{left:-4%}.float-card.right{right:-2%}.statement .statement-inner{gap:55px}.contact-wrap{gap:55px}}
-    @media(max-width:800px){.container{width:calc(100% - 38px)}.nav{height:79px}.navlinks{display:none;position:absolute;top:78px;left:0;right:0;padding:17px 19px 23px;background:#11172b;border:1px solid #353950;border-radius:0 0 20px 20px;box-shadow:0 22px 40px rgba(0,0,0,.26);align-items:stretch;flex-direction:column;gap:0}.navlinks.open{display:flex}.navlinks a{padding:15px 10px}.nav-contact{margin-top:8px;justify-content:center}.menu-button{display:flex}.hero{grid-template-columns:1fr;gap:15px;padding-top:67px;padding-bottom:54px;min-height:auto}.hero h1{font-size:clamp(55px,9vw,83px);max-width:700px}.hero p{max-width:600px}.hero-visual{height:530px;margin:5px auto 0;width:min(610px,100%)}.float-card.left{left:0;bottom:40px}.float-card.right{right:0;top:26px}.stripe-inner{grid-template-columns:1fr 1fr;gap:20px}.section{padding:95px 0}.section-intro{align-items:start;flex-direction:column;gap:22px;margin-bottom:36px}.solution-grid{grid-template-columns:1fr 1fr}.solution-card:last-child{grid-column:1/-1}.statement{padding:90px 0}.statement .statement-inner{grid-template-columns:1fr}.orbit-art{height:360px}.showcase-shell{grid-template-columns:1fr}.selector{display:grid;grid-template-columns:repeat(3,1fr)}.scenario{min-height:105px;flex-direction:column;align-items:start}.scenario small{display:none}.steps{grid-template-columns:1fr 1fr;gap:34px}.step .step-no{margin-bottom:35px}.contact-wrap{grid-template-columns:1fr;gap:34px}.contact p{max-width:600px}}
-    @media(max-width:520px){.wordmark{font-size:26px}.brand-mark{height:41px;width:41px}.hero{padding-top:51px}.hero h1{font-size:clamp(49px,12vw,66px);margin:27px 0 23px}.hero p{font-size:15px;line-height:1.8}.actions{gap:10px}.btn{min-height:52px;padding:0 19px}.hero-bottom{margin-top:42px;font-size:10px}.hero-visual{height:380px;margin-top:25px}.screen{width:100%;transform:none}.screen:hover{transform:none}.screen-frame{padding:7px;border-radius:17px}.app-window{min-height:290px}.app-body{grid-template-columns:58px 1fr;min-height:260px}.app-top{padding:12px}.app-side{padding:23px 7px}.side-item{margin-bottom:20px}.app-main{padding:17px 11px}.app-greeting{font-size:9px}.app-title{font-size:18px;margin-bottom:17px}.app-stats{gap:6px}.app-stat{padding:10px 7px;border-radius:8px}.app-stat .k{font-size:7px}.app-stat .v{font-size:18px}.app-chart{height:93px;padding:10px}.plot{height:50px}.float-card{padding:10px 12px;border-radius:11px}.float-card.left{bottom:4px;left:-4px}.float-card.right{top:12px;right:-5px}.float-card .num{font-size:16px}.float-card .label{font-size:8px}.float-card.right .mini-row{font-size:9px}.float-card.right .mini-row .check{width:21px;height:21px}.stripe{padding:20px 0}.stripe-inner{gap:17px}.stripe-item{font-size:9px;letter-spacing:0}.stripe-item .symbol{font-size:14px}.section{padding:74px 0}.section h2{font-size:clamp(37px,10vw,50px)}.section-intro p{font-size:14px}.solution-grid{grid-template-columns:1fr}.solution-card:last-child{grid-column:auto}.solution-card{min-height:280px;padding:27px}.sc-icon{margin-bottom:48px}.statement{padding:70px 0}.statement .statement-inner{gap:36px}.orbit-art{height:315px}.orb-core{height:130px;width:130px}.orb-core span{font-size:67px}.orbit-chip{font-size:10px;padding:9px 12px}.scenario{padding:14px 10px;min-height:94px}.scenario strong{font-size:11px}.scenario .scenario-num{font-size:10px}.demo-surface{padding:19px;min-height:380px}.demo-heading{font-size:26px}.mock-grid{gap:7px}.mock-tile{padding:13px 8px;min-height:115px}.mock-tile .mock-name{font-size:10px}.mock-tile .mock-value{font-size:22px}.mock-tile .mock-detail{font-size:9px}.steps{gap:28px 19px}.step h3{font-size:17px}.step p{font-size:12px}.contact-card{padding:21px}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:auto}.footer-grid{flex-direction:column;align-items:start}}
-    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1020">
+<title>táppika — Aplicaciones a medida</title>
+<meta name="description" content="táppika crea aplicaciones a medida que convierten necesidades reales en herramientas sencillas, intuitivas y muy bien pensadas.">
+<meta property="og:title" content="táppika — Aplicaciones a medida">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Tú tienes una idea. Nosotros la convertimos en app.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B1020}
+a{color:#A78BFA}a:hover{color:#E5E7EB}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+input,textarea,button,select{font-family:inherit}
+:focus-visible{outline:3px solid #A78BFA;outline-offset:3px}
+@keyframes tp-float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(var(--r,0deg))}}
+@keyframes tp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tp-log{0%,8%{opacity:0;transform:translateY(6px)}14%,88%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes tp-ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+@keyframes tp-bar{0%,12%{transform:scaleY(.15)}45%,100%{transform:scaleY(1)}}
+@keyframes tp-dot{0%{left:0%}100%{left:100%}}
+@keyframes tp-toast{0%,10%{opacity:0;transform:translateY(16px) scale(.96)}18%,82%{opacity:1;transform:none}92%,100%{opacity:0;transform:translateY(-8px)}}
+@keyframes tp-pop{0%,100%{opacity:0;transform:translateY(-10px) scale(.95)}12%,70%{opacity:1;transform:none}}
+@keyframes tp-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes tp-spin{to{transform:rotate(360deg)}}
+@keyframes tp-hop{0%,22%{transform:translate(0,0)}25%,47%{transform:translate(calc(100% + 6px),0)}50%,72%{transform:translate(calc(100% + 6px),calc(100% + 6px))}75%,97%{transform:translate(0,calc(100% + 6px))}100%{transform:translate(0,0)}}
+@keyframes tp-count{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes tp-absorb{0%,6%{transform:translate(0,0) rotate(var(--r,0deg)) scale(1);opacity:1}22%{transform:translate(var(--dx,0),var(--dy,0)) rotate(0deg) scale(.25);opacity:0}23%,84%{transform:translate(0,0) rotate(var(--r,0deg)) scale(.92);opacity:0}96%,100%{transform:translate(0,0) rotate(var(--r,0deg)) scale(1);opacity:1}}
+@keyframes tp-rowin{0%,18%{opacity:.25;transform:translateX(-6px)}26%,84%{opacity:1;transform:none}96%,100%{opacity:.25;transform:translateX(-6px)}}
+.tp-absorb{animation:tp-absorb 8s cubic-bezier(.5,0,.3,1) infinite}
+.tp-rowin{animation:tp-rowin 8s ease-out infinite}
+.tp-hop{animation:tp-hop 8s ease-in-out infinite}
+.tp-count{animation:tp-count 2.4s ease-in-out infinite}
+@keyframes tp-unspin{to{transform:rotate(-360deg)}}
+.tp-float{animation:tp-float 7s ease-in-out infinite}
+.tp-float2{animation:tp-float 9s ease-in-out infinite reverse}
+.tp-track{animation:tp-marquee 40s linear infinite}
+.tp-log1{animation:tp-log 6s ease-out infinite}
+.tp-log2{animation:tp-log 6s ease-out .6s infinite}
+.tp-log3{animation:tp-log 6s ease-out 1.2s infinite}
+.tp-ping{animation:tp-ping 1.8s ease-out infinite}
+.tp-bar{transform-origin:bottom;animation:tp-bar 3.2s ease-out infinite alternate}
+.tp-dot{animation:tp-dot 4s linear infinite}
+.tp-toast1{animation:tp-toast 6s ease-in-out infinite}
+.tp-toast2{animation:tp-toast 6s ease-in-out 2s infinite}
+.tp-toast3{animation:tp-toast 6s ease-in-out 4s infinite}
+.tp-pop{animation:tp-pop 5s ease-in-out 1s infinite}
+.tp-blink{animation:tp-blink 1.4s ease-in-out infinite}
+.tp-orbit{animation:tp-spin 30s linear infinite}
+.tp-orbit > span{animation:tp-unspin 30s linear infinite}
+.tp-span2{grid-column:span 2}
+@media (max-width: 720px){
+.tp-navlink{display:none}
+.tp-long{display:none}
+.tp-span2{grid-column:1 / -1}
+.tp-pline{display:none}
+}
+}
+@keyframes tp-vdot{0%{top:0%}100%{top:100%}}
+.tp-vdot{animation:tp-vdot 4s linear infinite}
+@media (max-width: 720px){
+.tp-sec{padding-top:64px!important;padding-bottom:64px!important}
+.tp-secb{padding-bottom:64px!important}
+.tp-hide-m{display:none!important}
+.tp-show-m{display:flex!important}
+.tp-gen{gap:14px!important}
+.tp-ctrl{order:-1;max-width:none!important;flex:1 1 100%!important;padding:16px!important;gap:12px!important;border-radius:22px!important}
+.tp-ctrl legend{margin-bottom:8px!important}
+.tp-phone{transform:scale(.66);transform-origin:top center;margin-bottom:-219px;margin-top:22px}
+.tp-vline{display:block!important}
+.tp-steps{display:flex!important;flex-direction:column;gap:26px!important}
+.tp-steps>li{display:grid!important;grid-template-columns:52px minmax(0,1fr);column-gap:16px;row-gap:4px!important;align-items:start}
+.tp-steps>li>span:first-child{grid-row:1 / 4;width:52px!important;height:52px!important;border-radius:16px!important;position:relative;z-index:1}
+.tp-steps>li>span:first-child svg{width:24px;height:24px}
+.tp-steps>li>*:not(:first-child){grid-column:2}
+.tp-steps h3{font-size:19px!important}
+.tp-steps p{font-size:15px!important}
+.tp-bento{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.tp-bento>div{padding:18px!important;gap:10px!important;border-radius:22px!important;overflow:hidden}
+.tp-bento>div>p{display:none}
+.tp-bento>div>h3{font-size:16px!important;line-height:1.2}
+.tp-bento .tp-vis{zoom:.5}
+.tp-contact>div{padding:28px 22px!important;gap:24px!important;border-radius:30px!important}
+}
+@keyframes tp-glow{0%,100%{box-shadow:0 0 0 0 rgba(167,139,250,0);transform:scale(1)}8%{box-shadow:0 0 0 8px rgba(167,139,250,.35);transform:scale(1.08)}22%{box-shadow:0 0 0 14px rgba(167,139,250,0);transform:scale(1)}}
+.tp-glow{animation:tp-glow 4s ease-out infinite}
+@media (max-width: 720px){
+.tp-zoom{zoom:.8}
+.tp-art{min-height:0!important;padding:20px 16px!important;gap:14px!important}
+.tp-artrow{gap:8px!important}
+.tp-notes{height:250px!important}
+.tp-notes>span{width:104px!important;padding:9px!important;font-size:11px!important}
+.tp-arrow{width:30px!important;height:30px!important;box-shadow:none!important}
+.tp-arrow svg{width:16px;height:16px}
+.tp-mini{width:112px!important;height:228px!important;border-radius:22px!important;padding:5px!important}
+.tp-mini>div{padding:10px 7px!important;gap:6px!important;border-radius:17px!important}
+.tp-absorb{--dx:120px!important;--dy:0px!important}
+.tp-art>p{font-size:13px!important}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}.tp-pop{opacity:1}.tp-absorb,.tp-rowin{opacity:1}}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+.tp-screen{display:contents}
+.tp-screen[hidden]{display:none}
+.tp-tbtn{min-height:44px;padding:0 10px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:700;background:#0B1020;color:#E5E7EB;border:1.5px solid rgba(229,231,235,.2);font-family:inherit}
+.tp-tbtn[aria-pressed="true"]{background:#6C3BFF;color:#F8FAFC;border-color:#6C3BFF}
+.tp-cbtn{width:44px;height:44px;border-radius:50%;cursor:pointer;border:2px solid rgba(229,231,235,.3)}
+.tp-cbtn[aria-pressed="true"]{border:3px solid #0B1020;box-shadow:0 0 0 3px #F8FAFC}
+.skip{position:absolute;left:12px;top:-60px;z-index:50;background:#F8FAFC;color:#0B1020;padding:10px 14px;border-radius:10px;font-weight:700}
+.skip:focus{top:12px}
+</style>
 </head>
 <body>
-<a href="#main" class="skip">Ir al contenido</a>
-<div class="dark-stage">
-  <div class="nav-wrap"><header class="nav container" aria-label="Cabecera">
-    <a class="brand" href="#inicio" aria-label="táppika, volver al inicio"><span class="brand-mark" aria-hidden="true"><span class="tee">t</span><span class="acute"></span></span><span class="wordmark light">t<span class="accent">á</span>pp<span class="brand-i">i</span>ka<span style="color:#9272ff">.</span></span></a>
-    <button class="menu-button" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navlinks"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <nav class="navlinks" id="navlinks" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#filosofia">Nosotros</a><a href="#experiencias">Experiencias</a><a href="#proceso">Cómo trabajamos</a><a class="nav-contact" href="#contacto">Hablemos de tu idea <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a></nav>
-  </header></div>
-  <main id="main">
-    <section class="hero container" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-copy"><div class="eyebrow"><span class="dot"></span> DISEÑO + TECNOLOGÍA + PROPÓSITO</div>
-        <h1 id="hero-title">Tus ideas,<span class="hero-color">en movimiento.</span></h1>
-        <p>Creamos aplicaciones a medida para transformar necesidades reales en experiencias digitales sencillas, intuitivas y extraordinariamente bien pensadas.</p>
-        <div class="actions"><a class="btn btn-primary" href="#soluciones">Descubre qué hacemos <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a><a class="btn btn-text" href="#contacto">Tengo una idea <span aria-hidden="true">↗</span></a></div>
-        <div class="hero-bottom"><span class="line"></span> NO MÁS COMPLICACIONES. MEJORES HERRAMIENTAS.</div>
+<a href="#inicio" class="skip">Ir al contenido</a>
+
+<div style="font-family: 'Manrope', sans-serif; color: #F8FAFC; background: #0B1020; overflow: hidden">
+
+  <!-- ============ CABECERA ============ -->
+  <header style="position: relative; z-index: 2; border-bottom: 1px solid rgba(229,231,235,0.1)">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+      <a href="#inicio" aria-label="táppika, inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #F8FAFC">
+        <span aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #0B1020; border: 1px solid rgba(229,231,235,0.22); color: #F8FAFC; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; position: relative">t<span style="position: absolute; right: 7px; top: 6px; width: 5px; height: 12px; border-radius: 3px; background: #6C3BFF; transform: rotate(35deg)"></span></span>
+        <span class="wordmark" style="font-size: 29px; font-weight: 800; letter-spacing: -0.04em">t<span style="color: #6C3BFF">á</span>pp<span style="color: #6C3BFF">i</span>ka</span>
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; font-weight: 600">
+        <a class="tp-navlink" href="#crea" style="color: rgba(229,231,235,0.8); text-decoration: none">Pruébalo</a>
+        <a class="tp-navlink" href="#soluciones" style="color: rgba(229,231,235,0.8); text-decoration: none">Soluciones</a>
+        <a class="tp-navlink" href="#nosotros" style="color: rgba(229,231,235,0.8); text-decoration: none">Nosotros</a>
+        <a class="tp-navlink" href="#como" style="color: rgba(229,231,235,0.8); text-decoration: none">Cómo trabajamos</a>
+        <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; background: #F8FAFC; color: #0B1020; text-decoration: none; font-weight: 700"><span>Hablemos<span class="tp-long">&nbsp;de tu idea</span></span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO + GENERADOR ============ -->
+  <section id="inicio" style="position: relative">
+    <div aria-hidden="true" style="position: absolute; left: 50%; top: -260px; width: 900px; height: 900px; margin-left: -120px; border-radius: 50%; background: #6C3BFF; opacity: 0.16; filter: blur(140px)"></div>
+    <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+
+      <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+        <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 10px; border-radius: 999px; border: 1px solid rgba(229,231,235,0.14); background: rgba(229,231,235,0.05); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #E5E7EB">
+          <span style="position: relative; width: 10px; height: 10px"><span class="tp-ping" style="position: absolute; inset: 0; border-radius: 50%; background: #A78BFA"></span><span style="position: absolute; inset: 0; border-radius: 50%; background: #A78BFA"></span></span>
+          Aplicaciones a medida
+        </span>
+        <h1 style="margin: 0; font-size: clamp(38px, 4.2vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">Tú tienes una idea.<br>Nosotros la convertimos en <span style="color: #A78BFA">app.</span></h1>
+        <p style="margin: 0; font-size: 19px; line-height: 1.6; color: rgba(229,231,235,0.78); max-width: 500px">Creamos aplicaciones a medida que convierten necesidades reales en herramientas sencillas, intuitivas y muy bien pensadas. Crea la tuya aquí y mira cómo cobra vida.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px">
+          <a href="#contacto" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 30px; border-radius: 999px; background: #6C3BFF; color: #F8FAFC; font-size: 17px; font-weight: 700; text-decoration: none">Tengo una idea
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a href="#soluciones" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 1.5px solid rgba(229,231,235,0.24); color: #F8FAFC; font-size: 17px; font-weight: 600; text-decoration: none">Descubre qué hacemos</a>
+        </div>
       </div>
-      <div class="hero-visual" aria-label="Ejemplo visual de una aplicación de gestión moderna"><div class="visual-glow"></div><div class="orb one"></div><div class="orb two"></div>
-        <div class="screen"><div class="screen-frame"><div class="app-window"><div class="app-top"><div class="app-logo"><em>✦</em> Mi espacio</div><div class="app-micro"><span></span> Vista de ejemplo</div></div><div class="app-body"><div class="app-side"><div class="side-item active"></div><div class="side-item"></div><div class="side-item"></div><div class="side-item"></div><div class="side-item"></div></div><div class="app-main"><div class="app-greeting">Todo en orden, a tu manera</div><div class="app-title">Tu día, más fácil.</div><div class="app-stats"><div class="app-stat"><div class="k">Pendientes</div><div class="v">08</div></div><div class="app-stat"><div class="k">Completadas</div><div class="v purple">24</div></div><div class="app-stat"><div class="k">Esta semana</div><div class="v">12</div></div></div><div class="app-chart"><div class="chart-head"><span>Actividad reciente</span><small>Últimos 7 días</small></div><div class="plot"><svg viewBox="0 0 300 86" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7554f6" stop-opacity=".42"/><stop offset="1" stop-color="#7554f6" stop-opacity="0"/></linearGradient></defs><path d="M0 68 C28 66 32 47 58 49 S101 67 123 44 S169 60 193 26 S240 33 260 14 S287 29 300 8 L300 86 L0 86Z" fill="url(#area)"/><path d="M0 68 C28 66 32 47 58 49 S101 67 123 44 S169 60 193 26 S240 33 260 14 S287 29 300 8" fill="none" stroke="#947bff" stroke-width="3" stroke-linecap="round"/></svg></div></div></div></div></div></div></div>
-        <div class="float-card left"><div class="label">Organización inteligente</div><div class="num">Todo conectado</div><div class="sub">● Una experiencia sin fricción</div></div><div class="float-card right"><div class="mini-row"><span class="check">✓</span><span>Una tarea menos.</span></div></div>
+
+      <!-- GENERADOR -->
+      <div id="crea" style="flex: 1.2 1 540px; min-width: 0; display: flex; flex-direction: column; gap: 18px; align-items: center">
+        <div class="tp-gen" style="width: 100%; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: center">
+
+          <!-- Móvil -->
+          <div class="tp-phone" style="position: relative; flex: 0 0 auto">
+            <div aria-hidden="true" class="tp-float tp-hide-m" style="--r: -14deg; position: absolute; left: -50px; top: 60px; width: 96px; height: 96px; border-radius: 26px; background: var(--c); opacity: 0.85"></div>
+            <div aria-hidden="true" class="tp-float2 tp-hide-m" style="--r: 12deg; position: absolute; right: -44px; bottom: 90px; width: 80px; height: 80px; border-radius: 22px; background: #A78BFA; opacity: 0.18"></div>
+
+            <div aria-hidden="true" class="tp-pop" style="position: absolute; z-index: 3; left: 38px; top: -24px; width: 240px; box-sizing: border-box; padding: 12px 14px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 10px; align-items: center; box-shadow: 0 24px 48px rgba(0,0,0,0.45)">
+              <span style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; background: var(--c); color: #F8FAFC; font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
+              <div style="min-width: 0"><div style="font-size: 13px; font-weight: 800"><span data-t="toastTitle"></span></div><div style="font-size: 12px; color: rgba(11,16,32,0.62)"><span data-t="toastSub"></span></div></div>
+            </div>
+
+            <div role="img" id="tp-preview" aria-label="Vista previa de la app Peluquería Ana" style="position: relative; width: 316px; height: 644px; border-radius: 50px; background: #0B1020; padding: 11px; box-sizing: border-box; box-shadow: 0 50px 100px rgba(0,0,0,0.55), inset 0 0 0 1.5px rgba(229,231,235,0.18)">
+              <div style="position: relative; width: 100%; height: 100%; border-radius: 40px; background: #F8FAFC; color: #0B1020; overflow: hidden; display: flex; flex-direction: column">
+
+                <div style="padding: 30px 18px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px">
+                  <div style="min-width: 0; display: flex; align-items: center; gap: 10px">
+                    <span style="width: 38px; height: 38px; flex-shrink: 0; border-radius: 12px; background: var(--c); color: #F8FAFC; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
+                    <div style="min-width: 0"><div style="font-size: 11px; font-weight: 600; color: rgba(11,16,32,0.6)"><span data-t="greeting"></span></div><div style="font-size: 16px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span data-t="displayName"></span></div></div>
+                  </div>
+                  <span style="position: relative; width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; background: #FFFFFF; border: 1px solid #E5E7EB; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B1020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><span style="position: absolute; right: 8px; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--c); border: 2px solid #FFFFFF"></span></span>
+                </div>
+
+                <!-- RESERVAS -->
+                <div class="tp-screen" data-screen="reservas">
+                  <div style="padding: 4px 16px 0; display: flex; flex-direction: column; gap: 14px; flex-grow: 1; min-height: 0">
+                    <div style="position: relative; overflow: hidden; border-radius: 22px; background: var(--c); color: #F8FAFC; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px">
+                      <span style="position: absolute; right: -24px; top: -24px; width: 96px; height: 96px; border-radius: 50%; background: rgba(248,250,252,0.14)"></span>
+                      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85">Próxima cita</span>
+                      <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em">Hoy · 11:30</div>
+                      <div style="display: flex; justify-content: space-between; align-items: center">
+                        <span style="font-size: 13px; font-weight: 600; opacity: 0.9">Corte y peinado · 45 min</span>
+                        <span style="padding: 6px 12px; border-radius: 99px; background: #F8FAFC; color: var(--c); font-size: 12px; font-weight: 800">Ver</span>
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 800">Octubre</span><span style="font-size: 12px; font-weight: 700; color: var(--c)">Ver mes</span></div>
+                    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px">
+                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 10px; font-weight: 700; color: rgba(11,16,32,0.6)">LUN<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">19</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #0B1020; border: 1px solid #0B1020; text-align: center; font-size: 10px; font-weight: 700; color: #E5E7EB">MAR<div style="font-size: 16px; font-weight: 800; color: #F8FAFC; margin-top: 2px">20</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 10px; font-weight: 700; color: rgba(11,16,32,0.6)">MIÉ<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">21</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 10px; font-weight: 700; color: rgba(11,16,32,0.6)">JUE<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">22</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 10px; font-weight: 700; color: rgba(11,16,32,0.6)">VIE<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">23</div></div>
+                    </div>
+                    <span style="font-size: 14px; font-weight: 800">Huecos libres</span>
+                    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+                      <span style="padding: 10px 0; border-radius: 12px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 13px; font-weight: 700">09:00</span>
+                      <span style="padding: 10px 0; border-radius: 12px; background: #E5E7EB; text-align: center; font-size: 13px; font-weight: 700; color: rgba(11,16,32,0.45); text-decoration: line-through">10:00</span>
+                      <span style="padding: 10px 0; border-radius: 12px; background: var(--c); color: #F8FAFC; text-align: center; font-size: 13px; font-weight: 800">11:30</span>
+                      <span style="padding: 10px 0; border-radius: 12px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 13px; font-weight: 700">12:30</span>
+                      <span style="padding: 10px 0; border-radius: 12px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 13px; font-weight: 700">16:00</span>
+                      <span style="padding: 10px 0; border-radius: 12px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 13px; font-weight: 700">17:30</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PEDIDOS -->
+                <div class="tp-screen" data-screen="pedidos" hidden>
+                  <div style="position: relative; padding: 4px 16px 0; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; min-height: 0">
+                    <div style="display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; font-size: 13px; font-weight: 600; color: rgba(11,16,32,0.55)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Buscar productos</div>
+                    <div style="display: flex; gap: 6px">
+                      <span style="padding: 7px 12px; border-radius: 99px; background: #0B1020; color: #F8FAFC; font-size: 12px; font-weight: 700">Todo</span>
+                      <span style="padding: 7px 12px; border-radius: 99px; background: #E5E7EB; font-size: 12px; font-weight: 700">Pan</span>
+                      <span style="padding: 7px 12px; border-radius: 99px; background: #E5E7EB; font-size: 12px; font-weight: 700">Dulces</span>
+                      <span style="padding: 7px 12px; border-radius: 99px; background: #E5E7EB; font-size: 12px; font-weight: 700">Café</span>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+                      <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
+                        <div style="height: 76px; border-radius: 12px; background: var(--c)"></div>
+                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Producto 1</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">[PVP]</span><span style="width: 24px; height: 24px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">+</span></div>
+                      </div>
+                      <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
+                        <div style="height: 76px; border-radius: 12px; background: #0B1020"></div>
+                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Producto 2</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">[PVP]</span><span style="width: 24px; height: 24px; border-radius: 8px; background: var(--c); color: #F8FAFC; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center">2</span></div>
+                      </div>
+                      <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
+                        <div style="height: 76px; border-radius: 12px; background: var(--c); opacity: 0.45"></div>
+                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Producto 3</span>
+                      </div>
+                      <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
+                        <div style="height: 76px; border-radius: 12px; background: #E5E7EB"></div>
+                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Producto 4</span>
+                      </div>
+                    </div>
+                    <div style="position: absolute; left: 16px; right: 16px; bottom: 10px; padding: 12px 14px; border-radius: 18px; background: var(--c); color: #F8FAFC; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 12px 24px rgba(11,16,32,0.25)">
+                      <span style="font-size: 13px; font-weight: 700"><span style="padding: 3px 8px; border-radius: 8px; background: rgba(248,250,252,0.22); margin-right: 8px">3</span>productos</span>
+                      <span style="font-size: 13px; font-weight: 800">Ver pedido →</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- EVENTOS -->
+                <div class="tp-screen" data-screen="eventos" hidden>
+                  <div style="padding: 4px 16px 0; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; min-height: 0">
+                    <div style="position: relative; overflow: hidden; border-radius: 22px; background: var(--c); color: #F8FAFC; padding: 16px 18px; display: flex; align-items: center; gap: 16px">
+                      <span style="position: absolute; left: -30px; bottom: -40px; width: 110px; height: 110px; border-radius: 50%; background: rgba(248,250,252,0.12)"></span>
+                      <div style="position: relative; width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; background: conic-gradient(#F8FAFC 0 70%, rgba(248,250,252,0.25) 70% 100%); display: flex; align-items: center; justify-content: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--c); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800">70%</span></div>
+                      <div style="position: relative"><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85">Aforo</div><div style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1">42 / 60</div><div style="font-size: 12px; font-weight: 600; opacity: 0.9">Quedan 18 plazas</div></div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+                      <div style="padding: 10px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB"><div style="font-size: 18px; font-weight: 800">42</div><div style="font-size: 11px; font-weight: 700; color: var(--c)">Inscritos</div></div>
+                      <div style="padding: 10px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB"><div style="font-size: 18px; font-weight: 800">9</div><div style="font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">En espera</div></div>
+                      <div style="padding: 10px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB"><div style="font-size: 18px; font-weight: 800">18</div><div style="font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">Libres</div></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 800">Últimas inscripciones</span><span style="font-size: 12px; font-weight: 700; color: var(--c)">Ver todas</span></div>
+                    <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: var(--c); color: #F8FAFC; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">P1</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Participante 1</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Taller · Grupo A</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">OK</span></div>
+                    <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: #0B1020; color: #F8FAFC; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">P2</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Participante 2</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Taller · Grupo B</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">OK</span></div>
+                  </div>
+                </div>
+
+                <!-- GESTIÓN -->
+                <div class="tp-screen" data-screen="gestion" hidden>
+                  <div style="position: relative; padding: 4px 16px 0; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; min-height: 0">
+                    <div style="border-radius: 22px; background: #0B1020; color: #F8FAFC; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
+                      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 800">Progreso de hoy</span><span style="font-size: 22px; font-weight: 800">66%</span></div>
+                      <div style="height: 8px; border-radius: 99px; background: rgba(229,231,235,0.18); overflow: hidden"><div style="width: 66%; height: 100%; border-radius: 99px; background: #A78BFA"></div></div>
+                      <div style="display: flex; align-items: center">
+                        <span style="width: 26px; height: 26px; border-radius: 50%; background: var(--c); border: 2px solid #0B1020; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center">AM</span>
+                        <span style="width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: #E5E7EB; color: #0B1020; border: 2px solid #0B1020; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center">JR</span>
+                        <span style="width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: #F8FAFC; color: #0B1020; border: 2px solid #0B1020; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center">+2</span>
+                        <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: rgba(229,231,235,0.8)">8 de 12 tareas hechas</span>
+                      </div>
+                    </div>
+                    <span style="font-size: 14px; font-weight: 800">Pendientes</span>
+                    <div style="padding: 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; flex-shrink: 0; border-radius: 7px; border: 2px solid var(--c); box-sizing: border-box"></span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Hacer inventario</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Almacén · AM</div></div><span style="padding: 4px 8px; border-radius: 8px; background: var(--c); color: #F8FAFC; font-size: 11px; font-weight: 800">Hoy</span></div>
+                    <div style="padding: 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; flex-shrink: 0; border-radius: 7px; border: 2px solid #E5E7EB; box-sizing: border-box"></span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Llamar a proveedor</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Compras · JR</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #E5E7EB; font-size: 11px; font-weight: 800">Mañana</span></div>
+                    <div style="padding: 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px; opacity: 0.6"><span style="width: 22px; height: 22px; flex-shrink: 0; border-radius: 7px; background: var(--c); color: #F8FAFC; display: flex; align-items: center; justify-content: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div style="flex-grow: 1; font-size: 13px; font-weight: 700; text-decoration: line-through">Abrir caja</div></div>
+                    <span style="position: absolute; right: 18px; bottom: 8px; width: 50px; height: 50px; border-radius: 17px; background: var(--c); color: #F8FAFC; font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 24px rgba(11,16,32,0.25)">+</span>
+                  </div>
+                </div>
+
+                <div style="margin-top: auto; padding: 10px 22px 16px; background: #FFFFFF; border-top: 1px solid #E5E7EB; display: flex; justify-content: space-between; align-items: center">
+                  <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--c)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span style="width: 5px; height: 5px; border-radius: 50%; background: var(--c)"></span></span>
+                  <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: rgba(11,16,32,0.38)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span style="width: 5px; height: 5px"></span></span>
+                  <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: rgba(11,16,32,0.38)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg><span style="width: 5px; height: 5px"></span></span>
+                  <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: rgba(11,16,32,0.38)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg><span style="width: 5px; height: 5px"></span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controles -->
+          <div class="tp-ctrl" style="flex: 1 1 220px; min-width: 0; max-width: 300px; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12)">
+            <div style="display: flex; justify-content: space-between; align-items: center">
+              <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #A78BFA">Crea tu app</span>
+              <span style="font-size: 12px; font-weight: 600; color: rgba(229,231,235,0.65)">en 3 toques</span>
+            </div>
+            <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 10px">
+              <legend style="padding: 0; margin-bottom: 10px; font-size: 14px; font-weight: 700; color: #E5E7EB">1 · Tipo de app</legend>
+              <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+                <button type="button" class="tp-tbtn" data-type="reservas" aria-pressed="true">Reservas</button><button type="button" class="tp-tbtn" data-type="pedidos" aria-pressed="false">Pedidos</button><button type="button" class="tp-tbtn" data-type="eventos" aria-pressed="false">Eventos</button><button type="button" class="tp-tbtn" data-type="gestion" aria-pressed="false">Gestión</button>
+              </div>
+            </fieldset>
+            <fieldset style="margin: 0; padding: 0; border: none">
+              <legend style="padding: 0; margin-bottom: 10px; font-size: 14px; font-weight: 700; color: #E5E7EB">2 · Color de tu marca</legend>
+              <div style="display: flex; flex-wrap: wrap; gap: 10px">
+                <button type="button" class="tp-cbtn" data-color="#6C3BFF" aria-label="Color Violeta táppika" aria-pressed="true" style="background: #6C3BFF"></button><button type="button" class="tp-cbtn" data-color="#0B1020" aria-label="Color Azul noche" aria-pressed="false" style="background: #0B1020"></button><button type="button" class="tp-cbtn" data-color="#D93A26" aria-label="Color Coral" aria-pressed="false" style="background: #D93A26"></button><button type="button" class="tp-cbtn" data-color="#0F7F6F" aria-label="Color Verde" aria-pressed="false" style="background: #0F7F6F"></button><button type="button" class="tp-cbtn" data-color="#B5179E" aria-label="Color Magenta" aria-pressed="false" style="background: #B5179E"></button>
+              </div>
+            </fieldset>
+            <div class="tp-hide-m" style="display: flex; flex-direction: column; gap: 10px">
+              <label for="tp-nombre" style="font-size: 14px; font-weight: 700; color: #E5E7EB">3 · Nombre</label>
+              <input id="tp-nombre" type="text" maxlength="22" placeholder="Peluquería Ana" style="min-height: 48px; padding: 0 16px; border-radius: 14px; border: 1.5px solid rgba(229,231,235,0.2); background: #0B1020; color: #F8FAFC; font-size: 16px; font-weight: 600">
+            </div>
+            <div aria-hidden="true" class="tp-hide-m" style="display: flex; flex-direction: column; gap: 6px; padding-top: 14px; border-top: 1px solid rgba(229,231,235,0.12); font-size: 13px; font-weight: 600; color: rgba(229,231,235,0.78)">
+              <span class="tp-log1" style="display: flex; gap: 8px; align-items: center"><span style="color: #A78BFA">✓</span>Pantallas generadas</span>
+              <span class="tp-log2" style="display: flex; gap: 8px; align-items: center"><span style="color: #A78BFA">✓</span>Color aplicado</span>
+              <span class="tp-log3" style="display: flex; gap: 8px; align-items: center"><span style="color: #A78BFA">✓</span>Lista para usar</span>
+            </div>
+          </div>
+        </div>
+        <p style="margin: 0; font-size: 12px; color: rgba(229,231,235,0.6); text-align: center">Vistas conceptuales para explorar posibilidades. No son capturas de aplicaciones publicadas.</p>
       </div>
-    </section>
-  </main>
-  <div class="stripe"><div class="container stripe-inner"><div class="stripe-item"><span class="symbol">✳</span> Hechas para ti</div><div class="stripe-item"><span class="symbol">⌘</span> Diseño cuidado</div><div class="stripe-item"><span class="symbol">◈</span> Uso intuitivo</div><div class="stripe-item"><span class="symbol">↗</span> Pensadas para crecer</div></div></div>
+    </div>
+  </section>
+
+  <!-- ============ CINTA DE VALORES ============ -->
+  <div aria-hidden="true" style="border-top: 1px solid rgba(229,231,235,0.1); border-bottom: 1px solid rgba(229,231,235,0.1); background: rgba(229,231,235,0.03); padding: 22px 0; margin-top: 40px; overflow: hidden">
+    <div class="tp-track" style="display: flex; gap: 44px; width: max-content; font-size: 24px; font-weight: 800; letter-spacing: -0.02em; color: rgba(229,231,235,0.4); white-space: nowrap">
+      <span>Hechas para ti</span><span style="color: #6C3BFF">✦</span><span>Diseño cuidado</span><span style="color: #6C3BFF">✦</span><span>Uso intuitivo</span><span style="color: #6C3BFF">✦</span><span>Pensadas para crecer</span><span style="color: #6C3BFF">✦</span><span>Sin plantillas</span><span style="color: #6C3BFF">✦</span><span>Sin complicaciones</span><span style="color: #6C3BFF">✦</span>
+      <span>Hechas para ti</span><span style="color: #6C3BFF">✦</span><span>Diseño cuidado</span><span style="color: #6C3BFF">✦</span><span>Uso intuitivo</span><span style="color: #6C3BFF">✦</span><span>Pensadas para crecer</span><span style="color: #6C3BFF">✦</span><span>Sin plantillas</span><span style="color: #6C3BFF">✦</span><span>Sin complicaciones</span><span style="color: #6C3BFF">✦</span>
+    </div>
+  </div>
+
+  <!-- ============ SOLUCIONES (claro) ============ -->
+  <section id="soluciones" class="tp-sec" style="background: #F8FAFC; color: #0B1020; padding: 120px 24px">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+        <div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px">
+          <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: #6C3BFF">Lo que hacemos</span>
+          <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">Un negocio único. <span style="color: rgba(11,16,32,0.45)">Una app a su altura.</span></h2>
+        </div>
+        <p style="margin: 0; max-width: 400px; font-size: 17px; line-height: 1.65; color: rgba(11,16,32,0.7)">Sin soluciones genéricas que te obliguen a trabajar de otra manera. Creamos herramientas digitales alrededor de lo que realmente necesitas.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+
+        <!-- GESTIÓN: tarjeta grande con panel -->
+        <div style="flex: 1.25 1 560px; min-width: 0; border-radius: 32px; background: #0B1020; color: #F8FAFC; padding: clamp(28px, 3.4vw, 44px); display: flex; flex-direction: column; gap: 26px; position: relative; overflow: hidden">
+          <div aria-hidden="true" style="position: absolute; right: -140px; top: -140px; width: 420px; height: 420px; border-radius: 50%; background: #6C3BFF; opacity: 0.22; filter: blur(80px)"></div>
+          <div style="position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 18px">
+            <div style="display: flex; flex-direction: column; gap: 12px; max-width: 380px">
+              <span style="align-self: flex-start; padding: 6px 12px; border-radius: 99px; border: 1px solid rgba(229,231,235,0.22); font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: #A78BFA">01 · GESTIÓN</span>
+              <h3 style="margin: 0; font-size: clamp(26px, 2.6vw, 34px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1">Gestión más sencilla</h3>
+              <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgba(229,231,235,0.78)">Organiza tareas, recursos, equipos y procesos en un solo lugar, diseñado para tu forma de trabajar.</p>
+            </div>
+          </div>
+
+          <!-- mini panel -->
+          <div aria-hidden="true" class="tp-zoom" style="position: relative; border-radius: 22px; background: rgba(229,231,235,0.06); border: 1px solid rgba(229,231,235,0.14); padding: 14px; display: flex; gap: 14px">
+            <div style="width: 52px; flex-shrink: 0; border-radius: 14px; background: #0B1020; padding: 12px 0; display: flex; flex-direction: column; align-items: center; gap: 14px">
+              <span style="width: 26px; height: 26px; border-radius: 8px; background: #6C3BFF"></span>
+              <span style="width: 20px; height: 6px; border-radius: 6px; background: rgba(229,231,235,0.3)"></span>
+              <span style="width: 20px; height: 6px; border-radius: 6px; background: rgba(229,231,235,0.3)"></span>
+              <span style="width: 20px; height: 6px; border-radius: 6px; background: rgba(229,231,235,0.3)"></span>
+            </div>
+            <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px">
+                <div style="border-radius: 14px; background: #0B1020; padding: 12px"><div style="font-size: 11px; font-weight: 700; color: rgba(229,231,235,0.65)">Pendientes</div><div class="tp-count" style="font-size: 26px; font-weight: 800; transform-origin: left">08</div></div>
+                <div style="border-radius: 14px; background: #0B1020; padding: 12px"><div style="font-size: 11px; font-weight: 700; color: rgba(229,231,235,0.65)">Completadas</div><div style="font-size: 26px; font-weight: 800; color: #A78BFA">24</div></div>
+                <div style="border-radius: 14px; background: #6C3BFF; padding: 12px"><div style="font-size: 11px; font-weight: 700; color: #F8FAFC">Esta semana</div><div style="font-size: 26px; font-weight: 800">12</div></div>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 12px">
+                <div style="flex: 1.3 1 200px; min-width: 0; border-radius: 14px; background: #0B1020; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+                  <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700"><span>Actividad</span><span style="color: rgba(229,231,235,0.6)">7 días</span></div>
+                  <div style="height: 80px; display: flex; align-items: flex-end; gap: 7px">
+                    <span class="tp-bar" style="flex: 1; height: 35%; border-radius: 6px; background: rgba(229,231,235,0.18)"></span>
+                    <span class="tp-bar" style="flex: 1; height: 55%; border-radius: 6px; background: rgba(229,231,235,0.18); animation-delay: .15s"></span>
+                    <span class="tp-bar" style="flex: 1; height: 45%; border-radius: 6px; background: rgba(229,231,235,0.18); animation-delay: .3s"></span>
+                    <span class="tp-bar" style="flex: 1; height: 72%; border-radius: 6px; background: rgba(229,231,235,0.18); animation-delay: .45s"></span>
+                    <span class="tp-bar" style="flex: 1; height: 60%; border-radius: 6px; background: #A78BFA; animation-delay: .6s"></span>
+                    <span class="tp-bar" style="flex: 1; height: 88%; border-radius: 6px; background: rgba(229,231,235,0.18); animation-delay: .75s"></span>
+                    <span class="tp-bar" style="flex: 1; height: 100%; border-radius: 6px; background: #6C3BFF; animation-delay: .9s"></span>
+                  </div>
+                </div>
+                <div style="flex: 1 1 170px; min-width: 0; border-radius: 14px; background: #0B1020; padding: 14px; display: flex; flex-direction: column; gap: 9px; font-size: 12px; font-weight: 700">
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; background: #6C3BFF"></span><span style="text-decoration: line-through; color: rgba(229,231,235,0.55)">Revisar stock</span></div>
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; background: #6C3BFF"></span><span style="text-decoration: line-through; color: rgba(229,231,235,0.55)">Turnos de la semana</span></div>
+                  <div style="display: flex; align-items: center; gap: 8px"><span class="tp-blink" style="width: 14px; height: 14px; border-radius: 5px; border: 2px solid #A78BFA; box-sizing: border-box"></span>Pedido a proveedor</div>
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; border: 2px solid rgba(229,231,235,0.35); box-sizing: border-box"></span>Cierre de caja</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ul style="position: relative; margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px">
+            <li style="padding: 8px 14px; border-radius: 99px; background: rgba(229,231,235,0.08); font-size: 14px; font-weight: 700">Inventario</li>
+            <li style="padding: 8px 14px; border-radius: 99px; background: rgba(229,231,235,0.08); font-size: 14px; font-weight: 700">Turnos</li>
+            <li style="padding: 8px 14px; border-radius: 99px; background: rgba(229,231,235,0.08); font-size: 14px; font-weight: 700">Fichajes</li>
+            <li style="padding: 8px 14px; border-radius: 99px; background: rgba(229,231,235,0.08); font-size: 14px; font-weight: 700">Tareas de equipo</li>
+            <li style="padding: 8px 14px; border-radius: 99px; background: rgba(229,231,235,0.08); font-size: 14px; font-weight: 700">Clientes</li>
+            <li style="padding: 8px 14px; border-radius: 99px; background: rgba(229,231,235,0.08); font-size: 14px; font-weight: 700">Presupuestos</li>
+          </ul>
+        </div>
+
+        <!-- Columna derecha -->
+        <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+          <!-- RESERVAS -->
+          <div style="flex-grow: 1; border-radius: 32px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 30px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+            <div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+              <span style="align-self: flex-start; padding: 6px 12px; border-radius: 99px; background: #F8FAFC; border: 1px solid #E5E7EB; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: #6C3BFF">02 · RESERVAS</span>
+              <h3 style="margin: 0; font-size: 25px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1">Reservas sin complicaciones</h3>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.7)">Agendas, citas, disponibilidad y solicitudes que facilitan la relación con tus clientes.</p>
+              <p style="margin: 0; font-size: 13px; font-weight: 700; color: rgba(11,16,32,0.6)">Citas · Agenda · Recordatorios · Huecos libres</p>
+            </div>
+            <div aria-hidden="true" style="flex: 0 0 auto; width: 176px; border-radius: 20px; background: #F8FAFC; border: 1px solid #E5E7EB; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800"><span>Octubre</span><span style="color: #6C3BFF">›</span></div>
+              <div style="position: relative; display: grid; grid-template-columns: repeat(4, 32px); grid-auto-rows: 32px; gap: 6px">
+                <span class="tp-hop" style="position: absolute; left: 38px; top: 0; width: 32px; height: 32px; border-radius: 10px; background: #6C3BFF"></span>
+                <span style="border-radius: 10px; background: #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: #0B1020"></span>
+                <span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: #E5E7EB"></span>
+                <span style="border-radius: 10px; background: #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: #A78BFA"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span>
+              </div>
+              <div style="padding: 8px; border-radius: 10px; background: #0B1020; color: #F8FAFC; text-align: center; font-size: 11px; font-weight: 800">Reservar</div>
+            </div>
+          </div>
+
+          <!-- EVENTOS -->
+          <div style="flex-grow: 1; border-radius: 32px; background: #A78BFA; color: #0B1020; padding: 30px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+            <div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+              <span style="align-self: flex-start; padding: 6px 12px; border-radius: 99px; background: #0B1020; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: #F8FAFC">03 · EVENTOS</span>
+              <h3 style="margin: 0; font-size: 25px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1">Experiencias que conectan</h3>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #0B1020">Eventos, inscripciones y servicios digitales pensados para que cada interacción resulte fácil.</p>
+              <p style="margin: 0; font-size: 13px; font-weight: 800; color: #0B1020">Inscripciones · Aforos · Invitados · Listas</p>
+            </div>
+            <div aria-hidden="true" style="flex: 0 0 auto; width: 176px; display: flex; flex-direction: column; align-items: center; gap: 12px">
+              <div style="width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#0B1020 0 70%, rgba(11,16,32,0.18) 70% 100%); display: flex; align-items: center; justify-content: center">
+                <span style="width: 94px; height: 94px; border-radius: 50%; background: #A78BFA; display: flex; flex-direction: column; align-items: center; justify-content: center"><span class="tp-count" style="font-size: 28px; font-weight: 800; line-height: 1">42</span><span style="font-size: 11px; font-weight: 800">de 60</span></span>
+              </div>
+              <div style="display: flex; align-items: center">
+                <span style="width: 30px; height: 30px; border-radius: 50%; background: #0B1020; border: 2px solid #A78BFA"></span>
+                <span style="width: 30px; height: 30px; margin-left: -9px; border-radius: 50%; background: #6C3BFF; border: 2px solid #A78BFA"></span>
+                <span style="width: 30px; height: 30px; margin-left: -9px; border-radius: 50%; background: #F8FAFC; border: 2px solid #A78BFA"></span>
+                <span style="margin-left: 8px; font-size: 13px; font-weight: 800">+39</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tp-compact" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; padding: 24px 28px; border-radius: 24px; border: 1.5px dashed #E5E7EB; background: #FFFFFF">
+        <p style="margin: 0; font-size: 17px; font-weight: 700">¿Tu idea no encaja en ninguna? <span style="font-weight: 500; color: rgba(11,16,32,0.7)">Creamos la herramienta que necesites, aunque nadie la haya pedido antes.</span></p>
+        <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #6C3BFF; color: #F8FAFC; font-size: 15px; font-weight: 700; text-decoration: none">Cuéntanosla
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NOSOTROS / FILOSOFÍA (claro) ============ -->
+  <section id="nosotros" class="tp-secb" style="background: #F8FAFC; color: #0B1020; padding: 0 24px 120px">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
+      <div aria-hidden="true" class="tp-art" style="flex: 1 1 420px; min-width: 0; min-height: 480px; border-radius: 32px; background: #0B1020; position: relative; overflow: hidden; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+        <div style="position: absolute; right: -160px; bottom: -160px; width: 460px; height: 460px; border-radius: 50%; background: #6C3BFF; opacity: 0.22; filter: blur(90px)"></div>
+        <div style="position: relative; display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase">
+          <span style="color: rgba(229,231,235,0.6)">Cómo trabajas hoy</span>
+          <span style="color: #A78BFA">Con tu app</span>
+        </div>
+        <div class="tp-artrow" style="position: relative; flex-grow: 1; display: flex; align-items: center; gap: 14px">
+
+          <!-- Antes: notas sueltas -->
+          <div class="tp-notes" style="position: relative; flex: 1 1 0; min-width: 0; height: 300px">
+            <span class="tp-absorb" style="--r: -8deg; --dx: 230px; --dy: 80px; animation-delay: 0s; position: absolute; left: 0; top: 10px; width: 132px; padding: 12px; border-radius: 12px; background: #E5E7EB; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box">Libreta<span style="display: block; margin-top: 8px; height: 5px; width: 80%; border-radius: 5px; background: rgba(11,16,32,0.25)"></span><span style="display: block; margin-top: 5px; height: 5px; width: 60%; border-radius: 5px; background: rgba(11,16,32,0.25)"></span></span>
+            <span class="tp-absorb" style="--r: 7deg; --dx: 140px; --dy: 30px; animation-delay: 1s; position: absolute; right: 0; top: 70px; width: 120px; padding: 12px; border-radius: 12px; background: #F8FAFC; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box">Hoja de cálculo<span style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; margin-top: 8px"><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span></span></span>
+            <span class="tp-absorb" style="--r: 5deg; --dx: 220px; --dy: -20px; position: absolute; left: 12px; top: 150px; width: 128px; padding: 12px; border-radius: 12px; background: #A78BFA; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box; animation-delay: 2s">Mensajes<span style="display: block; margin-top: 8px; height: 5px; width: 70%; border-radius: 5px; background: rgba(11,16,32,0.3)"></span></span>
+            <span class="tp-absorb" style="--r: -6deg; --dx: 150px; --dy: -80px; position: absolute; right: 8px; top: 214px; width: 110px; padding: 12px; border-radius: 12px; background: #E5E7EB; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box; animation-delay: 3s">Llamadas<span style="display: block; margin-top: 8px; height: 5px; width: 55%; border-radius: 5px; background: rgba(11,16,32,0.25)"></span></span>
+          </div>
+
+          <!-- Flecha -->
+          <span class="tp-arrow" style="flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: #6C3BFF; color: #F8FAFC; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 8px rgba(108,59,255,0.18)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+
+          <!-- Después: app ordenada -->
+          <div class="tp-mini" style="flex: 0 0 auto; width: 150px; height: 300px; border-radius: 28px; background: #F8FAFC; padding: 7px; box-sizing: border-box; box-shadow: 0 24px 50px rgba(0,0,0,0.45)">
+            <div style="height: 100%; border-radius: 22px; background: #FFFFFF; padding: 14px 10px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; color: #0B1020">
+              <div style="display: flex; align-items: center; gap: 6px"><span style="position: relative; width: 22px; height: 22px; border-radius: 7px; background: #0B1020; color: #F8FAFC; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center">t<span style="position: absolute; right: 3px; top: 2px; width: 3px; height: 6px; border-radius: 2px; background: #6C3BFF; transform: rotate(35deg)"></span></span><span style="font-size: 11px; font-weight: 800">Todo en orden</span></div>
+              <div class="tp-rowin" style="padding: 9px; border-radius: 11px; background: #6C3BFF; color: #F8FAFC; animation-delay: 0s"><div style="font-size: 9px; font-weight: 700; opacity: 0.85">Hoy</div><div style="font-size: 15px; font-weight: 800">3 citas</div></div>
+              <div class="tp-rowin" style="animation-delay: 1s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #6C3BFF"></span>Clientes</div>
+              <div class="tp-rowin" style="animation-delay: 2s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #A78BFA"></span>Pedidos</div>
+              <div class="tp-rowin" style="animation-delay: 3s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0B1020"></span>Avisos</div>
+              <div style="margin-top: auto; height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div style="width: 80%; height: 100%; background: #6C3BFF"></div></div>
+            </div>
+          </div>
+        </div>
+        <p style="position: relative; margin: 0; font-size: 15px; font-weight: 700; color: #E5E7EB">Todo lo que hoy tienes repartido, reunido en una sola app hecha a tu manera.</p>
+      </div>
+      <div style="flex: 1.1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: #6C3BFF">Nuestra forma de pensar</span>
+        <h2 style="margin: 0; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.05; font-weight: 800; letter-spacing: -0.045em">La tecnología debe adaptarse a las personas.</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: rgba(11,16,32,0.7)">Una buena aplicación no necesita parecer complicada para ser potente. Nos importa tanto lo que hace como lo fácil que resulta utilizarla.</p>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #6C3BFF; color: #F8FAFC; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Tu manera de trabajar, primero.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.7)">Diseñamos a partir del problema real, no de una plantilla prefabricada.</div></div></li>
+          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #6C3BFF; color: #F8FAFC; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Diseño que tiene sentido.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.7)">Cada pantalla responde a una necesidad, no a una moda.</div></div></li>
+          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #6C3BFF; color: #F8FAFC; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Menos ruido. Más claridad.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.7)">Interfaz limpia, navegación sencilla y solo lo que aporta valor.</div></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CÓMO TRABAJAMOS (oscuro) ============ -->
+  <section id="como" class="tp-sec" style="padding: 120px 24px">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+        <div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px">
+          <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: #A78BFA">El proceso</span>
+          <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">De «¿y si…?» a <span style="color: #A78BFA">«ya funciona».</span></h2>
+        </div>
+        <p style="margin: 0; max-width: 400px; font-size: 17px; line-height: 1.65; color: rgba(229,231,235,0.78)">Un proceso claro para transformar una necesidad concreta en una herramienta que apetezca utilizar.</p>
+      </div>
+      <div style="position: relative">
+        <div aria-hidden="true" class="tp-vline" style="display: none; position: absolute; left: 25px; top: 26px; bottom: 60px; width: 2px; background: rgba(229,231,235,0.16)"><span class="tp-vdot" style="position: absolute; left: -5px; width: 12px; height: 12px; border-radius: 50%; background: #A78BFA; box-shadow: 0 0 18px #A78BFA"></span></div>
+        <div aria-hidden="true" class="tp-pline" style="position: absolute; left: 4%; right: 4%; top: 38px; height: 2px; background: rgba(229,231,235,0.14)">
+          <span class="tp-dot" style="position: absolute; top: -5px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: #A78BFA; box-shadow: 0 0 18px #A78BFA"></span>
+        </div>
+        <ol class="tp-steps" style="position: relative; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px">
+          <li style="display: flex; flex-direction: column; gap: 16px">
+            <span class="tp-glow" style="animation-delay: 0s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #A78BFA"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"></path></svg></span>
+            <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: rgba(229,231,235,0.6)">01 / ESCUCHAR</span>
+            <h3 style="margin: 0; font-size: 22px; font-weight: 800">Entendemos tu idea</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Qué quieres resolver, para quién y cómo trabajas hoy.</p>
+          </li>
+          <li style="display: flex; flex-direction: column; gap: 16px">
+            <span class="tp-glow" style="animation-delay: 1s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #A78BFA"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg></span>
+            <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: rgba(229,231,235,0.6)">02 / DISEÑAR</span>
+            <h3 style="margin: 0; font-size: 22px; font-weight: 800">Le damos forma</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Ordenamos el recorrido y definimos una experiencia coherente.</p>
+          </li>
+          <li style="display: flex; flex-direction: column; gap: 16px">
+            <span class="tp-glow" style="animation-delay: 2s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #A78BFA"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"></path></svg></span>
+            <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: rgba(229,231,235,0.6)">03 / CONSTRUIR</span>
+            <h3 style="margin: 0; font-size: 22px; font-weight: 800">La hacemos real</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Desarrollamos y comprobamos los flujos necesarios.</p>
+          </li>
+          <li style="display: flex; flex-direction: column; gap: 16px">
+            <span class="tp-glow" style="animation-delay: 3s; width: 76px; height: 76px; border-radius: 24px; background: #6C3BFF; display: flex; align-items: center; justify-content: center; color: #F8FAFC"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"></rect><path d="M9.5 12l2 2 3.5-4"></path></svg></span>
+            <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.1em; color: rgba(229,231,235,0.6)">04 / ENTREGAR</span>
+            <h3 style="margin: 0; font-size: 22px; font-weight: 800">Lista para usar</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Preparamos una puesta en marcha clara y adaptada al proyecto.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUÉ INCLUYE (oscuro) ============ -->
+  <section id="todo" class="tp-secb" style="padding: 0 24px 120px">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: #A78BFA">Funciones</span>
+        <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">Tu app trabaja. <span style="color: #A78BFA">Tú te ocupas de lo importante.</span></h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: rgba(229,231,235,0.78)">Sin menús infinitos ni funciones que nunca usarás. Solo lo que necesitas, con el acabado de una gran app.</p>
+      </div>
+      <div class="tp-bento" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+
+        <div class="tp-span2" style="min-width: 0; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12); padding: 36px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center">
+          <div style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+            <h3 style="margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.02em">Trabaja sola</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Automatizamos las tareas repetitivas: avisos, recordatorios y confirmaciones pueden salir sin que tengas que hacer nada.</p>
+          </div>
+          <div aria-hidden="true" style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #0B1020; border: 1px solid rgba(229,231,235,0.18); font-size: 15px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: #A78BFA"></span>Llega una reserva nueva</div>
+            <div style="margin-left: 26px; width: 2px; height: 14px; background: rgba(229,231,235,0.18)"></div>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #0B1020; border: 1px solid rgba(229,231,235,0.18); font-size: 15px; font-weight: 700"><span class="tp-blink" style="width: 10px; height: 10px; border-radius: 50%; background: #A78BFA"></span>Se envía la confirmación</div>
+            <div style="margin-left: 26px; width: 2px; height: 14px; background: rgba(229,231,235,0.18)"></div>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #6C3BFF; font-size: 15px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: #F8FAFC"></span>Recordatorio el día antes</div>
+          </div>
+        </div>
+
+        <div style="min-width: 0; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12); padding: 36px; display: flex; flex-direction: column; gap: 22px">
+          <div aria-hidden="true" class="tp-vis" style="position: relative; height: 150px">
+            <div class="tp-toast1" style="position: absolute; left: 0; right: 0; top: 20px; padding: 14px 16px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.35)"><span style="width: 36px; height: 36px; border-radius: 11px; background: #6C3BFF; flex-shrink: 0"></span><div><div style="font-size: 14px; font-weight: 800">Nueva reserva</div><div style="font-size: 13px; color: rgba(11,16,32,0.62)">Martes · 11:30</div></div></div>
+            <div class="tp-toast2" style="position: absolute; left: 0; right: 0; top: 20px; padding: 14px 16px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.35); opacity: 0"><span style="width: 36px; height: 36px; border-radius: 11px; background: #A78BFA; flex-shrink: 0"></span><div><div style="font-size: 14px; font-weight: 800">Pedido recibido</div><div style="font-size: 13px; color: rgba(11,16,32,0.62)">3 productos</div></div></div>
+            <div class="tp-toast3" style="position: absolute; left: 0; right: 0; top: 20px; padding: 14px 16px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.35); opacity: 0"><span style="width: 36px; height: 36px; border-radius: 11px; background: #0B1020; flex-shrink: 0"></span><div><div style="font-size: 14px; font-weight: 800">Nueva inscripción</div><div style="font-size: 13px; color: rgba(11,16,32,0.62)">Quedan 17 plazas</div></div></div>
+          </div>
+          <h3 style="margin: 0; font-size: 22px; font-weight: 800">Avisos al momento</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Te enteras de lo importante en cuanto pasa.</p>
+        </div>
+
+        <div style="min-width: 0; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12); padding: 36px; display: flex; flex-direction: column; gap: 22px">
+          <div aria-hidden="true" class="tp-vis" style="height: 150px; display: flex; align-items: flex-end; gap: 10px">
+            <span class="tp-bar" style="flex: 1; height: 40%; border-radius: 10px; background: rgba(229,231,235,0.16)"></span>
+            <span class="tp-bar" style="flex: 1; height: 62%; border-radius: 10px; background: rgba(229,231,235,0.16); animation-delay: .2s"></span>
+            <span class="tp-bar" style="flex: 1; height: 50%; border-radius: 10px; background: rgba(229,231,235,0.16); animation-delay: .4s"></span>
+            <span class="tp-bar" style="flex: 1; height: 82%; border-radius: 10px; background: #A78BFA; animation-delay: .6s"></span>
+            <span class="tp-bar" style="flex: 1; height: 100%; border-radius: 10px; background: #6C3BFF; animation-delay: .8s"></span>
+          </div>
+          <h3 style="margin: 0; font-size: 22px; font-weight: 800">Todo a la vista</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Resúmenes claros para saber cómo va todo de un vistazo.</p>
+        </div>
+
+        <div style="min-width: 0; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12); padding: 36px; display: flex; flex-direction: column; gap: 22px">
+          <div aria-hidden="true" class="tp-vis" style="height: 150px; display: flex; align-items: center; justify-content: center">
+            <span style="width: 92px; height: 92px; border-radius: 26px; background: #E5E7EB; transform: rotate(-10deg) translateX(30px)"></span>
+            <span style="width: 92px; height: 92px; border-radius: 26px; background: #A78BFA; transform: rotate(4deg); position: relative; z-index: 1"></span>
+            <span style="width: 92px; height: 92px; border-radius: 26px; background: #6C3BFF; transform: rotate(14deg) translateX(-30px); position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; color: #F8FAFC; font-size: 40px; font-weight: 800">t</span>
+          </div>
+          <h3 style="margin: 0; font-size: 22px; font-weight: 800">Con tu marca</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Tus colores, tu logo y tu nombre. Se nota que es tuya.</p>
+        </div>
+
+        <div style="min-width: 0; border-radius: 28px; background: #6C3BFF; padding: 36px; display: flex; flex-direction: column; gap: 22px">
+          <div aria-hidden="true" class="tp-vis" style="height: 150px; display: flex; align-items: flex-end; justify-content: center; gap: 12px">
+            <span style="width: 54px; height: 100px; border-radius: 14px; border: 3px solid #F8FAFC; box-sizing: border-box"></span>
+            <span style="width: 96px; height: 128px; border-radius: 16px; border: 3px solid #F8FAFC; box-sizing: border-box"></span>
+            <span style="width: 150px; height: 96px; border-radius: 12px; border: 3px solid #F8FAFC; box-sizing: border-box; opacity: 0.7"></span>
+          </div>
+          <h3 style="margin: 0; font-size: 22px; font-weight: 800">Móvil, tablet u ordenador</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #F8FAFC">Pensada primero para el móvil, se adapta a cualquier pantalla.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PREGUNTAS (claro) ============ -->
+  <section id="preguntas" class="tp-sec" style="background: #F8FAFC; color: #0B1020; padding: 120px 24px">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px">
+      <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: #6C3BFF">Preguntas</span>
+        <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">Lo que todos nos preguntan</h2>
+      </div>
+      <div style="flex: 1.6 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+        <details style="border-radius: 22px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 24px 28px">
+          <summary style="font-size: 18px; font-weight: 700; display: flex; justify-content: space-between; gap: 16px">¿Qué tipo de apps hacéis?<span style="color: #6C3BFF; font-size: 22px; line-height: 1">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: rgba(11,16,32,0.7)">Aplicaciones centradas en resolver una necesidad concreta: gestión, reservas, eventos, pedidos… Sin funciones de relleno y con un diseño cuidado.</p>
+        </details>
+        <details style="border-radius: 22px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 24px 28px">
+          <summary style="font-size: 18px; font-weight: 700; display: flex; justify-content: space-between; gap: 16px">¿Necesito saber de tecnología?<span style="color: #6C3BFF; font-size: 22px; line-height: 1">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: rgba(11,16,32,0.7)">No. Empieza por el problema que te gustaría resolver, con tus palabras. Del resto nos encargamos nosotros.</p>
+        </details>
+        <details style="border-radius: 22px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 24px 28px">
+          <summary style="font-size: 18px; font-weight: 700; display: flex; justify-content: space-between; gap: 16px">¿Cuánto tardáis en entregarla?<span style="color: #6C3BFF; font-size: 22px; line-height: 1">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: rgba(11,16,32,0.7)">Depende de cada proyecto. Te lo concretamos antes de empezar.</p>
+        </details>
+        <details style="border-radius: 22px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 24px 28px">
+          <summary style="font-size: 18px; font-weight: 700; display: flex; justify-content: space-between; gap: 16px">¿Puedo pedir cambios después?<span style="color: #6C3BFF; font-size: 22px; line-height: 1">+</span></summary>
+          <p style="margin: 14px 0 0; font-size: 16px; line-height: 1.6; color: rgba(11,16,32,0.7)">Sí. Las apps están pensadas para crecer contigo y adaptarse cuando lo necesites.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section id="contacto" class="tp-sec tp-contact" style="padding: 120px 24px">
+    <div style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; border-radius: 40px; background: #6C3BFF; padding: clamp(28px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 48px; overflow: hidden">
+      <div style="position: relative; flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+        <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; color: #F8FAFC">Hablemos</span>
+        <h2 style="margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1; font-weight: 800; letter-spacing: -0.045em">¿Tienes una idea?<br>Hagámosla app.</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #F8FAFC">Contesta tres preguntas rápidas y envíanos tus respuestas con un toque, por email o por WhatsApp.</p>
+        <div class="tp-hide-m" style="align-self: flex-start; display: flex; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: 20px; background: rgba(11,16,32,0.28)">
+          <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 13px; background: var(--c); box-shadow: 0 0 0 3px #F8FAFC; color: #F8FAFC; font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
+          <div><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #E5E7EB">La app que has creado</div><div style="font-size: 17px; font-weight: 800"><span data-t="displayName"></span> · <span data-t="typeLabel"></span></div></div>
+        </div>
+      </div>
+
+      <form id="tp-form" style="position: relative; flex: 1 1 420px; min-width: 0; background: #F8FAFC; color: #0B1020; border-radius: 28px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em">Cuéntanos en 3 toques</span>
+          <span style="font-size: 13px; font-weight: 800; color: #6C3BFF"><span data-t="answered"></span>/3</span>
+        </div>
+        <div aria-hidden="true" style="height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div id="tp-prog" style="width: 33%; height: 100%; border-radius: 6px; background: #6C3BFF; transition: width .4s ease"></div></div>
+
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <label for="q-tipo" style="font-size: 14px; font-weight: 700">1 · ¿Qué tipo de app necesitas?</label>
+          <select id="q-tipo" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #FFFFFF; font-size: 16px; color: #0B1020">
+            <option value="">Elige una opción</option>
+            <option value="Reservas y citas">Reservas y citas</option>
+            <option value="Pedidos">Pedidos</option>
+            <option value="Eventos e inscripciones">Eventos e inscripciones</option>
+            <option value="Gestión y organización">Gestión y organización</option>
+            <option value="Otra idea">Otra idea</option>
+          </select>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <label for="q-quien" style="font-size: 14px; font-weight: 700">2 · ¿Para qué es?</label>
+          <select id="q-quien" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #FFFFFF; font-size: 16px; color: #0B1020">
+            <option value="">Elige una opción</option>
+            <option value="mi negocio">Para mi negocio</option>
+            <option value="un evento">Para un evento</option>
+            <option value="una asociación o club">Para una asociación o club</option>
+            <option value="uso personal">Para uso personal</option>
+          </select>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <label for="q-plazo" style="font-size: 14px; font-weight: 700">3 · ¿Para cuándo la quieres?</label>
+          <select id="q-plazo" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #FFFFFF; font-size: 16px; color: #0B1020">
+            <option value="">Elige una opción</option>
+            <option value="lo antes posible">Lo antes posible</option>
+            <option value="en 1 a 3 meses">En 1 a 3 meses</option>
+            <option value="sin prisa, estoy explorando">Sin prisa, estoy explorando</option>
+          </select>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 7px">
+          <label for="q-nombre" style="font-size: 14px; font-weight: 700">Tu nombre <span style="font-weight: 500; color: rgba(11,16,32,0.6)">(opcional)</span></label>
+          <input id="q-nombre" type="text" placeholder="Nombre" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #FFFFFF; font-size: 16px">
+        </div>
+
+
+        <div style="display: flex; flex-wrap: wrap; gap: 10px">
+          <a id="tp-mail" href="mailto:info.tappika@gmail.com" style="flex: 1 1 180px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 999px; background: #0B1020; color: #F8FAFC; font-size: 16px; font-weight: 800; text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M3 7l9 6 9-6"></path></svg>Enviar por email</a>
+          <a id="tp-wa" href="https://wa.me/34620843264?text=Hola%2C%20t%C3%A1ppika." target="_blank" rel="noopener" style="flex: 1 1 180px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 999px; background: #6C3BFF; color: #F8FAFC; font-size: 16px; font-weight: 800; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"></path><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"></path></svg>Enviar por WhatsApp</a>
+        </div>
+        <p style="margin: 0; font-size: 12px; line-height: 1.5; color: rgba(11,16,32,0.6)">Tus respuestas aparecerán ya escritas en tu correo o en WhatsApp; solo tienes que pulsar enviar. No guardamos tus datos.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ PIE ============ -->
+  <footer style="border-top: 1px solid rgba(229,231,235,0.1); padding: 56px 24px">
+    <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 13px; background: #0B1020; border: 1px solid rgba(229,231,235,0.22); color: #F8FAFC; display: flex; align-items: center; justify-content: center; font-size: 29px; font-weight: 800; position: relative">t<span style="position: absolute; right: 7px; top: 6px; width: 5px; height: 12px; border-radius: 3px; background: #6C3BFF; transform: rotate(35deg)"></span></span>
+        <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 7px">
+          <span style="font-size: 40px; font-weight: 800; letter-spacing: -0.04em; line-height: 1">t<span style="color: #6C3BFF">á</span>pp<span style="color: #6C3BFF">i</span>ka</span>
+          <span style="width: 0; min-width: 100%; text-align: center; white-space: nowrap; font-size: 8px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(229,231,235,0.7)">Aplicaciones a medida</span>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(229,231,235,0.65)">Web en evolución · Datos legales pendientes de completar<br><a href="#inicio" style="color: rgba(229,231,235,0.85); text-decoration: none">Volver arriba ↑</a></p>
+      <span style="font-size: 14px; color: rgba(229,231,235,0.65)">© 2026 táppika</span>
+    </div>
+  </footer>
 </div>
-<section class="section solutions" id="soluciones" aria-labelledby="solutions-title"><div class="container"><div class="section-intro reveal"><div><p class="kicker">LO QUE HACEMOS</p><h2 id="solutions-title">Un negocio único.<br><span class="muted">Una app a su altura.</span></h2></div><p>Sin soluciones genéricas que te obliguen a trabajar de otra manera. Creamos herramientas digitales alrededor de lo que realmente necesitas.</p></div>
-  <div class="solution-grid"><article class="solution-card reveal"><div class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div><h3>Gestión más sencilla</h3><p>Organiza tareas, recursos, equipos y procesos en un solo lugar, diseñado para tu forma de trabajar.</p></article>
-  <article class="solution-card reveal"><div class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v5M17 3v5M3 11h18M8 16l2 2 5-5"/></svg></div><h3>Reservas sin complicaciones</h3><p>Agendas, citas, disponibilidad y solicitudes que facilitan la relación con tus clientes.</p></article>
-  <article class="solution-card reveal"><div class="sc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 12l3 3 5-6"/><path d="M8 4v16M4 9h16"/></svg></div><h3>Experiencias que conectan</h3><p>Eventos, inscripciones y servicios digitales pensados para que cada interacción resulte fácil.</p></article></div>
-</div></section>
-<section class="statement" id="filosofia" aria-labelledby="statement-title"><div class="container statement-inner"><div class="orbit-art reveal" aria-hidden="true"><div class="orb-core"><span>t</span></div><span class="orbit-chip a">✨ Pensado para ti</span><span class="orbit-chip b">↗ Sin complicaciones</span></div><div class="statement-copy reveal"><p class="kicker">NUESTRA FORMA DE PENSAR</p><h2 id="statement-title">La tecnología<br>debe <span class="muted">adaptarse<br>a las personas.</span></h2><p class="text">Una buena aplicación no necesita parecer complicada para ser potente. Nos importa tanto lo que hace como lo fácil que resulta utilizarla.</p><div class="point"><div class="tick">✓</div><div><b>Menos ruido. Más claridad.</b><span>Interfaz limpia, navegación sencilla y solo lo que aporta valor.</span></div></div><div class="point"><div class="tick">✓</div><div><b>Diseño que tiene sentido.</b><span>Cada pantalla responde a una necesidad, no a una moda.</span></div></div><div class="point"><div class="tick">✓</div><div><b>Tu manera de trabajar, primero.</b><span>Diseñamos a partir del problema real, no de una plantilla prefabricada.</span></div></div></div></div></section>
-<section class="section showcase" id="experiencias" aria-labelledby="showcase-title"><div class="container"><div class="section-intro reveal"><div><p class="kicker">POSIBILIDADES REALES</p><h2 id="showcase-title">Imagina tu próxima<br><span class="muted">gran herramienta.</span></h2></div><p>Una misma filosofía, aplicaciones muy diferentes. Explora tres ejemplos de interfaces que podemos diseñar.</p></div>
-  <div class="showcase-shell reveal"><div class="selector" role="tablist" aria-label="Elegir ejemplo de aplicación"><button type="button" class="scenario" role="tab" id="tab-gestion" aria-controls="demo-panel" aria-selected="true" tabindex="0" data-scenario="gestion"><span class="scenario-num">01</span><span class="scenario-text"><strong>Organización</strong><small>Control y claridad cada día</small></span></button><button type="button" class="scenario" role="tab" id="tab-reservas" aria-controls="demo-panel" aria-selected="false" tabindex="-1" data-scenario="reservas"><span class="scenario-num">02</span><span class="scenario-text"><strong>Reservas</strong><small>Experiencias sin fricción</small></span></button><button type="button" class="scenario" role="tab" id="tab-eventos" aria-controls="demo-panel" aria-selected="false" tabindex="-1" data-scenario="eventos"><span class="scenario-num">03</span><span class="scenario-text"><strong>Eventos</strong><small>Todo bajo control</small></span></button><p class="demo-disclaimer">Visualizaciones conceptuales para explorar posibilidades. No son capturas de aplicaciones publicadas.</p></div>
-  <div class="demo-surface" role="tabpanel" id="demo-panel" aria-labelledby="tab-gestion" tabindex="0" aria-live="polite"><div class="demo-top"><small>Vista conceptual / táppika</small><span class="pill" id="demo-label">Gestión cotidiana</span></div><h3 class="demo-heading" id="demo-title">Todo fluye mejor.</h3><p class="demo-lead" id="demo-desc">El espacio que organiza tu día, a tu ritmo.</p><div class="mock-grid"><div class="mock-tile"><div class="mock-name" id="tile-1-label">Tareas del día</div><div class="mock-value" id="tile-1-value">12</div><div class="mock-detail" id="tile-1-note">Organizadas</div></div><div class="mock-tile"><div class="mock-name" id="tile-2-label">Completadas</div><div class="mock-value" id="tile-2-value">08</div><div class="mock-detail" id="tile-2-note">Buen ritmo</div></div><div class="mock-tile"><div class="mock-name" id="tile-3-label">Próximo paso</div><div class="mock-value" id="tile-3-value">01</div><div class="mock-detail" id="tile-3-note">Prioridad</div></div></div><div class="demo-footer" aria-hidden="true"></div></div></div>
-</div></section>
-<section class="section how" id="proceso" aria-labelledby="process-title"><div class="container"><div class="section-intro reveal"><div><p class="kicker">EL PROCESO</p><h2 id="process-title">De «¿y si…?» a<br><span class="muted">«ya funciona».</span></h2></div><p>Un proceso claro para transformar una necesidad concreta en una herramienta que apetezca utilizar.</p></div><div class="steps"><div class="step reveal"><span class="step-no">01 / ESCUCHAR</span><h3>Entendemos tu idea</h3><p>Qué quieres resolver, para quién y cómo trabajas hoy.</p></div><div class="step reveal"><span class="step-no">02 / DISEÑAR</span><h3>Le damos forma</h3><p>Ordenamos el recorrido y definimos una experiencia coherente.</p></div><div class="step reveal"><span class="step-no">03 / CONSTRUIR</span><h3>La hacemos real</h3><p>Desarrollamos y comprobamos los flujos necesarios.</p></div><div class="step reveal"><span class="step-no">04 / ENTREGAR</span><h3>Lista para usar</h3><p>Preparamos una puesta en marcha clara y adaptada al proyecto.</p></div></div></div></section>
-<section class="section contact" id="contacto" aria-labelledby="contact-title"><div class="container contact-wrap"><div class="reveal"><p class="kicker">HABLEMOS</p><h2 id="contact-title">Tu próxima idea<br>merece <span style="color:#ab91ff">existir.</span></h2><p>Cuéntanos qué necesitas. No hace falta que hables de tecnología: empieza por el problema que te gustaría resolver.</p><div class="contact-tag"><span aria-hidden="true">✦</span> Sin plantillas. Sin complicaciones.</div><div class="contact-direct" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px"><a href="mailto:info.tappika@gmail.com" style="color:white;border-bottom:1px solid #ab91ff;padding-bottom:5px">info.tappika@gmail.com</a><a href="tel:+34620843264" style="color:white;border-bottom:1px solid #ab91ff;padding-bottom:5px">620 843 264</a></div></div><div class="contact-card reveal"><h3 class="form-title">Empecemos por tu idea</h3><form id="lead-form"><div class="form-grid"><div class="field"><label for="lead-name">Tu nombre</label><input id="lead-name" name="nombre" required maxlength="80" placeholder="Cómo te llamas"></div><div class="field"><label for="lead-email">Tu correo</label><input id="lead-email" name="email" type="email" required maxlength="160" placeholder="tu@email.com"></div><div class="field wide"><label for="lead-type">¿Qué necesitas?</label><select id="lead-type" name="tipo" required><option value="">Selecciona una opción</option><option>Organización y gestión</option><option>Reservas y citas</option><option>Eventos e inscripciones</option><option>Otra idea</option></select></div><div class="field wide"><label for="lead-description">Cuéntanos un poco más</label><textarea id="lead-description" name="descripcion" required minlength="15" maxlength="1500" placeholder="Me gustaría crear una aplicación que..."></textarea></div></div><button class="btn btn-primary form-submit" type="submit">Preparar mi consulta <span aria-hidden="true">↗</span></button><p class="form-info" id="form-info">Versión de demostración: este formulario no envía ni guarda tus datos. Prepara un mensaje local para que pruebes el flujo.</p><p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p></form></div></div></section>
-<footer class="footer"><div class="container footer-grid"><a class="brand" href="#inicio" aria-label="táppika, volver al inicio"><span class="brand-mark" aria-hidden="true"><span class="tee">t</span><span class="acute"></span></span><span class="wordmark light">t<span class="accent">á</span>pp<span class="brand-i">i</span>ka<span style="color:#9272ff">.</span></span></a><small>© <span id="year"></span> táppika · Identidad en desarrollo.<br>Web en evolución. Datos legales pendientes de completar.</small><a class="text-link" href="#inicio">Volver arriba ↑</a></div></footer>
+
 <script>
+(function(){
   'use strict';
-  // Si se configura, el formulario preparará un mensaje en la aplicación de correo del visitante.
-  // No hay servidor de formulario: abre el correo del visitante, que deberá enviarlo.
-  const CONTACT_EMAIL = 'info.tappika@gmail.com';
-  const menuToggle = document.getElementById('menu-toggle');
-  const navlinks = document.getElementById('navlinks');
-  menuToggle.addEventListener('click', () => {
-    const opened = navlinks.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', String(opened));
-    menuToggle.setAttribute('aria-label', opened ? 'Cerrar menú' : 'Abrir menú');
-  });
-  document.querySelectorAll('.navlinks a').forEach(link => link.addEventListener('click', () => {
-    navlinks.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded','false');
-    menuToggle.setAttribute('aria-label','Abrir menú');
-  }));
-  document.getElementById('year').textContent = String(new Date().getFullYear());
-  const revealObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}});
-  },{threshold:.12}) : null;
-  document.querySelectorAll('.reveal').forEach(element => revealObserver ? revealObserver.observe(element) : element.classList.add('is-visible'));
-  const scenarios = {
-    gestion:{label:'Gestión cotidiana',title:'Todo fluye mejor.',desc:'El espacio que organiza tu día, a tu ritmo.',tiles:[['Tareas del día','12','Organizadas'],['Completadas','08','Buen ritmo'],['Próximo paso','01','Prioridad']]},
-    reservas:{label:'Reservas y agenda',title:'Citas sin caos.',desc:'Tu calendario y cada solicitud, en un solo vistazo.',tiles:[['Citas de hoy','06','En agenda'],['Disponibles','04','Huecos libres'],['Solicitudes','03','Por revisar']]},
-    eventos:{label:'Eventos y aforos',title:'Todo bajo control.',desc:'Inscripciones claras y capacidad visible en tiempo real.',tiles:[['Plazas totales','60','Aforo'],['Inscritos','42','Confirmados'],['Disponibles','18','Quedan plazas']]}
+  var TYPES = {
+    reservas: {label:'Reservas', def:'Peluquería Ana', greet:'Buenos días', tt:'Nueva reserva', ts:'Martes 20 · 11:30', tipo:'Reservas y citas'},
+    pedidos:  {label:'Pedidos', def:'Panadería Sol', greet:'¿Qué te apetece hoy?', tt:'Pedido recibido', ts:'3 productos · para mañana', tipo:'Pedidos'},
+    eventos:  {label:'Eventos', def:'Taller de otoño', greet:'Tu evento', tt:'Nueva inscripción', ts:'Quedan 17 plazas', tipo:'Eventos e inscripciones'},
+    gestion:  {label:'Gestión', def:'Equipo Tienda', greet:'Hola, equipo', tt:'Tarea completada', ts:'Abrir caja · AM', tipo:'Gestión y organización'}
   };
-  const tabs = Array.from(document.querySelectorAll('.scenario'));
-  function activateScenario(tab) {
-    const data=scenarios[tab.dataset.scenario];
-    tabs.forEach(t=>{const current=t===tab;t.setAttribute('aria-selected', String(current));t.tabIndex=current?0:-1;});
-    document.getElementById('demo-panel').setAttribute('aria-labelledby', tab.id);
-    document.getElementById('demo-label').textContent=data.label;
-    document.getElementById('demo-title').textContent=data.title;
-    document.getElementById('demo-desc').textContent=data.desc;
-    data.tiles.forEach((tile,i)=>{const n=i+1;document.getElementById(`tile-${n}-label`).textContent=tile[0];document.getElementById(`tile-${n}-value`).textContent=tile[1];document.getElementById(`tile-${n}-note`).textContent=tile[2];});
+  var state = {type:'reservas', color:'#6C3BFF', name:''};
+  var $ = function(sel, root){ return (root||document).querySelector(sel); };
+  var $$ = function(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); };
+  var tipoSel = $('#q-tipo'), quienSel = $('#q-quien'), plazoSel = $('#q-plazo'), nombreIn = $('#q-nombre');
+  var tipoTouched = false;
+
+  function setText(key, val){ $$('[data-t="'+key+'"]').forEach(function(el){ el.textContent = val; }); }
+
+  function renderApp(){
+    var cur = TYPES[state.type];
+    var name = state.name.trim() || cur.def;
+    document.documentElement.style.setProperty('--c', state.color);
+    setText('displayName', name);
+    setText('initial', name.charAt(0).toUpperCase());
+    setText('greeting', cur.greet);
+    setText('toastTitle', cur.tt);
+    setText('toastSub', cur.ts);
+    setText('typeLabel', cur.label);
+    $('#tp-preview').setAttribute('aria-label', 'Vista previa de la app ' + name);
+    $('#tp-nombre').placeholder = cur.def;
+    $$('.tp-screen').forEach(function(el){ el.hidden = el.getAttribute('data-screen') !== state.type; });
+    $$('.tp-tbtn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-type') === state.type)); });
+    $$('.tp-cbtn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-color') === state.color)); });
+    if (!tipoTouched) tipoSel.value = cur.tipo;
+    renderContact();
   }
-  tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>activateScenario(tab));tab.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const step=event.key==='ArrowRight'?1:-1;const next=tabs[(index+step+tabs.length)%tabs.length];activateScenario(next);next.focus();}});});
-  const form=document.getElementById('lead-form');
-  const feedback=document.getElementById('form-feedback');
-  if (CONTACT_EMAIL) document.getElementById('form-info').textContent='Al pulsar, se abrirá tu aplicación de correo con un mensaje preparado: debes enviarlo desde allí. No guardamos estos campos en un servidor.';
-  form.addEventListener('submit',async(event)=>{
-    event.preventDefault();
-    if(!form.reportValidity())return;
-    const payload=new FormData(form);
-    const message=`CONSULTA PARA táppika\n\nNombre: ${payload.get('nombre')}\nEmail: ${payload.get('email')}\nTipo: ${payload.get('tipo')}\n\nIdea:\n${payload.get('descripcion')}\n`;
-    if(CONTACT_EMAIL){window.location.href=`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Consulta web táppika')}&body=${encodeURIComponent(message)}`;feedback.textContent='Comprueba tu aplicación de correo y pulsa «Enviar». Esta web no envía el mensaje automáticamente.';return;}
-    try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(message);feedback.textContent='Consulta copiada. Esta es una demostración: no se ha enviado ni almacenado.';return;}}catch(error){}
-    const blob=new Blob([message],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const anchor=document.createElement('a');anchor.href=url;anchor.download='consulta_tappika_demo.txt';document.body.appendChild(anchor);anchor.click();anchor.remove();URL.revokeObjectURL(url);feedback.textContent='Se ha descargado un archivo con el mensaje. No se ha enviado ni almacenado.';
-  });
+
+  function renderContact(){
+    var tipo = tipoSel.value, quien = quienSel.value, plazo = plazoSel.value, nombre = nombreIn.value.trim();
+    var answered = (tipo?1:0) + (quien?1:0) + (plazo?1:0);
+    setText('answered', String(answered));
+    $('#tp-prog').style.width = Math.round(answered/3*100) + '%';
+    var msg = 'Hola, táppika.';
+    if (nombre) msg += ' Soy ' + nombre + '.';
+    if (tipo) msg += ' Me interesa una app de ' + tipo.toLowerCase() + (quien ? ' para ' + quien : '') + '.';
+    else if (quien) msg += ' Me interesa una app para ' + quien + '.';
+    if (plazo) msg += ' La necesitaría ' + plazo + '.';
+    var subject = 'táppika · Consulta' + (tipo ? ': app de ' + tipo.toLowerCase() : '');
+    $('#tp-mail').href = 'mailto:info.tappika@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg);
+    $('#tp-wa').href = 'https://wa.me/34620843264?text=' + encodeURIComponent(msg);
+  }
+
+  $$('.tp-tbtn').forEach(function(b){ b.addEventListener('click', function(){ state.type = b.getAttribute('data-type'); renderApp(); }); });
+  $$('.tp-cbtn').forEach(function(b){ b.addEventListener('click', function(){ state.color = b.getAttribute('data-color'); renderApp(); }); });
+  $('#tp-nombre').addEventListener('input', function(e){ state.name = e.target.value; renderApp(); });
+  tipoSel.addEventListener('change', function(){ tipoTouched = true; renderContact(); });
+  [quienSel, plazoSel].forEach(function(el){ el.addEventListener('change', renderContact); });
+  nombreIn.addEventListener('input', renderContact);
+  $('#tp-form').addEventListener('submit', function(e){ e.preventDefault(); });
+  renderApp();
+})();
 </script>
 </body>
 </html>

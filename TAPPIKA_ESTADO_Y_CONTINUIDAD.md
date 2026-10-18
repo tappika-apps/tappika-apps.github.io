@@ -112,3 +112,23 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 **Titularidad/seguridad:** BNevents continúa perteneciendo a BNfit y usando su Worker y D1. Esta auditoría ejecutó GET públicos, no operaciones de escritura, y no implica alteraciones de eventos, inscripciones, contraseñas ni configuración de BNfit. La web de táppika sigue independiente.
 
 **Pendientes fuera del alcance de este crédito:** comprobaciones de Android físico del anterior ajuste de panel móvil, si BNfit desea esa certificación adicional, y los asuntos registrales/legales propios de la marca táppika. No impedir por ello afirmar que el crédito está publicado en HTML.
+
+
+## 8. Nueva web de táppika (rediseño con Claude) — 18/10/2026
+
+**Decisión de la titular:** sustituir la web anterior (prototipo de ChatGPT) por el rediseño trabajado con Claude, que integra lo mejor del prototipo anterior (soluciones, filosofía, proceso Escuchar/Diseñar/Construir/Entregar, aviso de vistas conceptuales).
+
+**Qué cambia en `index.html`** (96171 bytes, SHA-256 `9c08fd3a081fb5a1b437a382dd35f243485a0d32de0a4e5bb008750d2cf59cb1`):
+- Portada «Tú tienes una idea. Nosotros la convertimos en app.» con **generador interactivo**: el visitante elige tipo (Reservas, Pedidos, Eventos, Gestión), color y nombre, y ve la app en un móvil. Son **vistas conceptuales**, no apps publicadas (se indica en la página).
+- Secciones: Lo que hacemos, Nuestra forma de pensar (antes/después animado), El proceso, Funciones, Preguntas y Contacto. Paleta oficial: #0B1020, #6C3BFF, #A78BFA, #E5E7EB, #F8FAFC. Tipografía Manrope (Google Fonts).
+- Versión móvil específica: menos espaciado, proceso en línea de tiempo vertical animada, funciones en mosaico 2×2.
+- **Teléfono personal retirado de la vista** por decisión de la titular. Solo se usa dentro del enlace de WhatsApp (`wa.me`), que no muestra el número en la página aunque técnicamente esté en el código.
+- **Contacto con mini cuestionario** (tipo de app, para qué es, plazo y nombre opcional). Los botones abren el correo (`mailto:`) o WhatsApp con el mensaje ya escrito, que empieza siempre por «Hola, táppika.» para identificar el origen frente a WeddlySmartDesign. **No hay envío automático ni servidor**: la persona debe pulsar Enviar.
+- Pie: «Web en evolución · Datos legales pendientes de completar». Se mantiene `noindex, nofollow`.
+- Logotipo en la web: `táppika` (sin punto decorativo, según el diseño final aprobado por la titular).
+
+**Verificador automático actualizado** (`.github/workflows/tappika-public-site-smoke.yml`): ahora comprueba título, noindex, email, enlace de WhatsApp, que el teléfono **no** aparece, generador (tipo y color), cuestionario y enlaces de contacto, sin desbordamiento ni errores en escritorio y móvil.
+
+**Pruebas previas a la publicación:** Chromium local en 1440×900 y 390×844: generador, cuestionario, enlaces de email/WhatsApp, sin errores de script ni desbordamiento horizontal. La comprobación pública la hace GitHub Actions tras el despliegue.
+
+**Pendiente:** textos legales y titular, dominio propio, registro de marca. Valorar el logo oficial de WhatsApp en el botón (ahora icono genérico).
