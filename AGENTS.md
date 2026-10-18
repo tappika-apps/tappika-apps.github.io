@@ -1,4 +1,4 @@
-# Reglas permanentes para TÁPPIKA (nombre de archivo técnico; no usar esta grafía como marca)
+# Reglas permanentes de identidad — táppika
 
 ## Escritura de marca: prioridad absoluta
 - La marca debe escribirse **siempre `táppika`**, en minúsculas y con tilde sobre la «á».
