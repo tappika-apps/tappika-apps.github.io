@@ -84,3 +84,12 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 - **Estado real:** NO desplegado en Cloudflare desde esta sesión; no hay conexión Cloudflare autorizada del propietario entre las herramientas disponibles y el navegador de este entorno no puede acceder al Worker. El paquete NO demuestra que el crédito sea visible en producción. La ejecución requiere el entorno BNfit autenticado, verifica correo, D1, versión, estado legal e inscripciones, utiliza un único `wrangler deploy --keep-vars` y comprueba resultado público.
 - **Pendiente crítico antes del anuncio con crédito:** efectuar el despliegue desde la cuenta autorizada de BNfit y aportar informe `RESULTADO_CREDITO_TAPPIKA_BNFIT.txt` confirmando URL, enlace de crédito y ausencia de cambios en inscripciones/legalidad. Si el proceso falla, no repetir sin diagnóstico.
 - No dar por publicado el crédito hasta esa prueba. Ni BNevents ni su infraestructura han sido modificados desde esta sesión.
+
+
+### Incidencia de publicación del crédito — 18/10/2026, después del primer intento
+
+- Captura recibida del ejecutable de BNfit: Wrangler **subió 1 archivo nuevo (`/index.html`) y desplegó `bnevents-bnfit`**. El script llegó al paso 5/5, pero devolvió `NO CONFIRMADO: La web NO muestra el credito nuevo`. **No puede afirmarse que el crédito sea visible públicamente** sin evidencia posterior.
+- La captura muestra `PUBLIC_SIGNUPS_ENABLED = "false"`, pero el código original del Worker **no usa esa variable** para determinar la apertura. `signupState()` consulta la configuración legal/D1 y `PUBLIC_SIGNUPS_FORCE_DISABLED`. El script alcanzó la última comprobación del HTML después de pasar las condiciones de salud de inscripciones y legalidad; no hay evidencia en esa captura de cierre de inscripciones.
+- El fallo puede deberse a propagación temporal de assets o a comprobación `Invoke-WebRequest.Content.Contains` con acento `á`; **causa no certificada**. El comprobador agrupaba marcador y texto bajo una única condición, por lo que no distinguía cuál faltó.
+- No repetir el instalador ni alterar Cloudflare/D1. Se conservó en Biblioteca de **BNevents** el diagnóstico `/BNevents/BNevents_DIAGNOSTICO_CREDITO_SOLO_LECTURA_2026-10-18.zip`: dos GET HTML públicos (raíz y `/index.html`) con UTF-8 desde bytes y uno a `/api/health`; **sin despliegue, credenciales ni escrituras remotas**. A la espera del fichero `INFORME_PUBLICO_CREDITO_BNFIT.txt` para decidir el arreglo mínimo con evidencia.
+- La web de táppika no se ha modificado por esta incidencia.
