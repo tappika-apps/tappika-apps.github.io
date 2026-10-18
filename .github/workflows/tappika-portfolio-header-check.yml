@@ -1,0 +1,28 @@
+name: Check current published portfolio header
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tappika-portfolio-header-check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Inspect public HTML heading and email
+        run: |
+          python3 - <<'PY'
+          import urllib.request,time
+          for i in range(1,7):
+            req=urllib.request.Request("https://tappika-apps.github.io/?revision=portfolio1810-"+str(i),headers={"Cache-Control":"no-cache","User-Agent":"tappika-qa"})
+            with urllib.request.urlopen(req,timeout=12) as r:
+              s=r.read().decode("utf-8")
+              print("TRY",i,"STATUS",r.status,"BYTES",len(s),"PORTFOLIO_NEW",'class="tp-case-eyebrow">Proyectos realizados</span>' in s,"OLD",'<span class="tp-case-eyebrow">Aplicaciones con propósito</span>' in s,"MAIL_NEW","mailto:info@tappika.es" in s,"MAIL_OLD","info.tappika@gmail.com" in s,flush=True)
+            if 'class="tp-case-eyebrow">Proyectos realizados</span>' in s and "mailto:info@tappika.es" in s: 
+              print("LIVE CONTENT VERIFIED")
+              break
+            time.sleep(6)
+          else: raise SystemExit("LIVE CONTENT NOT UPDATED")
+          PY
