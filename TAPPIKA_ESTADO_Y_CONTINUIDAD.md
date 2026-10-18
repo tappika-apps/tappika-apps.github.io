@@ -41,7 +41,7 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 1. **Hecho:** web recuperada desde la última fuente verificada y publicada bajo titularidad exclusiva de `tappika-apps`. La URL pública, los contactos, la marca y las interacciones principales se comprobaron en GitHub Actions el 18/10/2026.
 2. Mantener `noindex, nofollow` mientras se completan datos legales. El formulario actual sigue abriendo el correo del visitante (`mailto:`), sin recepción automática.
 3. Resolver aviso legal y privacidad, viabilidad registral de la marca en España/UE y dominio comercial propio antes de afirmar que existe lanzamiento comercial plenamente certificado.
-4. **Siguiente producto, NO modificado:** preparar la mención de crédito **Designed by táppika** en BNevents, discreta y enlazada a https://tappika-apps.github.io/. No cambiar la app sin revisar su versión actual y preservar titularidad, seguridad y funcionamiento. El propietario de BNevents sigue siendo BNfit.
+4. **Crédito en BNevents completado el 18/10/2026:** `Designed by táppika` publicado en HTML de la página de BNfit y confirmado con auditoría pública de solo lectura. La titularidad y los datos de BNevents son de BNfit. No hay que repetir despliegue; ver sección 7.
 
 ## 5. Norma de trabajo
 - El usuario delega la dirección de principio a fin; no imponerle trabajo técnico ni microdecisiones evitables.
@@ -71,11 +71,11 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 ### Restricciones y siguiente paso
 - Nombre de marca siempre `táppika` en minúsculas, incluida la tilde, incluso en el crédito de BNevents.
 - URL pública confirmada: `https://tappika-apps.github.io/`. No se ha adquirido ni configurado dominio propio.
-- **BNevents NO modificado.** Crédito futuro aprobado: `Designed by táppika`, enlace al sitio público, discreto. Revisar antes el estado y titularidad de BNevents y minimizar riesgos.
+- **Actualización histórica:** durante la primera publicación de la web de táppika, BNevents no se tocó. Posteriormente (18/10/2026) se publicó exclusivamente el crédito `Designed by táppika` en BNevents, bajo cuenta de BNfit. Ver sección 7 y su cierre de auditoría. La titularidad de BNevents sigue siendo BNfit.
 - **Pendientes legales:** identificación fiscal/titular del sitio, aviso legal, privacidad cuando corresponda, estudio de registro de marca y dominio propio. Hasta cerrar la parte legal, mantener `noindex` y el aviso de sitio en evolución.
 
 
-## 7. BNevents — crédito de diseño preparado, pendiente de publicación (18/10/2026)
+## 7. BNevents — crédito de diseño publicado y comprobado por auditoría externa (18/10/2026)
 
 - Petición: añadir al pie de BNevents, sin protagonismo, **Designed by táppika** y enlace a https://tappika-apps.github.io/ (sitio público verificado previamente).
 - Proyecto y titular **independientes**: BNevents es de BNfit; Cloudflare Worker `bnevents-bnfit`, D1 original de BNfit. Nunca alojar en repositorio/cuenta de táppika, ni modificar inscripciones, titularidad, secretos o legislación.
@@ -93,3 +93,22 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 - El fallo puede deberse a propagación temporal de assets o a comprobación `Invoke-WebRequest.Content.Contains` con acento `á`; **causa no certificada**. El comprobador agrupaba marcador y texto bajo una única condición, por lo que no distinguía cuál faltó.
 - No repetir el instalador ni alterar Cloudflare/D1. Se conservó en Biblioteca de **BNevents** el diagnóstico `/BNevents/BNevents_DIAGNOSTICO_CREDITO_SOLO_LECTURA_2026-10-18.zip`: dos GET HTML públicos (raíz y `/index.html`) con UTF-8 desde bytes y uno a `/api/health`; **sin despliegue, credenciales ni escrituras remotas**. A la espera del fichero `INFORME_PUBLICO_CREDITO_BNFIT.txt` para decidir el arreglo mínimo con evidencia.
 - La web de táppika no se ha modificado por esta incidencia.
+
+### Cierre de incidencia — auditoría pública satisfactoria, 18/10/2026 09:49:50 UTC
+
+**Evidencia aportada:** captura del terminal Windows del comprobador `VERIFICAR_CREDITO_SIN_CAMBIOS.cmd` (solo lectura), ejecutado en el equipo autorizado. Informe declarado: `INFORME_PUBLICO_CREDITO_BNFIT.txt`.
+
+**Resultado literalmente visible en el informe del comprobador:**
+- URL comprobada: `https://bnevents-bnfit.bnfitmurcia.workers.dev`
+- Raíz `/`: **HTTP 200**, 352720 bytes, `text/html`; `movil=True`, `credito=True`, `enlace=True`, `nombre_UTF8=True`, `funcion_pie=True`.
+- `/index.html`: **HTTP 200**, 352720 bytes, `text/html`; los mismos cinco marcadores en `True`.
+- Salud `/api/health`: **HTTP 200**, `ok=True`, `version=2.3.0`, `inscripciones_abiertas=True`, `legales_validados=True`.
+- Conclusión del comprobador: `CREDITO PRESENTE EN HTML PUBLICO DE LA RAIZ (HTTPS). El fallo anterior fue de la comprobacion automatica o transitorio. Falta inspeccion visual en navegador si es necesaria.`
+
+**Estado acreditado:** el crédito `Designed by táppika`, el enlace a `https://tappika-apps.github.io/` y los marcadores de su integración están presentes en la respuesta HTML pública; la API de salud informa estado legal validado e inscripciones abiertas. Es correcto marcar como **publicada y confirmada técnicamente la mención en el HTML público**, sin requerir otro despliegue. No consta inspección visual del posicionamiento/legibilidad exactos en navegadores o móviles físicos; no se atribuye certificación visual no realizada.
+
+**Diagnóstico del fallo previo:** se ha descartado que el crédito faltase en el HTML público en el momento de esta auditoría. No se conoce con certeza si la comprobación anterior falló por caché/propagación o por el uso de comparación de cadenas acentuadas de PowerShell; ambas eran hipótesis. No modificar el código del Worker ni volver a ejecutar instaladores para resolver un problema ya superado en la comprobación.
+
+**Titularidad/seguridad:** BNevents continúa perteneciendo a BNfit y usando su Worker y D1. Esta auditoría ejecutó GET públicos, no operaciones de escritura, y no implica alteraciones de eventos, inscripciones, contraseñas ni configuración de BNfit. La web de táppika sigue independiente.
+
+**Pendientes fuera del alcance de este crédito:** comprobaciones de Android físico del anterior ajuste de panel móvil, si BNfit desea esa certificación adicional, y los asuntos registrales/legales propios de la marca táppika. No impedir por ello afirmar que el crédito está publicado en HTML.
