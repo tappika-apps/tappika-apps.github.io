@@ -71,10 +71,13 @@ input,textarea,button,select{font-family:inherit}
 .tp-secb{padding-bottom:64px!important}
 .tp-hide-m{display:none!important}
 .tp-show-m{display:flex!important}
-.tp-gen{gap:14px!important}
-.tp-ctrl{order:-1;max-width:none!important;flex:1 1 100%!important;padding:16px!important;gap:12px!important;border-radius:22px!important}
-.tp-ctrl legend{margin-bottom:8px!important}
-.tp-phone{transform:scale(.66);transform-origin:top center;margin-bottom:-219px;margin-top:22px}
+.tp-gen{gap:10px!important}
+.tp-ctrl{max-width:none!important;flex:1 1 100%!important;padding:14px!important;gap:10px!important;border-radius:20px!important}
+.tp-typegrid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important}
+.tp-typegrid button,.tp-tbtn{min-height:40px!important;padding:0 2px!important;font-size:13px!important}
+.tp-ctrl fieldset button[aria-label],.tp-cbtn{width:38px!important;height:38px!important}
+.tp-ctrl legend{margin-bottom:6px!important;font-size:13px!important}
+.tp-phone{transform:scale(.58);transform-origin:top center;margin-bottom:-270px;margin-top:18px}
 .tp-vline{display:block!important}
 .tp-steps{display:flex!important;flex-direction:column;gap:26px!important}
 .tp-steps>li{display:grid!important;grid-template-columns:52px minmax(0,1fr);column-gap:16px;row-gap:4px!important;align-items:start}
@@ -312,11 +315,11 @@ html{scroll-behavior:smooth}
           <div class="tp-ctrl" style="flex: 1 1 220px; min-width: 0; max-width: 300px; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12)">
             <div style="display: flex; justify-content: space-between; align-items: center">
               <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #A78BFA">Crea tu app</span>
-              <span style="font-size: 12px; font-weight: 600; color: rgba(229,231,235,0.65)">en 3 toques</span>
+              <span style="font-size: 12px; font-weight: 600; color: rgba(229,231,235,0.65)"><span class="tp-hide-m">en 3 toques</span><span class="tp-show-m" style="display: none">en 2 toques</span></span>
             </div>
             <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 10px">
               <legend style="padding: 0; margin-bottom: 10px; font-size: 14px; font-weight: 700; color: #E5E7EB">1 · Tipo de app</legend>
-              <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+              <div class="tp-typegrid" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
                 <button type="button" class="tp-tbtn" data-type="reservas" aria-pressed="true">Reservas</button><button type="button" class="tp-tbtn" data-type="pedidos" aria-pressed="false">Pedidos</button><button type="button" class="tp-tbtn" data-type="eventos" aria-pressed="false">Eventos</button><button type="button" class="tp-tbtn" data-type="gestion" aria-pressed="false">Gestión</button>
               </div>
             </fieldset>

@@ -138,3 +138,7 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 - **Nueva opción «¿Prefieres que te llamemos?»**: al marcarla aparecen teléfono (obligatorio, mínimo 9 cifras) y mejor momento (cualquier hora / mañana / tarde). Se añade al mensaje: «Prefiero que me llaméis al …, por la tarde.» Sigue sin servidor: la petición llega por el mismo email o WhatsApp que envía el visitante.
 - El teléfono que escribe el visitante no se guarda en ningún sitio; solo viaja en su propio mensaje.
 - Verificador público ampliado con estas comprobaciones.
+
+### 8.2 Portada en móvil — 18/10/2026
+- En móvil el generador muestra primero el teléfono (más pequeño) y debajo la personalización compacta: los 4 tipos en una fila y los colores en otra. Todo cabe en una pantalla (~630 px).
+- En móvil el rótulo dice «en 2 toques» (el campo de nombre del generador solo aparece en ordenador).
