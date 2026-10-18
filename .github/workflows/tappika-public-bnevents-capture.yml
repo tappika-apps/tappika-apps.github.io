@@ -1,0 +1,61 @@
+name: Capture BNevents public portfolio screenshot
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/tappika-public-bnevents-capture.yml']
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare screenshot dependencies
+        run: |
+          python -m pip install playwright==1.56.0 pillow
+          python -m playwright install --with-deps chromium
+      - name: Read only public BNevents page and photograph
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright
+          from PIL import Image
+          import re
+          url="https://bnevents-bnfit.bnfitmurcia.workers.dev/"
+          with sync_playwright() as p:
+            browser=p.chromium.launch(headless=True)
+            ctx=browser.new_context(viewport={"width":1280,"height":800},device_scale_factor=1,locale="es-ES",reduced_motion="reduce")
+            page=ctx.new_page()
+            response=page.goto(url,wait_until="domcontentloaded",timeout=40000)
+            assert response and response.status==200,f"Public site HTTP {response.status if response else 'no response'}"
+            page.wait_for_timeout(1800)
+            text=page.locator("body").inner_text()
+            assert "BNevents" in text,"BNevents identity not found"
+            if "No se ha podido conectar" in text or "Error al cargar" in text:
+              raise RuntimeError("Public application did not load; refusing to publish an error screenshot")
+            # Public entry view only: never click administration or read/modify private bookings
+            Path("assets/portfolio").mkdir(parents=True,exist_ok=True)
+            raw=Path("/tmp/bnevents-public-portfolio.png")
+            page.screenshot(path=str(raw),animations="disabled",full_page=False)
+            with Image.open(raw) as im:
+              im.convert("RGB").save("assets/portfolio/bnevents.webp",format="WEBP",quality=79,method=6)
+            print("PUBLIC BNevents screenshot generated",Path("assets/portfolio/bnevents.webp").stat().st_size,"bytes")
+            browser.close()
+          PY
+      - name: Publish verified public screenshot only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/portfolio/bnevents.webp
+          if git diff --cached --quiet; then
+            echo "Screenshot unchanged"
+          else
+            git commit -m "Add actual public BNevents screenshot for táppika portfolio"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
