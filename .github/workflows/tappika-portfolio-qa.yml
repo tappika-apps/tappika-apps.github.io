@@ -47,6 +47,10 @@ jobs:
               assert page.url.startswith(base+"proyectos.html"),page.url
               assert page.locator("h1").inner_text()=="Proyectos realizados.",f"{device} h1"
               assert page.locator("article.case").count()==4
+              bn_image=page.locator('img[src="assets/portfolio/bnevents.webp"]')
+              assert bn_image.count()==1,"Real BNevents image not found"
+              bn_image.scroll_into_view_if_needed()
+              page.wait_for_function("() => { const e=document.querySelector('img[src=\\\"assets/portfolio/bnevents.webp\\\"]'); return e && e.complete && e.naturalWidth>500; }",timeout=25000)
               for name in names: assert page.get_by_role("heading",name=name,exact=True).count()==1
               assert page.get_by_role("heading",name="Agenda y reservas a medida").count()==1
               assert "Salud Navarro" not in page.content()
