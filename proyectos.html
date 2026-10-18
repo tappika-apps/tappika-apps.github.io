@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0B1020">
+<meta name="description" content="Proyectos realizados por táppika: aplicaciones de eventos, agricultura, organización académica y reservas profesionales.">
+<meta property="og:title" content="Proyectos realizados · táppika">
+<title>Proyectos realizados · táppika</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--navy:#0B1020;--purple:#6C3BFF;--lav:#A78BFA;--text:#F8FAFC;--grey:#E5E7EB}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--text);background:var(--navy);font:15px/1.65 Manrope,"Segoe UI",Arial,sans-serif}
+a{color:inherit}a:focus-visible,input:focus-visible{outline:3px solid var(--lav);outline-offset:5px}
+.skip{position:absolute;left:10px;top:-70px;padding:8px;background:#fff;color:#0B1020;z-index:10}.skip:focus{top:10px}
+header{border-bottom:1px solid #ffffff21;position:relative;z-index:2;background:var(--navy)}
+.head{max-width:1240px;margin:auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:inline-flex;align-items:center;gap:11px;text-decoration:none;white-space:nowrap}
+.brand-icon{height:39px;width:39px;border:1px solid #ffffff38;border-radius:12px;display:grid;place-items:center;position:relative;font-weight:800;font-size:27px}
+.brand-icon:after{content:"";position:absolute;top:5px;right:7px;height:10px;width:4px;border-radius:2px;background:var(--purple);transform:rotate(35deg)}
+.brand-word{font-size:28px;font-weight:800;letter-spacing:-.05em}.brand-word .accent{color:var(--purple)}
+.topnav{display:flex;gap:24px;align-items:center;font-weight:700}
+.topnav a{text-decoration:none}.topnav a:hover{color:var(--lav)}
+.topnav a:last-child{padding:11px 20px;border-radius:100px;border:1px solid #ffffff45}
+main{max-width:1240px;margin:0 auto;padding:92px 24px 100px}
+.eyebrow{font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:800;color:var(--lav)}
+h1{font-size:clamp(38px,6vw,74px);line-height:1.06;letter-spacing:-.055em;margin:18px 0}
+.intro{max-width:730px;color:#C8CBD8;font-size:18px;line-height:1.7;margin:22px 0 0}
+.toolbar{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin:48px 0 24px}
+.count{font-size:12px;color:#BCC2D4;letter-spacing:.07em;font-weight:800;text-transform:uppercase}
+.search{min-width:230px;flex:1;max-width:420px;margin-left:auto;border-radius:999px;border:1px solid #ffffff40;padding:13px 19px;background:#ffffff0c;color:#fff;font:inherit}
+.search::placeholder{color:#AFB6CB}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px}
+.case{min-width:0;border:1px solid #ffffff29;border-radius:28px;overflow:hidden;background:#ffffff09;transition:border-color .2s,transform .2s}
+.case:hover{border-color:#A78BFA88;transform:translateY(-3px)}
+.case-media{height:260px;background:linear-gradient(130deg,#1D2250,#343C66);display:grid;place-items:center;position:relative;border-bottom:1px solid #ffffff22}
+.case-media[data-tone="field"]{background:linear-gradient(130deg,#172D28,#2A5947)}
+.case-media[data-tone="study"]{background:linear-gradient(130deg,#252447,#4F467C)}
+.case-media[data-tone="booking"]{background:linear-gradient(130deg,#3B2939,#77506D)}
+.media-pending{text-align:center;color:#F8FAFCBB;display:grid;justify-items:center;gap:12px}
+.media-pending svg{width:42px;height:42px;opacity:.65}.media-pending span{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.case-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+.case-copy{padding:27px 29px 32px}
+.kind{color:#BDA9FF;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+h2{font-size:26px;line-height:1.14;letter-spacing:-.035em;margin:12px 0}
+.case-copy p{color:#D1D5E2;margin:0 0 21px;font-size:15px;line-height:1.7}
+.features{margin:0;padding:0;list-style:none;display:flex;gap:8px;flex-wrap:wrap}
+.features li{padding:7px 11px;border:1px solid #ffffff33;border-radius:100px;background:#ffffff09;font-size:11px;font-weight:700}
+.empty{padding:35px 0;color:#D6DAE9}
+.below{margin:57px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid #ffffff26;padding-top:28px}
+.below p{margin:0;color:#C8CBD8}
+.cta{background:var(--purple);padding:13px 22px;border-radius:100px;text-decoration:none;font-weight:800}
+.cta:hover{background:#7B4EFF}
+footer{border-top:1px solid #ffffff24;padding:32px 20px;text-align:center;color:#B3BAD0;font-size:12px}
+footer nav{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:13px}
+footer a{color:#E5E7EB}
+@media(max-width:760px){.head{padding:18px 20px}.brand-word{font-size:25px}.brand-icon{height:35px;width:35px}.topnav{gap:12px;font-size:12px}.topnav a:last-child{padding:8px 11px}main{padding:55px 20px 73px}.grid{grid-template-columns:1fr;gap:18px}.case-media{height:220px}.case-copy{padding:23px}.toolbar{gap:10px;margin:28px 0 20px}.search{order:2;flex-basis:100%;max-width:none;margin-left:0}.intro{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.case{transition:none}.case:hover{transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Ir al contenido</a>
+<header>
+ <div class="head">
+  <a href="./" class="brand" aria-label="táppika, volver al inicio">
+   <span class="brand-icon" aria-hidden="true">t</span>
+   <span class="brand-word">t<span class="accent">á</span>pp<span class="accent">i</span>ka.</span>
+  </a>
+  <nav class="topnav" aria-label="Navegación">
+   <a href="./">Inicio</a><a href="./#contacto">Hablemos</a>
+  </nav>
+ </div>
+</header>
+<main id="contenido">
+ <span class="eyebrow">Portfolio</span>
+ <h1>Proyectos <span style="color:#A78BFA">realizados.</span></h1>
+ <p class="intro">Aplicaciones diferentes, diseñadas para necesidades diferentes. Una selección de funcionalidades y formas de trabajar que muestran lo que es posible construir a medida.</p>
+ <div class="toolbar">
+  <span class="count" id="count">4 proyectos</span>
+  <input type="search" id="search" class="search" placeholder="Buscar proyectos o funciones" aria-label="Buscar proyectos o funciones" autocomplete="off">
+ </div>
+ <div class="grid" id="portfolio">
+  <article class="case" data-keywords="bnevents eventos inscripciones actividades aforo calendario asistentes gimnasio" aria-labelledby="p-bn">
+   <div class="case-media" data-tone="events">
+    <div class="media-pending" role="img" aria-label="Captura auténtica pendiente de seleccionar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 15 3-3 3 3 3-4 2 3"/></svg><span>Captura en preparación</span></div>
+   </div>
+   <div class="case-copy"><span class="kind">Eventos e inscripciones</span><h2 id="p-bn">BNevents</h2><p>Calendario de actividades, inscripciones y control de plazas desde una misma herramienta.</p><ul class="features"><li>Eventos</li><li>Inscripciones</li><li>Control de aforo</li><li>Gestión</li></ul></div>
+  </article>
+  <article class="case" data-keywords="mi campo gestión agrícola invernaderos sectores tratamientos labores riegos inventario" aria-labelledby="p-campo">
+   <div class="case-media" data-tone="field">
+    <div class="media-pending" role="img" aria-label="Captura auténtica pendiente de seleccionar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 15 3-3 3 3 3-4 2 3"/></svg><span>Captura en preparación</span></div>
+   </div>
+   <div class="case-copy"><span class="kind">Gestión agrícola</span><h2 id="p-campo">Mi Campo</h2><p>Un cuaderno agrícola digital para reunir el trabajo diario y consultar las anotaciones de la explotación.</p><ul class="features"><li>Invernaderos</li><li>Labores</li><li>Inventario</li><li>Costes</li></ul></div>
+  </article>
+  <article class="case" data-keywords="mi semana agenda escolar clases asignaturas calendario exámenes deberes tareas" aria-labelledby="p-semana">
+   <div class="case-media" data-tone="study">
+    <div class="media-pending" role="img" aria-label="Captura auténtica pendiente de seleccionar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 15 3-3 3 3 3-4 2 3"/></svg><span>Captura en preparación</span></div>
+   </div>
+   <div class="case-copy"><span class="kind">Organización académica</span><h2 id="p-semana">Mi Semana</h2><p>Organización visual de las clases, tareas y exámenes en una agenda sencilla y personalizable.</p><ul class="features"><li>Calendario</li><li>Tareas</li><li>Exámenes</li><li>Asignaturas</li></ul></div>
+  </article>
+  <article class="case" data-keywords="agenda reservas citas servicios horarios calendario disponibilidad actividad profesional" aria-labelledby="p-citas">
+   <div class="case-media" data-tone="booking">
+    <div class="media-pending" role="img" aria-label="Captura auténtica pendiente de seleccionar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 15 3-3 3 3 3-4 2 3"/></svg><span>Captura en preparación</span></div>
+   </div>
+   <div class="case-copy"><span class="kind">Reservas profesionales</span><h2 id="p-citas">Agenda y reservas a medida</h2><p>Una experiencia para mostrar servicios, seleccionar citas y gestionar la agenda y la actividad interna.</p><ul class="features"><li>Servicios</li><li>Disponibilidad</li><li>Agenda</li><li>Gestión</li></ul></div>
+  </article>
+ </div>
+ <p id="empty" class="empty" hidden>No encontramos proyectos con esos términos.</p>
+ <div class="below"><p>¿Quieres una herramienta pensada para tu forma de trabajar?</p><a class="cta" href="./#contacto">Hablemos de tu idea →</a></div>
+</main>
+<footer><nav aria-label="Información legal"><a href="./">Inicio</a><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></nav>© 2026 táppika · Aplicaciones a medida</footer>
+<script>
+(function(){
+ const search=document.getElementById('search'),cases=[...document.querySelectorAll('.case')],count=document.getElementById('count'),empty=document.getElementById('empty');
+ function filter(){
+  const value=search.value.trim().toLocaleLowerCase('es');
+  let total=0;
+  for(const el of cases){const match=el.textContent.toLocaleLowerCase('es').includes(value)||el.dataset.keywords.includes(value);el.hidden=!match;if(match)total++;}
+  count.textContent=total+' '+(total===1?'proyecto':'proyectos');
+  empty.hidden=total!==0;
+ }
+ search.addEventListener('input',filter);
+})();
+</script>
+</body></html>
