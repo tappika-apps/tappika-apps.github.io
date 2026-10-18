@@ -134,6 +134,62 @@ html{scroll-behavior:smooth}
 .tp-cbtn[aria-pressed="true"]{border:3px solid #0B1020;box-shadow:0 0 0 3px #F8FAFC}
 .skip{position:absolute;left:12px;top:-60px;z-index:50;background:#F8FAFC;color:#0B1020;padding:10px 14px;border-radius:10px;font-weight:700}
 .skip:focus{top:12px}
+
+/* táppika · trabajos y ejemplos, componentes aislados */
+.tp-case-section{padding:108px 24px 116px;background:#0B1020;color:#F8FAFC;position:relative;isolation:isolate}
+.tp-case-section:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 8% 5%,rgba(108,59,255,.14),transparent 48%),radial-gradient(ellipse at 96% 96%,rgba(167,139,250,.12),transparent 42%);z-index:-1}
+.tp-case-wrap{max-width:1240px;margin:auto}
+.tp-case-eyebrow{display:block;color:#A78BFA;font-size:12px;font-weight:800;letter-spacing:.23em;text-transform:uppercase}
+.tp-case-title{font-size:clamp(34px,4.2vw,56px);line-height:1.06;letter-spacing:-.047em;margin:15px 0 20px;max-width:760px}
+.tp-case-intro{max-width:710px;font-size:17px;line-height:1.7;color:#C7CBDA;margin:0}
+.tp-case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:42px}
+.tp-case{background:rgba(255,255,255,.055);border:1px solid rgba(229,231,235,.16);border-radius:30px;overflow:hidden;min-width:0;transition:transform .25s ease,border-color .25s ease}
+.tp-case:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.55)}
+.tp-case-preview{height:206px;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:20px 27px;border-bottom:1px solid rgba(229,231,235,.12)}
+.tp-case-preview--events{background:linear-gradient(120deg,#22244C,#463A83)}
+.tp-case-preview--field{background:linear-gradient(120deg,#14362C,#356E58)}
+.tp-case-preview--school{background:linear-gradient(120deg,#242F53,#5B679B)}
+.tp-case-preview--agenda{background:linear-gradient(120deg,#3A2544,#906786)}
+.tp-case-screen{width:min(100%,430px);height:164px;border-radius:16px;background:#F8FAFC;box-shadow:0 15px 36px #02051845;padding:15px 18px;color:#0B1020;display:flex;flex-direction:column;gap:11px;transform:rotate(-2deg)}
+.tp-case-preview--field .tp-case-screen,.tp-case-preview--agenda .tp-case-screen{transform:rotate(2deg)}
+.tp-case-screenhead{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:800;gap:8px}
+.tp-case-screenhead span:last-child{font-weight:700;color:#6C3BFF;font-size:10px}
+.tp-case-screenbody{display:flex;gap:8px;min-height:0;flex:1}
+.tp-case-minibox{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;padding:10px;background:#EEF0F8;border:1px solid #E0E4EE;border-radius:10px}
+.tp-case-minibox strong{font-size:10px;font-weight:800;line-height:1.2;white-space:normal}
+.tp-case-minibox small{font-size:9px;color:#576174;line-height:1.35}
+.tp-case-mockline{height:5px;border-radius:99px;background:#D3D9E8}
+.tp-case-mockline.violet{background:#6C3BFF}
+.tp-case-mockline.green{background:#52A785}
+.tp-case-mockline.warm{background:#BB78B2}
+.tp-case-mockpill{align-self:flex-start;border-radius:99px;background:#0B1020;color:#FFF;font-size:9px;font-weight:800;padding:5px 8px;margin-top:auto}
+.tp-case-days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;flex:1}
+.tp-case-day{border:1px solid #E0E4EE;border-radius:8px;background:#F2F4FB;padding:6px 4px;text-align:center;display:flex;flex-direction:column;gap:7px;align-items:stretch}
+.tp-case-day strong{font-size:10px}
+.tp-case-event{height:10px;border-radius:4px;background:#A78BFA}
+.tp-case-event.yellow{background:#F1CF77}
+.tp-case-event.orange{background:#F4A96D}
+.tp-case-event.blue{background:#86A4E8}
+.tp-case-content{padding:27px 28px 29px}
+.tp-case-meta{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#C2B0FF;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.tp-case-meta span:last-child{color:#B3B9CD;letter-spacing:.035em;text-transform:none}
+.tp-case h3{font-size:25px;line-height:1.17;letter-spacing:-.034em;margin:13px 0 11px}
+.tp-case p{font-size:15px;line-height:1.7;color:#CBD0DF;margin:0 0 18px}
+.tp-case-features{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+.tp-case-features li{padding:7px 10px;border:1px solid #ffffff29;background:#ffffff0d;border-radius:999px;font-size:11px;font-weight:700;color:#E9E8F5}
+.tp-case-disclaimer{color:#AEB5C8;font-size:12px;line-height:1.7;margin:24px 0 0}
+@media(max-width:750px){
+.tp-case-section{padding:68px 20px 72px}
+.tp-case-grid{grid-template-columns:1fr;gap:18px;margin-top:29px}
+.tp-case-preview{height:189px;padding:18px}
+.tp-case-screen{height:151px;padding:13px 14px}
+.tp-case-content{padding:23px 22px 24px}
+.tp-case h3{font-size:23px}
+.tp-case-intro{font-size:15px}
+.tp-case-meta{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.tp-case{transition:none}.tp-case:hover{transform:none}}
+
 </style>
 </head>
 <body>
@@ -151,6 +207,7 @@ html{scroll-behavior:smooth}
       <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; font-weight: 600">
         <a class="tp-navlink" href="#crea" style="color: rgba(229,231,235,0.8); text-decoration: none">Pruébalo</a>
         <a class="tp-navlink" href="#soluciones" style="color: rgba(229,231,235,0.8); text-decoration: none">Soluciones</a>
+        <a class="tp-navlink" href="#proyectos" style="color: rgba(229,231,235,0.8); text-decoration: none">Proyectos</a>
         <a class="tp-navlink" href="#nosotros" style="color: rgba(229,231,235,0.8); text-decoration: none">Nosotros</a>
         <a class="tp-navlink" href="#como" style="color: rgba(229,231,235,0.8); text-decoration: none">Cómo trabajamos</a>
         <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; background: #F8FAFC; color: #0B1020; text-decoration: none; font-weight: 700"><span>Hablemos<span class="tp-long">&nbsp;de tu idea</span></span>
@@ -495,6 +552,132 @@ html{scroll-behavior:smooth}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </a>
       </div>
+    </div>
+  </section>
+
+
+  <!-- ============ PROYECTOS / EJEMPLOS DE SOLUCIONES (sin datos de clientes) ============ -->
+  <section id="proyectos" class="tp-case-section" aria-labelledby="tp-case-title">
+    <div class="tp-case-wrap">
+      <span class="tp-case-eyebrow">Aplicaciones con propósito</span>
+      <h2 id="tp-case-title" class="tp-case-title">Proyectos distintos. <span style="color:#A78BFA">Soluciones a medida.</span></h2>
+      <p class="tp-case-intro">Detrás de cada aplicación hay una necesidad concreta: organizar una actividad, trabajar mejor en el campo, estudiar con claridad o gestionar una agenda profesional. Estos son algunos ejemplos de lo que diseñamos.</p>
+
+      <div class="tp-case-grid">
+        <article class="tp-case" aria-labelledby="tp-case-bn">
+          <div class="tp-case-preview tp-case-preview--events" aria-hidden="true">
+            <div class="tp-case-screen">
+              <div class="tp-case-screenhead"><span>Eventos y actividades</span><span>Panel de gestión</span></div>
+              <div class="tp-case-screenbody">
+                <div class="tp-case-minibox" style="flex:1.4">
+                  <strong>Actividad de ejemplo</strong>
+                  <small>Inscripciones y plazas</small>
+                  <div class="tp-case-mockline" style="width:100%"></div>
+                  <div class="tp-case-mockline violet" style="width:72%"></div>
+                  <span class="tp-case-mockpill">Inscripción confirmada</span>
+                </div>
+                <div class="tp-case-minibox">
+                  <strong>Control de aforo</strong><small>Estado actualizado</small>
+                  <div class="tp-case-mockline violet" style="width:68%;height:9px"></div>
+                  <div class="tp-case-mockline" style="width:100%"></div>
+                  <div class="tp-case-mockline" style="width:76%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tp-case-content">
+            <div class="tp-case-meta"><span>Eventos e inscripciones</span><span>Publicada</span></div>
+            <h3 id="tp-case-bn">BNevents</h3>
+            <p>Una solución para gestionar actividades, controlar plazas y facilitar las inscripciones sin complicar el trabajo diario.</p>
+            <ul class="tp-case-features" aria-label="Funciones destacadas">
+              <li>Calendario de actividades</li><li>Inscripciones</li><li>Control de aforo</li><li>Panel de gestión</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tp-case" aria-labelledby="tp-case-campo">
+          <div class="tp-case-preview tp-case-preview--field" aria-hidden="true">
+            <div class="tp-case-screen">
+              <div class="tp-case-screenhead"><span>Cuaderno agrícola</span><span style="color:#398266">Campaña</span></div>
+              <div class="tp-case-screenbody">
+                <div class="tp-case-minibox">
+                  <strong>Invernaderos</strong><small>Organización por sectores</small>
+                  <div class="tp-case-mockline green" style="width:85%;height:8px"></div>
+                  <div class="tp-case-mockline" style="width:62%"></div>
+                  <div class="tp-case-mockline" style="width:74%"></div>
+                </div>
+                <div class="tp-case-minibox" style="flex:1.4">
+                  <strong>Diario de labores</strong><small>Riegos · Siembras · Tratamientos</small>
+                  <div class="tp-case-mockline" style="width:100%"></div>
+                  <div class="tp-case-mockline green" style="width:68%"></div>
+                  <span class="tp-case-mockpill">Nueva anotación</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tp-case-content">
+            <div class="tp-case-meta"><span>Gestión agrícola</span><span>Prototipo en desarrollo</span></div>
+            <h3 id="tp-case-campo">Mi Campo</h3>
+            <p>Un cuaderno digital pensado para reunir las tareas de una explotación agrícola y consultar sus registros de forma sencilla.</p>
+            <ul class="tp-case-features" aria-label="Funciones destacadas">
+              <li>Invernaderos y sectores</li><li>Labores y tratamientos</li><li>Inventario</li><li>Costes orientativos</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tp-case" aria-labelledby="tp-case-semana">
+          <div class="tp-case-preview tp-case-preview--school" aria-hidden="true">
+            <div class="tp-case-screen">
+              <div class="tp-case-screenhead"><span>Mi agenda semanal</span><span>Vista de ejemplo</span></div>
+              <div class="tp-case-days">
+                <div class="tp-case-day"><strong>L</strong><span class="tp-case-event blue"></span><span class="tp-case-event yellow"></span></div>
+                <div class="tp-case-day"><strong>M</strong><span class="tp-case-event orange"></span></div>
+                <div class="tp-case-day"><strong>X</strong><span class="tp-case-event yellow"></span><span class="tp-case-event blue"></span></div>
+                <div class="tp-case-day"><strong>J</strong><span class="tp-case-event orange"></span><span class="tp-case-event blue"></span></div>
+                <div class="tp-case-day"><strong>V</strong><span class="tp-case-event yellow"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="tp-case-content">
+            <div class="tp-case-meta"><span>Organización académica</span><span>Versión en evolución</span></div>
+            <h3 id="tp-case-semana">Mi Semana</h3>
+            <p>Un espacio visual para organizar clases, tareas y exámenes, sin perder de vista lo que toca hacer cada día.</p>
+            <ul class="tp-case-features" aria-label="Funciones destacadas">
+              <li>Agenda semanal</li><li>Exámenes</li><li>Tareas pendientes</li><li>Colores por asignatura</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="tp-case" aria-labelledby="tp-case-citas">
+          <div class="tp-case-preview tp-case-preview--agenda" aria-hidden="true">
+            <div class="tp-case-screen">
+              <div class="tp-case-screenhead"><span>Agenda de servicios</span><span style="color:#974F8C">Reserva de ejemplo</span></div>
+              <div class="tp-case-screenbody">
+                <div class="tp-case-minibox" style="flex:1.1">
+                  <strong>Elige un servicio</strong><small>Duración y condiciones</small>
+                  <div class="tp-case-mockline warm" style="width:90%;height:8px"></div>
+                  <div class="tp-case-mockline" style="width:67%"></div>
+                </div>
+                <div class="tp-case-minibox" style="flex:1.3">
+                  <strong>Selecciona una fecha</strong><small>Disponibilidad y agenda</small>
+                  <div class="tp-case-mockline" style="width:100%"></div>
+                  <div class="tp-case-mockline warm" style="width:64%"></div>
+                  <span class="tp-case-mockpill">Ver horarios</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tp-case-content">
+            <div class="tp-case-meta"><span>Reservas profesionales</span><span>Demostración funcional</span></div>
+            <h3 id="tp-case-citas">Agenda y reservas a medida</h3>
+            <p>Una propuesta para mostrar servicios, facilitar la selección de citas y disponer de una zona interna de organización.</p>
+            <ul class="tp-case-features" aria-label="Funciones destacadas">
+              <li>Catálogo de servicios</li><li>Selección de fecha</li><li>Agenda interna</li><li>Seguimiento de actividad</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+      <p class="tp-case-disclaimer">Vistas ilustrativas, sin información personal ni capturas de clientes. BNevents está publicada; los otros ejemplos muestran desarrollos en distintas fases y no se presentan como servicios entregados en producción.</p>
     </div>
   </section>
 
