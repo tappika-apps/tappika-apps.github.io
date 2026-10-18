@@ -232,3 +232,9 @@ Se reutilizaron **los datos legales de la misma persona responsable**, preservan
 - **Siguiente paso priorizado:** crear la cuenta **real** `info@tappika.es` en el panel de Mail (Correo → Crear, sin marcar «Crear alias»), utilizar credenciales privadas y verificar recepción/envío/respuesta en Webmail. Fuente del proveedor: https://www.dondominio.com/es/help/81/como-doy-alta-las-cuentas-correo/ .
 - No cambiar los servidores de nombres ni MX/TXT para conectar Pages: el correo de DonDominio debe preservarse. Después de verificar correo, preparar DNS A para la raíz y CNAME para www en su zona DNS, configuración de dominio personalizado en GitHub Pages y HTTPS; no crear `CNAME` ni cambiar el sitio hasta validar la secuencia con la titular.
 - No mostrar `info@tappika.es` públicamente ni sustituir el Gmail en HTML/legal hasta que el buzón envíe y reciba de verdad. Mantener `noindex` hasta certificación final. Ningún cambio de código de la web se realizó en este paso.
+
+### Buzón profesional creado en DonDominio — falta prueba funcional (18/10/2026)
+
+- La titular comparte captura del panel `tappika.es / Correo`: dominio y plan **Mail activos**, caducidad mostrada en 2027, **1 de 10 cuentas** ocupadas, cuenta **`info@tappika.es`** clasificada como «Cuenta» (no alias) y 0 de 3072 MB utilizados. El buzón ha sido **creado**, pero no se puede certificar envío y recepción solo con esta pantalla.
+- Siguiente prueba: acceder al WebMail del buzón y enviar un correo a `info.tappika@gmail.com`; comprobar remitente visible `info@tappika.es`, responder desde Gmail y comprobar su recepción en el WebMail de táppika. Si falla, revisar los registros DNS MX/SPF/DKIM/DMARC proporcionados por DonDominio sin modificar a ciegas.
+- **Sin pruebas aún no sustituir** las referencias públicas a Gmail en el HTML, las páginas legales ni `mailto:`. Conservar DNS de correo en la siguiente configuración de GitHub Pages. No acceder ni solicitar la contraseña del buzón.
