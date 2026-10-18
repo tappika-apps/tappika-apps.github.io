@@ -1,9 +1,10 @@
-name: Verify táppika portfolio in public web
+name: Verify táppika separate projects page
 on:
   push:
     branches: [main]
     paths:
       - 'index.html'
+      - 'proyectos.html'
       - '.github/workflows/tappika-portfolio-qa.yml'
   workflow_dispatch:
 permissions:
@@ -16,51 +17,52 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install public browser tests
+      - name: Install browser
         run: |
           python -m pip install playwright==1.56.0
           python -m playwright install --with-deps chromium
-      - name: Check real HTTPS portfolio and accessibility on desktop and mobile
+      - name: Check independent portfolio and homepage navigation on HTTPS
         run: |
           python - <<'PY'
           from playwright.sync_api import sync_playwright
           import time
-          from urllib.parse import urlparse
           base="https://tappika-apps.github.io/"
-          expected=["BNevents","Mi Campo","Mi Semana","Agenda y reservas a medida"]
+          names=["BNevents","Mi Campo","Mi Semana","Agenda y reservas a medida"]
           with sync_playwright() as p:
             browser=p.chromium.launch(headless=True)
-            for device, size in (("desktop",{"width":1440,"height":900}),("mobile",{"width":390,"height":844})):
+            for device,size in (("desktop",{"width":1440,"height":900}),("mobile",{"width":390,"height":844})):
               page=browser.new_page(viewport=size,locale="es-ES")
               errors=[]
               page.on("pageerror",lambda e:errors.append(str(e)))
-              for n in range(18):
-                response=page.goto(base+"?portfolioqa="+str(n),wait_until="domcontentloaded",timeout=40000)
-                if response and response.status==200 and page.locator("#proyectos article.tp-case").count()==4 and page.locator("#proyectos .tp-case-eyebrow").inner_text()=="Proyectos realizados": break
-                time.sleep(10)
-              else: raise AssertionError("Public portfolio not yet served")
-              assert page.title()=="táppika — Aplicaciones a medida"
-              assert page.locator('a[href="#proyectos"]').count()==1
-              assert page.locator("#proyectos article.tp-case").count()==4
-              assert page.locator("#proyectos .tp-case-eyebrow").inner_text()=="Proyectos realizados"
-              for title in expected:
-                card=page.locator("#proyectos article.tp-case").filter(has=page.get_by_role("heading",name=title,exact=True))
-                assert card.count()==1, f"{device}: missing {title}"
-                assert card.locator(".tp-case-features li").count()==4
-              section=page.locator("#proyectos")
-              assert "Salud Navarro" not in page.content(), f"{device}: forbidden name"
-              assert "Alcantarilla" not in section.inner_text(),f"{device}: private location"
-              assert page.locator('#proyectos .tp-case-disclaimer').count()==1
-              assert page.locator('a[href="aviso-legal.html"]').count()>=1
-              assert page.locator('a[href="privacidad.html"]').count()>=1
-              assert page.locator('a[href="cookies.html"]').count()>=1
+              for attempt in range(1,20):
+                r=page.goto(base+"?portfolioqa="+str(attempt),wait_until="domcontentloaded",timeout=30000)
+                if r.status==200 and page.locator('a[href="proyectos.html"]').count()==1 and page.locator("#proyectos").count()==0:
+                  break
+                time.sleep(8)
+              else: raise AssertionError("Homepage still contains inline portfolio")
+              link=page.locator('a[href="proyectos.html"]')
+              assert link.is_visible(), f"{device}: projects menu not visible"
+              link.click()
+              page.wait_for_load_state("domcontentloaded")
+              assert page.url.startswith(base+"proyectos.html"),page.url
+              assert page.locator("h1").inner_text()=="Proyectos realizados.",f"{device} h1"
+              assert page.locator("article.case").count()==4
+              for name in names: assert page.get_by_role("heading",name=name,exact=True).count()==1
+              assert page.get_by_role("heading",name="Agenda y reservas a medida").count()==1
+              assert "Salud Navarro" not in page.content()
+              assert "Alcantarilla" not in page.content()
               assert page.locator('meta[name="robots"]').get_attribute("content")=="noindex, nofollow"
-              section.scroll_into_view_if_needed()
-              page.wait_for_timeout(250)
-              assert section.is_visible()
-              assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth+2"),f"{device}: horizontal overflow"
-              assert not errors,f"{device}: js errors {errors}"
-              print("PORTFOLIO PUBLIC PASS",device,"HTTP 200, 4 project examples, neutral wording, anonymity, privacy, no overflow")
+              assert page.locator('a[href="aviso-legal.html"]').count()==1
+              assert page.locator('a[href="privacidad.html"]').count()==1
+              assert page.locator('a[href="cookies.html"]').count()==1
+              page.get_by_role("searchbox").fill("invernaderos")
+              assert page.locator('article.case:visible').count()==1
+              assert page.get_by_role("heading",name="Mi Campo",exact=True).is_visible()
+              page.get_by_role("searchbox").fill("")
+              assert page.locator('article.case:visible').count()==4
+              assert page.evaluate("document.documentElement.scrollWidth <= window.innerWidth+2")
+              assert not errors,errors
+              print("SEPARATE PORTFOLIO PASS",device,"HTTP 200, homepage free, four cards, mobile menu, search, anonymity and legal links")
               page.close()
             browser.close()
           PY
