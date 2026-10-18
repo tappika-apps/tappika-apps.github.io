@@ -36,7 +36,7 @@ jobs:
               page.on("pageerror",lambda e:errors.append(str(e)))
               for n in range(18):
                 response=page.goto(base+"?portfolioqa="+str(n),wait_until="domcontentloaded",timeout=40000)
-                if response and response.status==200 and page.locator("#proyectos article.tp-case").count()==4: break
+                if response and response.status==200 and page.locator("#proyectos article.tp-case").count()==4 and page.locator("#proyectos .tp-case-eyebrow").inner_text()=="Proyectos realizados": break
                 time.sleep(10)
               else: raise AssertionError("Public portfolio not yet served")
               assert page.title()=="táppika — Aplicaciones a medida"
