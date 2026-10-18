@@ -74,3 +74,13 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 - **BNevents NO modificado.** Crédito futuro aprobado: `Designed by táppika`, enlace al sitio público, discreto. Revisar antes el estado y titularidad de BNevents y minimizar riesgos.
 - **Pendientes legales:** identificación fiscal/titular del sitio, aviso legal, privacidad cuando corresponda, estudio de registro de marca y dominio propio. Hasta cerrar la parte legal, mantener `noindex` y el aviso de sitio en evolución.
 
+
+## 7. BNevents — crédito de diseño preparado, pendiente de publicación (18/10/2026)
+
+- Petición: añadir al pie de BNevents, sin protagonismo, **Designed by táppika** y enlace a https://tappika-apps.github.io/ (sitio público verificado previamente).
+- Proyecto y titular **independientes**: BNevents es de BNfit; Cloudflare Worker `bnevents-bnfit`, D1 original de BNfit. Nunca alojar en repositorio/cuenta de táppika, ni modificar inscripciones, titularidad, secretos o legislación.
+- Se recuperó la última fuente de BNevents v2.3.0 con build móvil `2026-10-18-mobile-management-1` desde la Biblioteca, y se localizó la función `footer()` original. El cambio añade solamente el enlace de crédito y CSS discreto, además de un marcador de revisión independiente.
+- Se preparó paquete autocontenido **`/BNevents/BNevents_BNfit_CREDITO_táppika_PREPARADO_2026-10-18.zip`** en Biblioteca BNevents. Incluye copia original, fuente modificada, pruebas y un actualizador verificador para usar solo desde el entorno Windows autorizado de BNfit. El servidor, configuración, SW, esquema y rutas RPC siguen idénticos, y se han superado **24/24 pruebas automáticas locales**.
+- **Estado real:** NO desplegado en Cloudflare desde esta sesión; no hay conexión Cloudflare autorizada del propietario entre las herramientas disponibles y el navegador de este entorno no puede acceder al Worker. El paquete NO demuestra que el crédito sea visible en producción. La ejecución requiere el entorno BNfit autenticado, verifica correo, D1, versión, estado legal e inscripciones, utiliza un único `wrangler deploy --keep-vars` y comprueba resultado público.
+- **Pendiente crítico antes del anuncio con crédito:** efectuar el despliegue desde la cuenta autorizada de BNfit y aportar informe `RESULTADO_CREDITO_TAPPIKA_BNFIT.txt` confirmando URL, enlace de crédito y ausencia de cambios en inscripciones/legalidad. Si el proceso falla, no repetir sin diagnóstico.
+- No dar por publicado el crédito hasta esa prueba. Ni BNevents ni su infraestructura han sido modificados desde esta sesión.
