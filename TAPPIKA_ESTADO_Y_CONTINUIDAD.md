@@ -335,3 +335,7 @@ Se localizaron archivos de las aplicaciones en la Biblioteca, sin acceder a cuen
 ### Pendientes
 - Integrar y revisar públicamente en GitHub Pages las tres capturas auténticas aún pendientes, comprobando legibilidad, recorte, móvil y ausencia de identidades/datos sensibles. Confirmar el método de importación de binarios al repositorio con cuentas de táppika; no usar hosting permanente de cuentas ajenas. Los JPGs privados se conservan en Biblioteca para no perder el trabajo.
 - Mantener la landing libre de portfolio, no publicar datos de terceros, preservar los textos y enlaces legales y el correo `info@tappika.es`; el dominio `tappika.es` sigue sin certificado de conexión web bajo HTTPS.
+
+### Comprobación final de captura BNevents — 18/10/2026
+- Tras incorporarla a la página independiente, la acción [39152948840](https://github.com/tappika-apps/tappika-apps.github.io/actions/runs/39152948840) terminó `success` y confirma en **Chromium escritorio y móvil** que la foto BNevents (`assets/portfolio/bnevents.webp`) se descarga, decodifica y su ancho natural supera los 500 px, que la antigua sección no existe en la home, que el menú al portfolio funciona en móvil, que el buscador filtra y se conserva el anonimato de la agenda. Test corregido para comprobar imagen real en commit `8f66b1abfdee1ed730c4b0a504c9439e77ba41e3`.
+- Se mantienen pendientes **tres capturas** guardadas en `/táppika/portfolio/` de Biblioteca, no publicadas en GitHub. Nunca afirmar que el portfolio ya incluye las cuatro imágenes hasta comprobación externa.
