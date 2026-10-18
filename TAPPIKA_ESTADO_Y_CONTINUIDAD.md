@@ -146,3 +146,7 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 ### 8.3 Pulido — 18/10/2026
 - Sustituidos los textos de relleno de las vistas de ejemplo ([PVP], «Producto 1», «Participante 1»…) por datos de ejemplo creíbles (panadería y taller). Siguen siendo **vistas conceptuales**, no clientes reales.
 - Móvil: vista previa del teléfono más grande y legible; animaciones más tranquilas (sin pulsos, barras más lentas).
+
+### 8.4 «Lo que hacemos» en móvil — 18/10/2026
+- En móvil las tres soluciones forman un único bloque con pestañas (Gestión · Reservas · Eventos), del mismo alto, que van rotando solas cada 6 s mientras el bloque está a la vista, hasta que el visitante toca una. En ordenador no cambia.
+- **Proyectos reales (BNevents, cuaderno de campo, Mi Agenda, app de citas para maquilladora):** planteados como borrador en el diseño, **no publicados**. Pendiente de capturas y autorización de cada cliente antes de mostrarlos.

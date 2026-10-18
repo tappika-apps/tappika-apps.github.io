@@ -110,6 +110,17 @@ input,textarea,button,select{font-family:inherit}
 .tp-absorb{--dx:120px!important;--dy:0px!important}
 .tp-art>p{font-size:13px!important}
 }
+.tp-soltab{flex:1;min-height:44px;border:none;border-radius:999px;background:transparent;color:#0B1020;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;transition:background .25s,color .25s}
+.tp-soltab[aria-selected="true"]{background:#0B1020;color:#F8FAFC}
+@keyframes tp-solin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width: 720px){
+.tp-soltabs{position:sticky;top:8px;z-index:3;margin-bottom:-40px;box-shadow:0 6px 18px rgba(11,16,32,.08)}
+.tp-solcol{display:contents!important}
+.tp-sol{gap:0!important}
+.tp-sol [data-sol]{display:none!important;flex:1 1 100%!important;min-height:600px;padding:26px 22px!important;border-radius:28px!important;align-content:flex-start}
+.tp-sol [data-sol="reservas"]>div[aria-hidden="true"],.tp-sol [data-sol="eventos"]>div[aria-hidden="true"]{margin:0 auto}
+.tp-sol[data-active="gestion"] [data-sol="gestion"],.tp-sol[data-active="reservas"] [data-sol="reservas"],.tp-sol[data-active="eventos"] [data-sol="eventos"]{display:flex!important;animation:tp-solin .45s ease-out}
+}
 @media (prefers-reduced-motion: reduce){*{animation:none!important}.tp-pop{opacity:1}.tp-absorb,.tp-rowin{opacity:1}}
 
 *{box-sizing:border-box}
@@ -367,10 +378,15 @@ html{scroll-behavior:smooth}
         </div>
         <p style="margin: 0; max-width: 400px; font-size: 17px; line-height: 1.65; color: rgba(11,16,32,0.7)">Sin soluciones genéricas que te obliguen a trabajar de otra manera. Creamos herramientas digitales alrededor de lo que realmente necesitas.</p>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+      <div class="tp-show-m tp-soltabs" role="tablist" aria-label="Lo que hacemos" style="display: none; gap: 6px; padding: 6px; border-radius: 999px; background: #E5E7EB">
+        <button type="button" role="tab" class="tp-soltab" data-sol-tab="gestion" aria-selected="true">Gestión</button>
+        <button type="button" role="tab" class="tp-soltab" data-sol-tab="reservas" aria-selected="false">Reservas</button>
+        <button type="button" role="tab" class="tp-soltab" data-sol-tab="eventos" aria-selected="false">Eventos</button>
+      </div>
+      <div class="tp-sol" data-active="gestion" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
 
         <!-- GESTIÓN: tarjeta grande con panel -->
-        <div style="flex: 1.25 1 560px; min-width: 0; border-radius: 32px; background: #0B1020; color: #F8FAFC; padding: clamp(28px, 3.4vw, 44px); display: flex; flex-direction: column; gap: 26px; position: relative; overflow: hidden">
+        <div data-sol="gestion" style="flex: 1.25 1 560px; min-width: 0; border-radius: 32px; background: #0B1020; color: #F8FAFC; padding: clamp(28px, 3.4vw, 44px); display: flex; flex-direction: column; gap: 26px; position: relative; overflow: hidden">
           <div aria-hidden="true" style="position: absolute; right: -140px; top: -140px; width: 420px; height: 420px; border-radius: 50%; background: #6C3BFF; opacity: 0.22; filter: blur(80px)"></div>
           <div style="position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 18px">
             <div style="display: flex; flex-direction: column; gap: 12px; max-width: 380px">
@@ -382,7 +398,7 @@ html{scroll-behavior:smooth}
 
           <!-- mini panel -->
           <div aria-hidden="true" class="tp-zoom" style="position: relative; border-radius: 22px; background: rgba(229,231,235,0.06); border: 1px solid rgba(229,231,235,0.14); padding: 14px; display: flex; gap: 14px">
-            <div style="width: 52px; flex-shrink: 0; border-radius: 14px; background: #0B1020; padding: 12px 0; display: flex; flex-direction: column; align-items: center; gap: 14px">
+            <div class="tp-hide-m" style="width: 52px; flex-shrink: 0; border-radius: 14px; background: #0B1020; padding: 12px 0; display: flex; flex-direction: column; align-items: center; gap: 14px">
               <span style="width: 26px; height: 26px; border-radius: 8px; background: #6C3BFF"></span>
               <span style="width: 20px; height: 6px; border-radius: 6px; background: rgba(229,231,235,0.3)"></span>
               <span style="width: 20px; height: 6px; border-radius: 6px; background: rgba(229,231,235,0.3)"></span>
@@ -407,7 +423,7 @@ html{scroll-behavior:smooth}
                     <span class="tp-bar" style="flex: 1; height: 100%; border-radius: 6px; background: #6C3BFF; animation-delay: .9s"></span>
                   </div>
                 </div>
-                <div style="flex: 1 1 170px; min-width: 0; border-radius: 14px; background: #0B1020; padding: 14px; display: flex; flex-direction: column; gap: 9px; font-size: 12px; font-weight: 700">
+                <div class="tp-hide-m" style="flex: 1 1 170px; min-width: 0; border-radius: 14px; background: #0B1020; padding: 14px; display: flex; flex-direction: column; gap: 9px; font-size: 12px; font-weight: 700">
                   <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; background: #6C3BFF"></span><span style="text-decoration: line-through; color: rgba(229,231,235,0.55)">Revisar stock</span></div>
                   <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; background: #6C3BFF"></span><span style="text-decoration: line-through; color: rgba(229,231,235,0.55)">Turnos de la semana</span></div>
                   <div style="display: flex; align-items: center; gap: 8px"><span class="tp-blink" style="width: 14px; height: 14px; border-radius: 5px; border: 2px solid #A78BFA; box-sizing: border-box"></span>Pedido a proveedor</div>
@@ -428,10 +444,10 @@ html{scroll-behavior:smooth}
         </div>
 
         <!-- Columna derecha -->
-        <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div class="tp-solcol" style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
 
           <!-- RESERVAS -->
-          <div style="flex-grow: 1; border-radius: 32px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 30px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+          <div data-sol="reservas" style="flex-grow: 1; border-radius: 32px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 30px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
             <div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
               <span style="align-self: flex-start; padding: 6px 12px; border-radius: 99px; background: #F8FAFC; border: 1px solid #E5E7EB; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: #6C3BFF">02 · RESERVAS</span>
               <h3 style="margin: 0; font-size: 25px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1">Reservas sin complicaciones</h3>
@@ -451,7 +467,7 @@ html{scroll-behavior:smooth}
           </div>
 
           <!-- EVENTOS -->
-          <div style="flex-grow: 1; border-radius: 32px; background: #A78BFA; color: #0B1020; padding: 30px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+          <div data-sol="eventos" style="flex-grow: 1; border-radius: 32px; background: #A78BFA; color: #0B1020; padding: 30px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
             <div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
               <span style="align-self: flex-start; padding: 6px 12px; border-radius: 99px; background: #0B1020; font-size: 12px; font-weight: 800; letter-spacing: 0.1em; color: #F8FAFC">03 · EVENTOS</span>
               <h3 style="margin: 0; font-size: 25px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1">Experiencias que conectan</h3>
@@ -858,6 +874,19 @@ html{scroll-behavior:smooth}
     });
   });
   $('#tp-form').addEventListener('submit', function(e){ e.preventDefault(); });
+  // «Lo que hacemos» en móvil: pestañas con rotación automática hasta que se toca una
+  var sol = $('.tp-sol'), solTabs = $$('.tp-soltab'), solOrder = ['gestion', 'reservas', 'eventos'], solTouched = false;
+  function setSol(k){
+    sol.setAttribute('data-active', k);
+    solTabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.getAttribute('data-sol-tab') === k)); });
+  }
+  solTabs.forEach(function(t){ t.addEventListener('click', function(){ solTouched = true; setSol(t.getAttribute('data-sol-tab')); }); });
+  var solVisible = false;
+  if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ solVisible = es[0].isIntersecting; }, {threshold: .3}).observe(sol);
+  setInterval(function(){
+    if (solTouched || !solVisible || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setSol(solOrder[(solOrder.indexOf(sol.getAttribute('data-active')) + 1) % 3]);
+  }, 6000);
   renderApp();
 })();
 </script>
