@@ -1,0 +1,48 @@
+name: Audit táppika external resources and cookies
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - '.github/workflows/tappika-privacy-browser-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  privacy-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Public read-only network and storage audit
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          from urllib.parse import urlparse
+          with sync_playwright() as p:
+            browser=p.chromium.launch(headless=True)
+            for size,dimensions in (("desktop", {"width":1440,"height":900}),("mobile", {"width":390,"height":844})):
+              context=browser.new_context(viewport=dimensions,locale="es-ES")
+              page=context.new_page()
+              hosts=set()
+              response_codes=[]
+              page.on("request",lambda r: hosts.add(urlparse(r.url).hostname or ""))
+              page.on("response",lambda r: response_codes.append((r.status,urlparse(r.url).hostname or "")))
+              response=page.goto("https://tappika-apps.github.io/",wait_until="networkidle",timeout=45000)
+              assert response and response.status==200, "Public site did not return HTTP 200"
+              state=page.evaluate("({cookies:document.cookie, localStorage:Object.keys(localStorage), sessionStorage:Object.keys(sessionStorage), title:document.title})")
+              cookies=context.cookies()
+              assert not state["localStorage"] and not state["sessionStorage"], "Site stores browser data: "+str(state)
+              assert not any(c.get("name") and c.get("domain","").endswith("tappika-apps.github.io") for c in cookies),"Own-domain cookies detected"
+              print("AUDIT PASS",size,"TITLE",state["title"],"HOSTS",sorted(hosts),"COOKIE_NAMES",[(c["domain"],c["name"]) for c in cookies],"STORAGE",state["localStorage"],state["sessionStorage"],"ERRORS",[(s,h) for s,h in response_codes if s>=400])
+              context.close()
+            browser.close()
+          PY
