@@ -254,3 +254,28 @@ La titular aporta captura completa de DonDominio «Comprobar propagación DNS»:
 - En «Propagación de los servidores DNS», el comprobador del registro `Registry (a.nic.es)` figura **rojo**, igual que Google, Cloudflare, Verisign, IBM Quad9, Comodo, OpenDNS y otros validadores externos; únicamente `ns1.dondominio.com` y `ns2.dondominio.com` aparecen verdes. La herramienta recuerda que en registros recientes puede tardar hasta **12–24 horas** en propagarse.
 - Diagnóstico: delegación/propagación externa **aún no confirmada**, que encaja con la devolución desde Gmail «no se ha encontrado ese dominio» al responder a `info@tappika.es`. No se ha comprobado aún que el motivo del spam sea SPF/DKIM/DMARC; se revisará después de resolver DNS.
 - Recomendación operativa: **no modificar NS, A, MX, SPF, DKIM ni DNS de GitHub Pages**, esperar y comprobar de nuevo la propagación. Si `Registry (a.nic.es)` sigue rojo pasadas aproximadamente 24 h desde registro, elevar incidencia a DonDominio y confirmar la delegación. Una vez propagado, probar correo bidireccional y revisar MX/SPF/DKIM/DMARC antes de sustituir el contacto visible en la web. No se ha tocado código ni cuentas en este paso.
+
+## 10. Apartado de proyectos y ejemplos — 18/10/2026
+
+### Necesidad comercial y criterio aprobado
+La usuaria pide incluir cuatro trabajos como ejemplos de qué tipo de aplicaciones puede crear táppika: **BNevents, Mi Campo, Mi Semana y la agenda de servicios de una profesional**. Restricción estricta: **no mencionar ni identificar a Salud Navarro**; presentar únicamente las funcionalidades de esa agenda, sin nombre de la profesional, ubicación, datos ni marca. No introducir información privada ni vincular a cuentas/repo de los clientes.
+
+**Hallazgos sobre la fuente:** solo hay rama `main` en este repositorio. En `index.html` (blob previo `adad17db177c229379755643f876c1e6bf3d1985`) no existía sección de portfolio/proyectos de trabajos reales, ni hay una variante no publicada de Claude en GitHub accesible desde esta sesión. No se ha intentado recrear un supuesto archivo de Claude invisible ni sustituir el diseño de la web.
+
+### Estado real de los ejemplos (verificado antes de redactar)
+1. **BNevents**: solución para eventos y control de aforos, publicada y en producción bajo titularidad BNfit, según auditoría documentada de Worker v2.3.0 con inscripciones abiertas. Figura como **Publicada**. No copiar datos de asistentes, fotografías, nombres de eventos ni la infraestructura de BNfit.
+2. **Mi Campo**: prototipo de cuaderno agrícola e invernaderos, labores, tratamientos, inventario y costes orientativos. `PLAN_GRATUITO_Y_BACKUPS_2026-10-17.md` especifica **sin despliegue ni sincronización real**, con restauración pendiente. Figura como **Prototipo en desarrollo**, sin presentar seguridad o sincronización como terminadas.
+3. **Mi Semana**: agenda académica semanal, tareas y exámenes. `ESTADO_VERIFICACION.txt` del 18/10 informa v2.1 sin despliegue de la última versión, sincronización real pendiente y sin certificación de cuentas. Figura como **Versión en evolución**, sin prometer sincronización certificada.
+4. **Agenda y reservas a medida** (cliente anónima): demo de elección de servicios, fecha y agenda interna. Manual de 15/10 indica claramente que es una demostración que no recibe reservas reales. Figura como **Demostración funcional**. La sección no contiene el nombre, localidad, identidad, imágenes ni datos de Salud Navarro.
+
+### Cambios concretos en la web
+- Insertada nueva sección `#proyectos` **entre `#soluciones` y `#nosotros`**, manteniendo el flujo y la paleta corporativa de la web real, y enlace de navegación «Proyectos» en escritorio.
+- Cuatro tarjetas con mini-vistas **HTML/CSS ilustrativas** construidas con contenido genérico inventado para demostración, sin capturas personales ni datos de terceros, sin librerías, imágenes externas, scripts adicionales ni tracking.
+- Cada tarjeta incluye categoría, nombre genérico/comercial autorizado, estado cierto, descripción concisa y cuatro capacidades destacadas. Nota visible distingue claramente demostraciones de aplicaciones publicadas.
+- HTML actualizado desde el SHA verificado previo; commit a determinar desde historial. Nuevo blob `fea65ad591fc11c1570f21b6ec2213505bc91069`. El resto del sitio, legales, correo de contacto y `noindex` permanecen sin cambios.
+- Creado workflow `.github/workflows/tappika-portfolio-qa.yml`, commit `2cf6f1a8d601668403727b98089f66826502de3b`, para certificar HTML en HTTPS real, las cuatro tarjetas, sus estados, ausencia de identidad privada y usabilidad de escritorio/móvil. Resultado pendiente de verificar en el momento de esta anotación.
+
+### Pendientes relacionados
+- No afirmar que los cuatro trabajos se han entregado o están operativos: evidencia de producción solo para BNevents. No enlazar directamente aplicaciones o demos privadas a visitas públicas.
+- Dominio `tappika.es` adquirido y buzón `info@tappika.es` creado, pero última evidencia de DNS mostraba delegación aún no propagada y respuesta entrante fallida. **No afirmar correo bidireccional certificado, web sobre dominio propio ni cambiar Gmail público** hasta comprobar.
+- La web sigue protegida con `noindex, nofollow` hasta decidir lanzamiento público/indexable, revisar marca y completar las verificaciones comerciales pendientes.
