@@ -31,3 +31,7 @@ Fecha de última revisión: [CONFIRMAR AL PUBLICAR]. Estos datos se actualizará
 - [ ] Si existe alguna cookie no exenta, identificar titular, finalidad, duración y habilitar consentimiento previo o eliminarla.
 - [ ] Si solo existen cookies exceptuadas/no existen, no crear banner; incorporar enlace discreto a la política.
 - [ ] Verificar que los textos coinciden exactamente con el código final acordado con Claude.
+
+## Auditoría externa de navegador — 18/10/2026
+
+GitHub Actions ejecución [39124009393](https://github.com/tappika-apps/tappika-apps.github.io/actions/runs/39124009393) finalizada **success**. Chromium en desktop 1440×900 y móvil 390×844, navegando a la URL pública, muestra para ambos: `COOKIE_NAMES []`, `localStorage []`, `sessionStorage []`, sin respuestas HTTP 4xx/5xx. Hosts consultados: `tappika-apps.github.io`, `fonts.googleapis.com`, `fonts.gstatic.com`. No se detectaron cookies ni otras entradas de almacenamiento en ambos entornos de ensayo. Los datos de conexión externos para cargar Manrope continúan existiendo. No se requiere banner de consentimiento con los scripts y cookies observados; repetir esta prueba si cambia la web. La identidad legal del editor sigue pendiente.
