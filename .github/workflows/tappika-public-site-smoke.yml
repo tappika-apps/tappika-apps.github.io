@@ -65,3 +65,54 @@ jobs:
           else:
             raise SystemExit("PUBLIC FAIL: " + str(error))
           PY
+
+  browser-qa:
+    needs: public-smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install test browser
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Test public site in desktop and mobile Chromium
+        run: |
+          python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          from urllib.parse import urlparse
+          url = "https://tappika-apps.github.io/"
+          with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            for device, width, height in [("desktop", 1440, 900), ("mobile", 390, 844)]:
+              page = browser.new_page(viewport={"width":width,"height":height})
+              errors = []
+              page.on("pageerror", lambda err: errors.append(str(err)))
+              response = page.goto(url, wait_until="domcontentloaded", timeout=45000)
+              assert response and response.status == 200, f"{device}: page HTTP"
+              assert page.title() == "táppika — Aplicaciones a medida", f"{device}: title"
+              assert page.locator(".wordmark").first.inner_text().strip() == "táppika.", f"{device}: logo"
+              mail = page.locator('a[href="mailto:info.tappika@gmail.com"]')
+              phone = page.locator('a[href="tel:+34620843264"]')
+              mail.scroll_into_view_if_needed()
+              assert mail.is_visible() and phone.is_visible(), f"{device}: contact visibility"
+              if device == "mobile":
+                menu = page.locator("#menu-toggle")
+                assert menu.is_visible(), "mobile: missing menu"
+                menu.click()
+                assert menu.get_attribute("aria-expanded") == "true", "mobile: menu not opened"
+                page.locator('#navlinks a[href="#experiencias"]').click()
+                assert menu.get_attribute("aria-expanded") == "false", "mobile: menu not closed"
+              page.locator("#tab-reservas").click()
+              assert page.locator("#tab-reservas").get_attribute("aria-selected") == "true", f"{device}: reservations tab"
+              page.locator("#tab-eventos").click()
+              assert page.locator("#tab-eventos").get_attribute("aria-selected") == "true", f"{device}: events tab"
+              page.wait_for_timeout(400)
+              assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), f"{device}: horizontal overflow"
+              assert not errors, f"{device}: script errors {errors}"
+              print(f"BROWSER PASS: {device}, HTTP 200, logo, contact links, navigation, demos, no overflow/errors.")
+              page.close()
+            browser.close()
+          PY
