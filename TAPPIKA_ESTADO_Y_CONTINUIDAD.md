@@ -150,3 +150,32 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 ### 8.4 «Lo que hacemos» en móvil — 18/10/2026
 - En móvil las tres soluciones forman un único bloque con pestañas (Gestión · Reservas · Eventos), del mismo alto, que van rotando solas cada 6 s mientras el bloque está a la vista, hasta que el visitante toca una. En ordenador no cambia.
 - **Proyectos reales (BNevents, cuaderno de campo, Mi Agenda, app de citas para maquilladora):** planteados como borrador en el diseño, **no publicados**. Pendiente de capturas y autorización de cada cliente antes de mostrarlos.
+
+## 8. Regularización legal de la web y dominio propio — 18/10/2026
+
+### Alcance y cambio de fuente
+- La usuaria decide volver a trabajar **exclusivamente en táppika** en este hilo. No modificar BNevents ni otros proyectos.
+- Se ha leído la versión **actual** de `index.html` publicada, diferente y posterior al HTML inicial: 104.002 bytes y SHA Git `914d26300bb39abb69bd6d2d9820caa7dc0046b2` en el momento de la auditoría. Esta versión tiene fuente Manrope externa y contacto mediante `mailto:` y WhatsApp. Respetar los cambios de diseño que pueda estar realizando Claude; no reemplazar `index.html` por versiones históricas ni reconstruir la web.
+- La titularidad comercial `táppika` no sustituye a un titular legal para la LSSI: exigir nombre/razón social, NIF, domicilio de actividad y correo (art. 10 LSSI). **No publicar datos de titular supuestos ni colocarlos sin confirmación explícita de la propietaria.**
+
+### Textos redactados, internos, pendientes de identificación real
+Se han creado en el repositorio, bajo `.github/legal/` y **fuera de la web pública**, los documentos:
+- `AVISO_LEGAL_BORRADOR.md` (identificación LSSI, servicios conceptuales, IP, enlaces, responsabilidad).
+- `PRIVACIDAD_BORRADOR.md` (consultas por correo y WhatsApp, categorías, base precontractual, alojamiento, Google Fonts y derechos RGPD).
+- `COOKIES_BORRADOR.md` (auditoría real de cookies y tecnologías, sin banner innecesario).
+- `GUIA_COMPRA_Y_CONEXION_DOMINIO.md` (contratación paso a paso con registrar, titularidad, DNS de GitHub Pages, verificación y HTTPS).
+Estos archivos son **borradores de trabajo; no equivalen a páginas legales completas ni a certificación jurídica** y aún no deben enlazarse como documentos definitivos. Se completarán e integrarán en un pie de página permanente cuando la propietaria decida y aporte el titular legal real, los plazos de conservación y la identificación necesaria.
+
+### Auditoría técnica verificable
+- El código actual no presenta `document.cookie`, `localStorage`, `sessionStorage`, scripts analíticos o píxeles en la fuente revisada. **Sí solicita recursos de Google Fonts** a `fonts.googleapis.com` y `fonts.gstatic.com`, y WhatsApp solo al pulsar el enlace.
+- Ejecución GitHub Actions **39124009393**, success, `https://github.com/tappika-apps/tappika-apps.github.io/actions/runs/39124009393`: Chromium desktop 1440×900 y móvil 390×844 sobre HTTPS público: `COOKIE_NAMES []`, `localStorage []`, `sessionStorage []` en ambos, sin errores HTTP. Hosts de recursos únicamente GitHub Pages y Google Fonts. Sin cookies no exentas observadas, **no se justifica instalar banner de consentimiento con esta versión**, pero sí texto informativo y reevaluación si cambia tecnología.
+- La precarga y fuente de Google envía solicitudes con información técnica de red; no se puede afirmar ausencia total de tratamiento de datos al visitar, aunque el código del formulario no envíe por sí solo. Recomendada autoalojar Manrope para minimizar dependencia externa si es compatible con el diseño aprobado.
+- Fuentes oficiales consultadas: art. 10 LSSI (BOE); derecho de información por capas AEPD; guía cookies AEPD; documentación DNS GitHub; guía del registrador DonDominio. Ver enlaces citados en documentos.
+
+### Condiciones pendientes / no hacer todavía
+1. **Falta la decisión indelegable** sobre quién será la persona física o sociedad **titular legal**, y sus datos fiscales/domicilio profesional efectivos. Este paso no puede inventarse. No colocar NIF o domicilio privado en GitHub sin consentimiento para exposición pública.
+2. Confirmar y aplicar una política real de conservación para contactos por correo y WhatsApp, y verificar proveedores; los borradores muestran periodos sugeridos, no políticas operativas certificadas.
+3. Preparar páginas públicas `aviso-legal.html`, `privacidad.html`, `cookies.html` o equivalentes, enlazarlas desde el footer y primera capa del contacto, y ejecutar QA. Solo hacerlo cuando se puedan completar verazmente.
+4. **Mantener `noindex, nofollow`** hasta contenido legal finalizado y validado, y solo entonces decidir apertura a indexación.
+5. Los dominios `tappika.es` y `tappika.com` son **propuestas no registradas ni disponibles confirmados**. Consulta en registrador en el momento de compra. Elegir cuenta exclusiva táppika y titular legal real. Después de compra, conectar a Pages, DNS y HTTPS; no tocar GitHub `CNAME` ni inventar disponibilidad antes de compra.
+6. Estado marca registral OEPM/EUIPO pendiente de comprobación exhaustiva. Comprar un dominio **no confiere derechos de marca**. Mantener nombre visible siempre `táppika`, grafía minúscula con tilde.
