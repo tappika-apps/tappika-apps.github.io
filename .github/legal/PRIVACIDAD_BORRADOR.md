@@ -56,3 +56,7 @@ La política se revisará cuando cambien el titular, dominio, proveedor de hosti
 - [ ] Comprobar en navegador red, cookies y almacenamiento con la versión final publicada.
 - [ ] Integrar una primera capa breve y enlaces permanentes desde contacto y footer.
 - [ ] Probar enlaces por correo/WhatsApp en móvil; ninguna consulta se considera enviada sin confirmar en su aplicación.
+
+## Evidencia técnica posterior sobre cookies — 18/10/2026
+
+Auditoría de Chromium sobre sitio público en ordenador/móvil: [GitHub Actions 39124009393](https://github.com/tappika-apps/tappika-apps.github.io/actions/runs/39124009393), **success**. No se detectaron cookies ni claves en almacenamiento local/de sesión. Las únicas conexiones de recursos observadas fueron `tappika-apps.github.io`, `fonts.googleapis.com` y `fonts.gstatic.com`. Queda acreditado el funcionamiento sin cookies en los dos perfiles examinados, **no** la ausencia universal para toda futura versión o navegador. El proveedor de Google Fonts sí recibe conexiones con datos técnicos. Adaptar la sección 6 cuando se publique definitivamente.
