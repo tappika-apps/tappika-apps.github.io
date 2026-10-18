@@ -111,6 +111,7 @@ input,textarea,button,select{font-family:inherit}
 html{scroll-behavior:smooth}
 .tp-screen{display:contents}
 .tp-screen[hidden]{display:none}
+#tp-call[hidden]{display:none!important}
 .tp-tbtn{min-height:44px;padding:0 10px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:700;background:#0B1020;color:#E5E7EB;border:1.5px solid rgba(229,231,235,.2);font-family:inherit}
 .tp-tbtn[aria-pressed="true"]{background:#6C3BFF;color:#F8FAFC;border-color:#6C3BFF}
 .tp-cbtn{width:44px;height:44px;border-radius:50%;cursor:pointer;border:2px solid rgba(229,231,235,.3)}
@@ -716,9 +717,30 @@ html{scroll-behavior:smooth}
           </select>
         </div>
         <div style="display: flex; flex-direction: column; gap: 7px">
-          <label for="q-nombre" style="font-size: 14px; font-weight: 700">Tu nombre <span style="font-weight: 500; color: rgba(11,16,32,0.6)">(opcional)</span></label>
-          <input id="q-nombre" type="text" placeholder="Nombre" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #FFFFFF; font-size: 16px">
+          <label for="q-nombre" style="font-size: 14px; font-weight: 700">Tu nombre <span aria-hidden="true" style="color: #6C3BFF">*</span></label>
+          <input id="q-nombre" type="text" required autocomplete="name" aria-describedby="tp-name-err" placeholder="Nombre" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #FFFFFF; font-size: 16px">
+          <p id="tp-name-err" hidden role="alert" style="margin: 0; font-size: 13px; font-weight: 700; color: #6C3BFF">Escribe tu nombre para poder enviarnos tu consulta.</p>
         </div>
+
+        <label for="q-llamar" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 16px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer">
+          <input id="q-llamar" type="checkbox" style="width: 20px; height: 20px; margin: 0; accent-color: #6C3BFF">
+          ¿Prefieres que te llamemos?
+        </label>
+        <div id="tp-call" hidden style="display: flex; flex-wrap: wrap; gap: 12px; padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px dashed #A78BFA">
+            <div style="flex: 1 1 160px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+              <label for="q-tel" style="font-size: 14px; font-weight: 700">Tu teléfono <span aria-hidden="true" style="color: #6C3BFF">*</span></label>
+              <input id="q-tel" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="tp-tel-err" placeholder="600 000 000" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #F8FAFC; font-size: 16px">
+            </div>
+            <div style="flex: 1 1 160px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+              <label for="q-franja" style="font-size: 14px; font-weight: 700">Mejor momento</label>
+              <select id="q-franja" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #F8FAFC; font-size: 16px; color: #0B1020">
+                <option value="a cualquier hora">Cualquier hora</option>
+                <option value="por la mañana">Por la mañana</option>
+                <option value="por la tarde">Por la tarde</option>
+              </select>
+            </div>
+            <p id="tp-tel-err" hidden role="alert" style="margin: 0; flex: 1 1 100%; font-size: 13px; font-weight: 700; color: #6C3BFF">Escribe un teléfono válido para que podamos llamarte.</p>
+          </div>
 
 
         <div style="display: flex; flex-wrap: wrap; gap: 10px">
@@ -759,7 +781,20 @@ html{scroll-behavior:smooth}
   var $ = function(sel, root){ return (root||document).querySelector(sel); };
   var $$ = function(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); };
   var tipoSel = $('#q-tipo'), quienSel = $('#q-quien'), plazoSel = $('#q-plazo'), nombreIn = $('#q-nombre');
-  var tipoTouched = false;
+  var tipoTouched = false, tried = false;
+  var llamarCb = $('#q-llamar'), telIn = $('#q-tel'), franjaSel = $('#q-franja'), callBox = $('#tp-call');
+  var nameErr = $('#tp-name-err'), telErr = $('#tp-tel-err');
+  function validate(){
+    var nameOk = nombreIn.value.trim().length > 0;
+    var telOk = !llamarCb.checked || telIn.value.replace(/\D/g, '').length >= 9;
+    nameErr.hidden = !tried || nameOk;
+    telErr.hidden = !tried || telOk;
+    nombreIn.setAttribute('aria-invalid', String(tried && !nameOk));
+    telIn.setAttribute('aria-invalid', String(tried && !telOk));
+    nombreIn.style.borderColor = tried && !nameOk ? '#6C3BFF' : '#E5E7EB';
+    telIn.style.borderColor = tried && !telOk ? '#6C3BFF' : '#E5E7EB';
+    return { ok: nameOk && telOk, nameOk: nameOk };
+  }
 
   function setText(key, val){ $$('[data-t="'+key+'"]').forEach(function(el){ el.textContent = val; }); }
 
@@ -792,6 +827,8 @@ html{scroll-behavior:smooth}
     if (tipo) msg += ' Me interesa una app de ' + tipo.toLowerCase() + (quien ? ' para ' + quien : '') + '.';
     else if (quien) msg += ' Me interesa una app para ' + quien + '.';
     if (plazo) msg += ' La necesitaría ' + plazo + '.';
+    var tel = telIn.value.trim();
+    if (llamarCb.checked && tel) msg += ' Prefiero que me llaméis al ' + tel + ', ' + franjaSel.value + '.';
     var subject = 'táppika · Consulta' + (tipo ? ': app de ' + tipo.toLowerCase() : '');
     $('#tp-mail').href = 'mailto:info.tappika@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg);
     $('#tp-wa').href = 'https://wa.me/34620843264?text=' + encodeURIComponent(msg);
@@ -802,7 +839,17 @@ html{scroll-behavior:smooth}
   $('#tp-nombre').addEventListener('input', function(e){ state.name = e.target.value; renderApp(); });
   tipoSel.addEventListener('change', function(){ tipoTouched = true; renderContact(); });
   [quienSel, plazoSel].forEach(function(el){ el.addEventListener('change', renderContact); });
-  nombreIn.addEventListener('input', renderContact);
+  nombreIn.addEventListener('input', function(){ renderContact(); validate(); });
+  llamarCb.addEventListener('change', function(){ callBox.hidden = !llamarCb.checked; if (llamarCb.checked) telIn.focus(); renderContact(); validate(); });
+  telIn.addEventListener('input', function(){ renderContact(); validate(); });
+  franjaSel.addEventListener('change', renderContact);
+  ['#tp-mail', '#tp-wa'].forEach(function(id){
+    $(id).addEventListener('click', function(e){
+      tried = true;
+      var v = validate();
+      if (!v.ok) { e.preventDefault(); (v.nameOk ? telIn : nombreIn).focus(); }
+    });
+  });
   $('#tp-form').addEventListener('submit', function(e){ e.preventDefault(); });
   renderApp();
 })();

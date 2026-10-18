@@ -132,3 +132,9 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 **Pruebas previas a la publicación:** Chromium local en 1440×900 y 390×844: generador, cuestionario, enlaces de email/WhatsApp, sin errores de script ni desbordamiento horizontal. La comprobación pública la hace GitHub Actions tras el despliegue.
 
 **Pendiente:** textos legales y titular, dominio propio, registro de marca. Valorar el logo oficial de WhatsApp en el botón (ahora icono genérico).
+
+### 8.1 Ajuste del contacto — 18/10/2026
+- **Nombre obligatorio**: si falta, los botones de email/WhatsApp no se abren y se muestra un aviso junto al campo.
+- **Nueva opción «¿Prefieres que te llamemos?»**: al marcarla aparecen teléfono (obligatorio, mínimo 9 cifras) y mejor momento (cualquier hora / mañana / tarde). Se añade al mensaje: «Prefiero que me llaméis al …, por la tarde.» Sigue sin servidor: la petición llega por el mismo email o WhatsApp que envía el visitante.
+- El teléfono que escribe el visitante no se guarda en ningún sitio; solo viaja en su propio mensaje.
+- Verificador público ampliado con estas comprobaciones.

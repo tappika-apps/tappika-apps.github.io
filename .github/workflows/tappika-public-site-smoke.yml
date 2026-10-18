@@ -32,6 +32,7 @@ jobs:
             'href="mailto:info.tappika@gmail.com"',
             'href="https://wa.me/34620843264',
             'Tus respuestas aparecerán ya escritas en tu correo o en WhatsApp',
+            '¿Prefieres que te llamemos?',
             'Web en evolución · Datos legales pendientes de completar',
           )
           error = None
@@ -109,6 +110,14 @@ jobs:
               assert page.locator('[data-t="answered"]').inner_text() == "3", f"{device}: questionnaire progress"
               page.locator('#tp-wa').scroll_into_view_if_needed()
               assert page.locator('#tp-wa').is_visible() and page.locator('#tp-mail').is_visible(), f"{device}: contact buttons"
+              page.locator('#tp-wa').click()
+              assert page.locator('#tp-name-err').is_visible(), f"{device}: name must be required"
+              page.fill('#q-nombre', 'Prueba')
+              assert page.locator('#tp-name-err').is_hidden(), f"{device}: name error clears"
+              page.locator('#q-llamar').check()
+              assert page.locator('#tp-call').is_visible(), f"{device}: call-back fields"
+              page.fill('#q-tel', '600000000')
+              assert "llam%C3%A9is%20al%20600000000" in page.locator('#tp-wa').get_attribute('href'), f"{device}: call-back in message"
               assert page.locator('a[href^="tel:"]').count() == 0, f"{device}: phone must stay hidden"
               page.wait_for_timeout(400)
               assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), f"{device}: horizontal overflow"
