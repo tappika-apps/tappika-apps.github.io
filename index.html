@@ -38,7 +38,7 @@ input,textarea,button,select{font-family:inherit}
 .tp-absorb{animation:tp-absorb 8s cubic-bezier(.5,0,.3,1) infinite}
 .tp-rowin{animation:tp-rowin 8s ease-out infinite}
 .tp-hop{animation:tp-hop 8s ease-in-out infinite}
-.tp-count{animation:tp-count 2.4s ease-in-out infinite}
+.tp-count{animation:none}
 @keyframes tp-unspin{to{transform:rotate(-360deg)}}
 .tp-float{animation:tp-float 7s ease-in-out infinite}
 .tp-float2{animation:tp-float 9s ease-in-out infinite reverse}
@@ -47,7 +47,7 @@ input,textarea,button,select{font-family:inherit}
 .tp-log2{animation:tp-log 6s ease-out .6s infinite}
 .tp-log3{animation:tp-log 6s ease-out 1.2s infinite}
 .tp-ping{animation:tp-ping 1.8s ease-out infinite}
-.tp-bar{transform-origin:bottom;animation:tp-bar 3.2s ease-out infinite alternate}
+.tp-bar{transform-origin:bottom;animation:tp-bar 6s ease-in-out infinite alternate}
 .tp-dot{animation:tp-dot 4s linear infinite}
 .tp-toast1{animation:tp-toast 6s ease-in-out infinite}
 .tp-toast2{animation:tp-toast 6s ease-in-out 2s infinite}
@@ -77,7 +77,9 @@ input,textarea,button,select{font-family:inherit}
 .tp-typegrid button,.tp-tbtn{min-height:40px!important;padding:0 2px!important;font-size:13px!important}
 .tp-ctrl fieldset button[aria-label],.tp-cbtn{width:38px!important;height:38px!important}
 .tp-ctrl legend{margin-bottom:6px!important;font-size:13px!important}
-.tp-phone{transform:scale(.58);transform-origin:top center;margin-bottom:-270px;margin-top:18px}
+.tp-phoneframe{height:540px!important}
+.tp-prodimg{height:46px!important}
+.tp-phone{transform:scale(.68);transform-origin:top center;margin-bottom:-173px;margin-top:18px}
 .tp-vline{display:block!important}
 .tp-steps{display:flex!important;flex-direction:column;gap:26px!important}
 .tp-steps>li{display:grid!important;grid-template-columns:52px minmax(0,1fr);column-gap:16px;row-gap:4px!important;align-items:start}
@@ -181,7 +183,7 @@ html{scroll-behavior:smooth}
               <div style="min-width: 0"><div style="font-size: 13px; font-weight: 800"><span data-t="toastTitle"></span></div><div style="font-size: 12px; color: rgba(11,16,32,0.62)"><span data-t="toastSub"></span></div></div>
             </div>
 
-            <div role="img" id="tp-preview" aria-label="Vista previa de la app Peluquería Ana" style="position: relative; width: 316px; height: 644px; border-radius: 50px; background: #0B1020; padding: 11px; box-sizing: border-box; box-shadow: 0 50px 100px rgba(0,0,0,0.55), inset 0 0 0 1.5px rgba(229,231,235,0.18)">
+            <div role="img" class="tp-phoneframe" id="tp-preview" aria-label="Vista previa de la app Peluquería Ana" style="position: relative; width: 316px; height: 644px; border-radius: 50px; background: #0B1020; padding: 11px; box-sizing: border-box; box-shadow: 0 50px 100px rgba(0,0,0,0.55), inset 0 0 0 1.5px rgba(229,231,235,0.18)">
               <div style="position: relative; width: 100%; height: 100%; border-radius: 40px; background: #F8FAFC; color: #0B1020; overflow: hidden; display: flex; flex-direction: column">
 
                 <div style="padding: 30px 18px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px">
@@ -236,22 +238,24 @@ html{scroll-behavior:smooth}
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
                       <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
-                        <div style="height: 76px; border-radius: 12px; background: var(--c)"></div>
-                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Producto 1</span>
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">[PVP]</span><span style="width: 24px; height: 24px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">+</span></div>
+                        <div class="tp-prodimg" style="height: 76px; border-radius: 12px; background: var(--c)"></div>
+                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Pan de masa madre</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">3,20 €</span><span style="width: 24px; height: 24px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">+</span></div>
                       </div>
                       <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
-                        <div style="height: 76px; border-radius: 12px; background: #0B1020"></div>
-                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Producto 2</span>
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">[PVP]</span><span style="width: 24px; height: 24px; border-radius: 8px; background: var(--c); color: #F8FAFC; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center">2</span></div>
+                        <div class="tp-prodimg" style="height: 76px; border-radius: 12px; background: #0B1020"></div>
+                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Croissant</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">1,40 €</span><span style="width: 24px; height: 24px; border-radius: 8px; background: var(--c); color: #F8FAFC; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center">2</span></div>
                       </div>
                       <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
-                        <div style="height: 76px; border-radius: 12px; background: var(--c); opacity: 0.45"></div>
-                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Producto 3</span>
+                        <div class="tp-prodimg" style="height: 76px; border-radius: 12px; background: var(--c); opacity: 0.45"></div>
+                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Ensaimada</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">2,10 €</span><span style="width: 24px; height: 24px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">+</span></div>
                       </div>
                       <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
-                        <div style="height: 76px; border-radius: 12px; background: #E5E7EB"></div>
-                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Producto 4</span>
+                        <div class="tp-prodimg" style="height: 76px; border-radius: 12px; background: #E5E7EB"></div>
+                        <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Café con leche</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">1,60 €</span><span style="width: 24px; height: 24px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">+</span></div>
                       </div>
                     </div>
                     <div style="position: absolute; left: 16px; right: 16px; bottom: 10px; padding: 12px 14px; border-radius: 18px; background: var(--c); color: #F8FAFC; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 12px 24px rgba(11,16,32,0.25)">
@@ -275,8 +279,8 @@ html{scroll-behavior:smooth}
                       <div style="padding: 10px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB"><div style="font-size: 18px; font-weight: 800">18</div><div style="font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">Libres</div></div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 800">Últimas inscripciones</span><span style="font-size: 12px; font-weight: 700; color: var(--c)">Ver todas</span></div>
-                    <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: var(--c); color: #F8FAFC; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">P1</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Participante 1</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Taller · Grupo A</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">OK</span></div>
-                    <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: #0B1020; color: #F8FAFC; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">P2</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Participante 2</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Taller · Grupo B</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">OK</span></div>
+                    <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: var(--c); color: #F8FAFC; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">LM</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Lucía Martín</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Turno de mañana · 2 plazas</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">Confirmada</span></div>
+                    <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: #0B1020; color: #F8FAFC; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">CR</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Carlos Ruiz</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Turno de tarde · 1 plaza</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">Confirmado</span></div>
                   </div>
                 </div>
 

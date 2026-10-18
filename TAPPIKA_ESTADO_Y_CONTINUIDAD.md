@@ -142,3 +142,7 @@ Actualizado: 18/10/2026, tras publicación y certificación técnica de la web. 
 ### 8.2 Portada en móvil — 18/10/2026
 - En móvil el generador muestra primero el teléfono (más pequeño) y debajo la personalización compacta: los 4 tipos en una fila y los colores en otra. Todo cabe en una pantalla (~630 px).
 - En móvil el rótulo dice «en 2 toques» (el campo de nombre del generador solo aparece en ordenador).
+
+### 8.3 Pulido — 18/10/2026
+- Sustituidos los textos de relleno de las vistas de ejemplo ([PVP], «Producto 1», «Participante 1»…) por datos de ejemplo creíbles (panadería y taller). Siguen siendo **vistas conceptuales**, no clientes reales.
+- Móvil: vista previa del teléfono más grande y legible; animaciones más tranquilas (sin pulsos, barras más lentas).
