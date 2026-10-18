@@ -195,3 +195,25 @@ La usuaria aclara expresamente que la razón para comprar el dominio es **tener 
 - La usuaria confirma el 18/10/2026 que **ha completado el proceso de compra** del dominio `tappika.es` y servicio **Mail**, pero indica que DonDominio todavía lo muestra **«en proceso»**. La captura previa del carrito mostraba dominio 6,95 € + Mail 10,00 € (1 año cada uno), total 20,51 € IVA incluido. **No existe todavía confirmación independiente de registro activo, buzón creado ni correo verificado.**
 - **Siguiente hito:** comprobar en el área del proveedor que dominio y alojamiento Mail están activos. Solo entonces crear la cuenta `info@tappika.es` y verificar envío/recepción desde otra dirección, remitente visible, respuesta y DNS de correo; después conectar `tappika.es` y `www.tappika.es` a GitHub Pages con HTTPS.
 - Hasta esa confirmación no generar ni publicar `CNAME`, no tocar DNS, no modificar dirección de contacto publicada ni retirar `noindex`. No repetir pago; conservar correo de confirmación y recibo privado, sin compartir credenciales ni datos fiscales en chat.
+
+## 9. Textos legales de ONE adaptados y publicados en táppika — 18/10/2026
+
+**Autorización de la titular:** confirma expresamente que es la misma persona titular de ONE y WeddlySmartDesign y solicita reutilizar los datos identificativos y legales de la web de ONE en táppika. Se recuperó en modo exclusivamente lectura `WeddlySmartDesign/WeddlySmartDesign.github.io/one.html` de la cuenta anterior, en rama `main`; `<dialog id="legal-notice">` contiene nombre, NIF, domicilio, correo y teléfono completos ya publicados, y `privacy-policy` remite a ese aviso. **No se ha modificado el repositorio ONE.**
+
+Se reutilizaron **los datos legales de la misma persona responsable**, preservando la presentación discreta del bloque de identificación solo en el aviso legal, pero sin trasladar tratamientos ajenos a táppika: invitaciones/RSVP, datos de bodas, Stripe, Supabase, Resend, pruebas, sincronización y compras de ONE no se describen como funcionalidades de esta web.
+
+### Cambios reales bajo `tappika-apps/tappika-apps.github.io`
+- Nuevas páginas públicas: `aviso-legal.html` (mismos datos de titular que ONE), `privacidad.html` (GitHub Pages, Google Fonts, consultas mailto/WhatsApp, derechos), `cookies.html` (situación realmente auditada sin cookies/analítica).
+- En `index.html` versión inmediatamente anterior `914d26300bb39abb69bd6d2d9820caa7dc0046b2` se realizaron **solo dos sustituciones localizadas**: texto de información previa al envío de consultas (incluida responsable y enlace a privacidad) y bloque informativo del footer con enlaces accesibles a los tres documentos. Nuevo commit `f5ece2f15f9364ee7151e044498a4ef245bf3e86`. No se rehízo el diseño de Claude ni se modificaron scripts, contacto o las demostraciones.
+- Se añadió `.github/workflows/tappika-legal-pages-qa.yml` (commit `51e44274890ade882668f376a3882d96ccd4555e`) para verificar las páginas y enlaces realmente servidos por GitHub Pages en escritorio y móvil. Esperar el resultado completo antes de dar por comprobado el acceso exterior.
+- Los documentos previos `.github/legal/*BORRADOR.md` corresponden a una **fase histórica** anterior a recuperar la titularidad de ONE. La fuente de verdad de presentación legal pasa a ser los tres HTML públicos. No copiar automáticamente condiciones comerciales de ONE, que no corresponden a táppika.
+- **Se conserva `noindex, nofollow`** en la portada y páginas legales por ahora, hasta la publicación comercial definitiva, compra/activación real del dominio, revisión final de marca y decisión de la titular. Los textos ahora son visibles y accesibles por enlaces, pero no debe afirmarse que ha concluido una auditoría jurídica independiente.
+- Correo actual publicado: `info.tappika@gmail.com`. Cuando DonDominio confirme que dominio y buzón Mail están activos, crear y verificar la recepción y el envío de `info@tappika.es` y **solo después** sustituir todas las menciones comerciales en `index.html`, páginas legales y enlaces `mailto:`. No afirmar que `info@tappika.es` funciona antes de la prueba. El `tappika.es` y Mail estaban «en proceso» en el último informe de la usuaria.
+- Cookie QA anterior `39124009393` success; repetir si se incorporan scripts, servicios o nuevas capacidades. Google Fonts sigue usando solicitudes externas y se informa de ello.
+- Titularidad y repositorios **completamente separados**: la identidad legal de la misma persona física no implica unificar infraestructuras, clientes ni productos.
+
+### Punto de reanudación
+1. Confirmar que la acción `Verify táppika legal pages in public web` finalizó en success y que Pages desplegó el HTML nuevo (link: `https://github.com/tappika-apps/tappika-apps.github.io/actions`).
+2. Esperar confirmación de activación del dominio y correo por DonDominio; nunca solicitar contraseñas/NIF o datos de pago en chat.
+3. Configurar DNS con cuidado de **conservar MX/SPF/DKIM/DMARC**, probar HTTPS y correo real y actualizar enlaces.
+4. Continuar la revisión de identidad visual y marca con la última versión, sin reconstruir la web.
