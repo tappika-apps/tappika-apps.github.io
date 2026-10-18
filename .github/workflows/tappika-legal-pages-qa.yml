@@ -1,0 +1,72 @@
+name: Verify táppika legal pages in public web
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'aviso-legal.html'
+      - 'privacidad.html'
+      - 'cookies.html'
+      - '.github/workflows/tappika-legal-pages-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  legal-public-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Chromium test runtime
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Verify live legal links, content and privacy in desktop and mobile
+        run: |
+          python - <<'PY'
+          import time
+          from playwright.sync_api import sync_playwright
+          origin="https://tappika-apps.github.io/"
+          routes={"aviso-legal.html":"Aviso legal","privacidad.html":"Política de privacidad","cookies.html":"Cookies y tecnologías similares"}
+          with sync_playwright() as p:
+            browser=p.chromium.launch(headless=True)
+            for name,viewport in (("desktop",{"width":1440,"height":900}),("mobile",{"width":390,"height":844})):
+              ctx=browser.new_context(viewport=viewport,locale="es-ES")
+              page=ctx.new_page()
+              issues=[]
+              page.on("pageerror",lambda e:issues.append(str(e)))
+              for attempt in range(18):
+                page.goto(origin+"?legalqa="+str(attempt),wait_until="domcontentloaded",timeout=30000)
+                if all(page.locator(f'footer a[href="{path}"]').count()==1 for path in routes):
+                  break
+                time.sleep(10)
+              else:
+                raise AssertionError("Public page missing footer links after publishing")
+              assert page.locator('a[href="privacidad.html"]').count()>=2,"Contact privacy first layer missing"
+              assert page.locator('meta[name="robots"]').get_attribute("content")=="noindex, nofollow","Indexing flag changed prematurely"
+              for route,title in routes.items():
+                response=page.goto(origin+route+"?legalqa="+str(attempt),wait_until="domcontentloaded",timeout=30000)
+                assert response.status==200,route+" HTTP"
+                assert page.locator("h1").inner_text()==title,route+" headline"
+                assert page.locator('a[href="aviso-legal.html"]').count()>=1
+                assert page.locator('a[href="privacidad.html"]').count()>=1
+                assert page.locator('a[href="cookies.html"]').count()>=1
+                assert "táppika" in page.title()
+                assert page.evaluate("document.documentElement.scrollWidth <= innerWidth+2"),route+" horizontal overflow"
+                assert page.locator('meta[name="robots"]').get_attribute("content")=="noindex, nofollow"
+                assert "WeddlySmartDesign" not in page.content(),route+" cross-brand contamination"
+                assert "[PENDIENTE]" not in page.content(),route+" unfinished placeholder"
+                if route=="aviso-legal.html":
+                  assert "Datos del prestador" in page.locator("main").inner_text()
+                  assert "NIF" in page.locator("main").inner_text()
+                if route=="privacidad.html":
+                  assert "GitHub Pages" in page.locator("main").inner_text()
+                  assert "Google Fonts" in page.locator("main").inner_text()
+              assert not ctx.cookies(),"Cookies detected during legal QA"
+              assert not issues,issues
+              print("LEGAL PUBLIC PASS",name,"all 3 pages HTTP 200, legal footer and form links, noindex, no cookie or JS errors")
+              ctx.close()
+            browser.close()
+          PY
