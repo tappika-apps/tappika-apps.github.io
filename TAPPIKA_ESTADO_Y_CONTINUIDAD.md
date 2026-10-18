@@ -217,3 +217,11 @@ Se reutilizaron **los datos legales de la misma persona responsable**, preservan
 2. Esperar confirmación de activación del dominio y correo por DonDominio; nunca solicitar contraseñas/NIF o datos de pago en chat.
 3. Configurar DNS con cuidado de **conservar MX/SPF/DKIM/DMARC**, probar HTTPS y correo real y actualizar enlaces.
 4. Continuar la revisión de identidad visual y marca con la última versión, sin reconstruir la web.
+
+
+### Certificación de las páginas legales, verificación externa superada
+
+- **Ejecución pública** [GitHub Actions 39125845355](https://github.com/tappika-apps/tappika-apps.github.io/actions/runs/39125845355), **completed/success**, 18/10/2026: Chromium escritorio (1440×900) y móvil (390×844), tres páginas legales HTTP 200, encabezados correctos, enlaces de navegación mutua y vínculos desde el pie y primera capa del contacto, páginas con `noindex`, sin `[PENDIENTE]` ni referencias cruzadas a WeddlySmartDesign en las páginas publicadas, sin cookies, errores de script o desbordamiento horizontal.
+- Despliegue Pages asociado 39125844770, **completed/success**, confirma entrega en la web pública. Los documentos funcionan y son accesibles, sin que esto constituya asesoramiento ni certificación jurídica externa.
+- Páginas verificadas: https://tappika-apps.github.io/aviso-legal.html , https://tappika-apps.github.io/privacidad.html , https://tappika-apps.github.io/cookies.html .
+- Se ha releído `index.html` posterior, SHA `adad17db177c229379755643f876c1e6bf3d1985`, y conserva enlaces legales, `noindex`, correo `info.tappika@gmail.com` mientras el nuevo buzón y dominio `tappika.es` están pendientes de activación. El diseño existente se conserva.
