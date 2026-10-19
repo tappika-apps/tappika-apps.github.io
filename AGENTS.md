@@ -18,3 +18,11 @@ Documentar los cambios en GitHub.
 ## Comercial y seguridad
 No presentar aplicaciones conceptuales como casos reales ni formulario mailto como un envío desde servidor.
 No tocar apps de terceros sin comprobación previa y preservar titularidad de cada cliente.
+
+## Continuidad documental — norma del 19/10/2026
+- La Biblioteca de ChatGPT y el historial del chat **no** son fuente de verdad ni almacenamiento principal. Cada cambio, decisión, prueba, incidencia y pendiente debe documentarse en una ubicación persistente **fuera de la Biblioteca** y enlazarse desde un índice de continuidad.
+- Este repositorio es **PÚBLICO**: limitarlo a web, marca y reglas divulgables. **Nunca** añadir aquí procedimientos internos, información laboral privada, datos de clientes, incidencias sensibles, credenciales, tokens, respaldos ni información legal privada.
+- Los manuales operativos internos, plantillas y bitácoras transversales requieren un **repositorio PRIVADO bajo la cuenta tappika-apps**, pendiente de creación y conexión. Hasta entonces, no afirmar que esos documentos se han migrado o protegido allí.
+- Cada aplicación de cliente debe mantener su código, estado y documentación confidencial en un espacio independiente bajo titularidad/autorización del cliente. Las copias de producción se custodian bajo su control, con recuperación verificada; no son archivos para repositorios de documentación.
+- Mantener instrucciones de proyecto cortas que remitan al índice privado correspondiente y a sus versiones verificadas, en vez de depender del límite de texto o de repetir procedimientos.
+- La migración documental no autoriza despliegues ni modificaciones de la web o de aplicaciones ajenas. No alterar funcionalidades ni datos por documentar.
