@@ -351,3 +351,23 @@ Se localizaron archivos de las aplicaciones en la Biblioteca, sin acceder a cuen
 **Separación de clientes:** cada cliente conserva su propio código, decisiones confidenciales, incidentes específicos, infraestructura, datos y copias en espacios bajo su titularidad o autorización. El repositorio privado transversal de táppika será solo para procesos internos de la marca y modelos anonimizados.
 
 **Regla operativa:** ChatGPT puede preparar y documentar trabajo autónomamente, pero no debe pedir intervención técnica durante la jornada ni utilizar recursos del empleador de la propietaria. El requisito completo de protección laboral estará en instrucciones privadas, no en el repositorio público. No modificar el sitio ni desplegar aplicaciones por esta actualización documental.
+
+## 9. Revisión de diseño con la skill impeccable — 19/10/2026
+
+**Crítica inicial:** 26/40 en heurísticas de Nielsen (dos evaluaciones independientes: revisión de diseño + detector automático, 25 avisos). Prioridades: falta de confianza (quién/precio/plazo), generador móvil sin salida, fallos técnicos, página larga y repetitiva en móvil, objetivos táctiles pequeños.
+
+**Decisiones de la titular:** voz en primera persona («yo»), abordar todo, empezando por lo técnico.
+
+**Cambios en `index.html`:**
+- Técnicos: corregida una llave sobrante que anulaba la animación del proceso en móvil; `<nav>` ya no está dentro de `<p>` en el pie; la mancha del hero ya no desborda; tipografía del `body` (el enlace de salto ya no sale en serif); selección de texto, cursor y casillas con colores de marca; `a:hover` ya no deja enlaces invisibles en fondos claros.
+- Táctil (móvil): tipos y colores del generador a 44 px; preguntas frecuentes con toda la fila pulsable; «Proyectos» del menú y enlaces del pie con 44 px de alto; casilla de llamada más grande.
+- Errores del formulario con color propio de error (#B42318, solo para errores) e icono; «(obligatorio)» visible en nombre y teléfono; el teléfono se valida como número español de 9 cifras (acepta +34) y rechaza repeticiones tipo 000000000; aviso visible de que se abrirá el correo/WhatsApp y hay que pulsar enviar.
+- Voz «yo» en todo el sitio (titular «Tú tienes una idea. Yo la convierto en app.», menú «Quién soy» / «Cómo trabajo», proceso, FAQ, formulario y mensaje de WhatsApp «Prefiero que me llames…»).
+- Confianza: la sección de filosofía pasa a «Detrás de táppika hay una persona, no una plantilla», con Pilar (inicial «P», a falta de foto), trato directo; FAQ nuevas «¿Cuánto cuesta una app?» (presupuesto cerrado sin compromiso, sin cifras) y plazo concreto en el presupuesto.
+- Generador: nombre también en móvil; botón «Quiero una app así» que lleva al formulario; la tarjeta «La app que has creado» solo aparece si el visitante usó el generador.
+- Menos ruido: fuera la cinta de palabras, las etiquetas sobre los titulares y los números «01 · …»; sin halos ni parpadeos; las pestañas de «Lo que hacemos» ya no giran solas y su altura se ajusta al contenido.
+- Móvil más corto (~8.160 → ~7.200 px): en móvil se ocultan la franja «¿Tu idea no encaja?», el panel de Gestión y los 4 mosaicos de Funciones (queda «Trabaja sola»); barra fija inferior «Cuéntame tu idea» + WhatsApp que aparece tras la portada y se oculta en el contacto.
+- Detector: 25 → 17 avisos; los restantes son textos pequeños dentro de las maquetas decorativas y recortes intencionados.
+
+**Verificador público** actualizado a los nuevos textos (llamada en singular).
+**Pendiente:** foto de Pilar (sustituiría la «P»), confirmar si se quiere mencionar la ciudad, og:image para compartir por WhatsApp.

@@ -32,7 +32,7 @@ jobs:
             'href="mailto:info@tappika.es"',
             'href="https://wa.me/34620843264',
             'Esta página prepara tu mensaje, pero no guarda tus respuestas.',
-            '¿Prefieres que te llamemos?',
+            '¿Prefieres que te llame?',
             'Información legal de táppika',
           )
           error = None
@@ -117,7 +117,7 @@ jobs:
               page.locator('#q-llamar').check()
               assert page.locator('#tp-call').is_visible(), f"{device}: call-back fields"
               page.fill('#q-tel', '600000000')
-              assert "llam%C3%A9is%20al%20600000000" in page.locator('#tp-wa').get_attribute('href'), f"{device}: call-back in message"
+              assert "llames%20al%20600000000" in page.locator('#tp-wa').get_attribute('href'), f"{device}: call-back in message"
               assert page.locator('a[href^="tel:"]').count() == 0, f"{device}: phone must stay hidden"
               page.wait_for_timeout(400)
               assert page.evaluate("document.documentElement.scrollWidth <= innerWidth + 2"), f"{device}: horizontal overflow"
