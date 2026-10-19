@@ -339,3 +339,15 @@ Se localizaron archivos de las aplicaciones en la Biblioteca, sin acceder a cuen
 ### Comprobación final de captura BNevents — 18/10/2026
 - Tras incorporarla a la página independiente, la acción [39152948840](https://github.com/tappika-apps/tappika-apps.github.io/actions/runs/39152948840) terminó `success` y confirma en **Chromium escritorio y móvil** que la foto BNevents (`assets/portfolio/bnevents.webp`) se descarga, decodifica y su ancho natural supera los 500 px, que la antigua sección no existe en la home, que el menú al portfolio funciona en móvil, que el buscador filtra y se conserva el anonimato de la agenda. Test corregido para comprobar imagen real en commit `8f66b1abfdee1ed730c4b0a504c9439e77ba41e3`.
 - Se mantienen pendientes **tres capturas** guardadas en `/táppika/portfolio/` de Biblioteca, no publicadas en GitHub. Nunca afirmar que el portfolio ya incluye las cuatro imágenes hasta comprobación externa.
+
+## Actualización de continuidad documental — 19/10/2026
+
+**Decisión confirmada:** la Biblioteca de ChatGPT está prácticamente llena y deja de ser fuente principal de conservación para táppika. No crear nuevos documentos en ella como solución normal. La continuidad debe depender de repositorios versionados y accesibles fuera del chat.
+
+**Regla registrada también en `AGENTS.md`:** este repositorio de la web es **PÚBLICO**, por lo que solo puede contener documentación no confidencial. No subir aquí manuales operativos internos con condiciones laborales privadas, incidencias o información sensible de clientes, contraseñas, tokens o respaldos.
+
+**Pendiente imprescindible:** crear un repositorio **PRIVADO** bajo la cuenta `tappika-apps` y permitir acceso al conector GitHub autorizado. Allí se trasladarán y comprobarán los documentos de procedimientos y plantillas creados el 19/10/2026 (sin datos personales de clientes ni credenciales), con un índice único y referencias desde las instrucciones del proyecto ChatGPT. Hasta esa migración verificada, **NO afirmar que los manuales ya están guardados fuera de Biblioteca**.
+
+**Separación de clientes:** cada cliente conserva su propio código, decisiones confidenciales, incidentes específicos, infraestructura, datos y copias en espacios bajo su titularidad o autorización. El repositorio privado transversal de táppika será solo para procesos internos de la marca y modelos anonimizados.
+
+**Regla operativa:** ChatGPT puede preparar y documentar trabajo autónomamente, pero no debe pedir intervención técnica durante la jornada ni utilizar recursos del empleador de la propietaria. El requisito completo de protección laboral estará en instrucciones privadas, no en el repositorio público. No modificar el sitio ni desplegar aplicaciones por esta actualización documental.
