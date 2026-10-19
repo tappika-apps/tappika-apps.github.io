@@ -346,7 +346,7 @@ Se localizaron archivos de las aplicaciones en la Biblioteca, sin acceder a cuen
 
 **Regla registrada también en `AGENTS.md`:** este repositorio de la web es **PÚBLICO**, por lo que solo puede contener documentación no confidencial. No subir aquí manuales operativos internos con condiciones laborales privadas, incidencias o información sensible de clientes, contraseñas, tokens o respaldos.
 
-**Pendiente imprescindible:** crear un repositorio **PRIVADO** bajo la cuenta `tappika-apps` y permitir acceso al conector GitHub autorizado. Allí se trasladarán y comprobarán los documentos de procedimientos y plantillas creados el 19/10/2026 (sin datos personales de clientes ni credenciales), con un índice único y referencias desde las instrucciones del proyecto ChatGPT. Hasta esa migración verificada, **NO afirmar que los manuales ya están guardados fuera de Biblioteca**.
+**Completado el 19/10/2026:** creado y comprobado el repositorio **PRIVADO** `tappika-apps/tappika-operaciones` bajo la cuenta propia; migrados y releídos desde GitHub los tres documentos transversales (instrucciones maestras, protocolo y plantillas) y creado `docs/CONTINUIDAD.md` como índice. La documentación propia de clientes requiere migración a espacios SEPARADOS y autorizados; GitHub aún precisa copia independiente. Las referencias a Biblioteca en instrucciones del proyecto deben sustituirse manualmente por las rutas privadas.
 
 **Separación de clientes:** cada cliente conserva su propio código, decisiones confidenciales, incidentes específicos, infraestructura, datos y copias en espacios bajo su titularidad o autorización. El repositorio privado transversal de táppika será solo para procesos internos de la marca y modelos anonimizados.
 
