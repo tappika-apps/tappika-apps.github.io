@@ -405,3 +405,15 @@ Encargo de la titular: hacer todo lo que no dependa de ella (foto, ciudad y capt
 - Imagen para compartir regenerada en claro con el logo original.
 - Foco del teclado: anillo azul noche con halo ámbar, visible sobre claro y sobre oscuro.
 - Pruebas en navegador: 34/34 correctas; sin desbordes de 320 a 1024 px; detector: 12 avisos intencionados.
+
+## 13. Revisión crítica y ajustes de confianza — 21/10/2026
+
+Revisión independiente (skill impeccable, evaluación de diseño aislada): 29/40. Decisiones de la titular: mantener la voz en primera persona, mostrar precio orientativo y aplicar todas las mejoras.
+
+- **Precio:** «Apps desde 150 €» (es un precio de partida; el final se da en presupuesto cerrado y sin compromiso). Aparece en la pregunta «¿Cuánto cuesta una app?» y junto al formulario de contacto. Pendiente que la titular confirme si el precio se indica con IVA incluido.
+- **Compromiso del «yo»:** «Te respondo en 24-48 h y acepto pocos proyectos a la vez».
+- **Acción principal unificada:** «Cuéntame tu idea» (en móvil, «Cuéntame»). Se mantienen «Quiero una app así» (generador) y «Cuéntamela» por ser contextuales.
+- **Formulario:** fuera el contador «1/3» y su barra; correo visible como plan B («¿No se abre? Escríbeme a info@tappika.es»); la primera capa de privacidad indica «Responsable: Pilar R. B. (táppika)» con enlace a la política completa (conformidad de la titular).
+- **Móvil más corto:** se oculta en móvil el bloque «Tu app trabaja» (repetía mensajes); sigue visible en escritorio.
+- **Proyectos:** solo se muestra BNevents como caso desarrollado (lo que necesitaba → lo que hice → hoy, en uso) sin identificar al cliente; Mi Campo, Mi Semana y Agenda y reservas aparecen como texto en «También he creado», sin cajas vacías. Fuera el buscador y el contador. La comprobación automática de proyectos se ha actualizado a esta estructura.
+- **Pendiente:** testimonio del cliente de BNevents (borrador entregado a la titular; se publicará solo con su texto aprobado y su permiso para nombrarlo), foto de manos/espacio de trabajo, dominio propio tappika.es para la web.

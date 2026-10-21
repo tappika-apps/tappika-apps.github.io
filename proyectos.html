@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F8FAFC">
-<meta name="description" content="Proyectos realizados por táppika: aplicaciones de eventos, agricultura, organización académica y reservas profesionales.">
+<meta name="description" content="Proyectos realizados por táppika: apps a medida de eventos, gestión agrícola, organización académica y reservas profesionales.">
 <meta property="og:title" content="Proyectos realizados · táppika">
 <meta property="og:description" content="Apps reales hechas a medida: eventos, campo, agenda y reservas.">
 <meta property="og:image" content="https://tappika-apps.github.io/assets/og/tappika-og.png">
@@ -31,29 +31,17 @@ header{border-bottom:1px solid rgba(11,16,32,.08);position:relative;z-index:2;ba
 .topnav a:last-child{padding:0 20px;gap:8px;border-radius:100px;background:#E8AD4A;color:#0B1020}
 main{max-width:1240px;margin:0 auto;padding:92px 24px 100px}
 h1{font-size:clamp(40px,6vw,74px);line-height:1.04;letter-spacing:-.045em;margin:0;text-wrap:balance}
-.intro{max-width:730px;color:rgba(11,16,32,.72);font-size:18px;line-height:1.7;margin:22px 0 0}
-.toolbar{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin:48px 0 24px}
-.count{font-size:12px;color:rgba(11,16,32,.6);letter-spacing:.07em;font-weight:800;text-transform:uppercase}
-.find{position:relative;min-width:230px;flex:1;max-width:420px;margin-left:auto;display:flex}.find svg{position:absolute;left:17px;top:50%;width:18px;height:18px;transform:translateY(-50%);color:rgba(11,16,32,.5);pointer-events:none}
-.search{width:100%;min-height:48px;border-radius:999px;border:1px solid rgba(11,16,32,.16);padding:12px 19px 12px 46px;background:#FFFFFF;color:#0B1020;font:inherit}
-.search::placeholder{color:rgba(11,16,32,.5)}.search:focus{border-color:#0B1020;outline:none;box-shadow:0 0 0 3px rgba(232,173,74,.35)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px}
+.intro{max-width:730px;color:rgba(11,16,32,.72);font-size:18px;line-height:1.7;margin:22px 0 40px}
 .case{min-width:0;border:1px solid rgba(11,16,32,.1);border-radius:28px;overflow:hidden;background:#FFFFFF;transition:border-color .2s,transform .2s}
 @media(hover:hover) and (pointer:fine){.case:hover{border-color:rgba(11,16,32,.28);transform:translateY(-3px)}}
 .case-media{height:260px;background:#0B1020;display:grid;place-items:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(11,16,32,.08)}
-.case-media[data-tone="field"]{background:#EEF0F3}
-.case-media[data-tone="study"]{background:#F6EEDD}
-.case-media[data-tone="booking"]{background:#E5E7EB}
-.media-pending{text-align:center;color:rgba(11,16,32,.6);display:grid;justify-items:center;gap:12px}
-.media-pending svg{width:42px;height:42px;opacity:.65}.media-pending span{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.case-media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+.case-media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:left top}
 .case-copy{padding:27px 29px 32px}
 .kind{color:#8A560A;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
 h2{font-size:26px;line-height:1.14;letter-spacing:-.035em;margin:12px 0}
 .case-copy p{color:rgba(11,16,32,.72);margin:0 0 21px;font-size:15px;line-height:1.7}
 .features{margin:0;padding:0;list-style:none;display:flex;gap:8px;flex-wrap:wrap}
 .features li{padding:7px 11px;border:1px solid rgba(11,16,32,.12);border-radius:100px;background:#F8FAFC;font-size:11px;font-weight:700}
-.empty{padding:35px 0;color:rgba(11,16,32,.72);display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}.empty[hidden]{display:none}.reset{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(11,16,32,.2);background:none;color:#0B1020;font:inherit;font-weight:700;cursor:pointer}@media(hover:hover) and (pointer:fine){.reset:hover{border-color:#0B1020}}
 .below{margin:57px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(11,16,32,.1);padding-top:28px}
 .below p{margin:0;color:rgba(11,16,32,.72)}
 .cta{background:#0B1020;color:#F8FAFC;min-height:52px;padding:0 24px;border-radius:100px;text-decoration:none;font-weight:800;display:inline-flex;align-items:center;gap:10px}
@@ -61,9 +49,22 @@ h2{font-size:26px;line-height:1.14;letter-spacing:-.035em;margin:12px 0}
 footer{border-top:1px solid rgba(11,16,32,.08);padding:32px 20px;text-align:center;color:rgba(11,16,32,.6);font-size:12px}
 footer nav{display:flex;column-gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}footer nav a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;text-underline-offset:3px}
 footer a{color:#0B1020}
-@media(max-width:760px){.head{padding:18px 20px}.word{font-size:25px}.mark{height:36px;width:36px;font-size:24px}.topnav{gap:14px;font-size:14px}.topnav a:last-child{padding:0 14px}main{padding:55px 20px 73px}.grid{grid-template-columns:1fr;gap:18px}.case-media{height:220px}.case-copy{padding:23px}.toolbar{gap:10px;margin:28px 0 20px}.find{order:2;flex-basis:100%;max-width:none;margin-left:0}.intro{font-size:16px}}
+@media(max-width:760px){.head{padding:18px 20px}.word{font-size:25px}.mark{height:36px;width:36px;font-size:24px}.topnav{gap:14px;font-size:14px}.topnav a:last-child{padding:0 14px}main{padding:55px 20px 73px}.case-media{height:220px}.case-copy{padding:23px}.intro{font-size:16px}}
+@media(max-width:760px){.tp-long{display:none}}
 @media(max-width:360px){.mark{display:none}.head{padding:16px}.topnav a:last-child svg{display:none}}
 @media(prefers-reduced-motion:reduce){.case{transition:none}@media(hover:hover) and (pointer:fine){.case:hover{transform:none}}}
+.feature{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.feature .case-media{height:auto;min-height:420px;border-bottom:none;border-right:1px solid rgba(11,16,32,.08)}
+.feature .case-copy{padding:36px 36px 38px;display:flex;flex-direction:column;gap:6px}
+.feature h2{font-size:34px;margin:8px 0 14px}
+.story{margin:0 0 22px;display:flex;flex-direction:column;gap:14px}
+.story div{display:grid;gap:2px}.story dt{font-size:13px;font-weight:800;color:#0B1020}.story dd{margin:0;color:rgba(11,16,32,.72);font-size:16px;line-height:1.6}
+.more{margin-top:64px}.more>h2{font-size:clamp(26px,3vw,34px);letter-spacing:-.035em;margin:0}
+.more-intro{margin:8px 0 22px;color:rgba(11,16,32,.72)}
+.more-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(11,16,32,.1)}
+.more-list li{padding:22px 24px 6px 0}.more-list li+li{padding-left:24px;border-left:1px solid rgba(11,16,32,.1)}
+.more-list h3{font-size:21px;letter-spacing:-.02em;margin:8px 0 6px}.more-list p{margin:0;color:rgba(11,16,32,.72);font-size:15px;line-height:1.6}
+@media(max-width:860px){.feature{grid-template-columns:1fr}.feature .case-media{min-height:0;height:220px;border-right:none;border-bottom:1px solid rgba(11,16,32,.08)}.feature .case-copy{padding:24px}.feature h2{font-size:28px}.more{margin-top:48px}.more-list{grid-template-columns:1fr}.more-list li,.more-list li+li{padding:20px 0;border-left:none;border-bottom:1px solid rgba(11,16,32,.1)}}
 
 :root{--ease-out:cubic-bezier(.23,1,.32,1)}h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-optical-sizing:auto}.mark,.word{font-family:Manrope,sans-serif}a,button{transition:transform .16s var(--ease-out)}a:active,button:active{transform:scale(.97)}@media(prefers-reduced-motion:reduce){a:active,button:active{transform:none}}
 </style>
@@ -74,57 +75,36 @@ footer a{color:#0B1020}
  <div class="head">
   <a href="./" class="brand" aria-label="táppika, volver al inicio"><span class="mark" aria-hidden="true">t<i></i></span><span class="word">t<b>á</b>pp<b>i</b>ka</span></a>
   <nav class="topnav" aria-label="Navegación">
-   <a href="./">Inicio</a><a href="./#contacto">Hablemos<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+   <a href="./">Inicio</a><a href="./#contacto"><span>Cuéntame<span class="tp-long">&nbsp;tu idea</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </nav>
  </div>
 </header>
 <main id="contenido">
  <h1>Proyectos <span style="color:#8A560A">realizados.</span></h1>
- <p class="intro">Cada una nació de una necesidad concreta y está hecha a la medida de quien la usa. Aquí tienes algunas de las apps que he creado.</p>
- <div class="toolbar">
-  <span class="count" id="count">4 proyectos</span>
-  <div class="find"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="search" id="search" class="search" placeholder="Busca por tipo o función" aria-label="Buscar proyectos o funciones" autocomplete="off" enterkeyhint="search"></div>
- </div>
- <div class="grid" id="portfolio">
-  <article class="case" data-keywords="bnevents eventos inscripciones actividades aforo calendario asistentes gimnasio" aria-labelledby="p-bn">
-   <div class="case-media" data-tone="events"><img src="assets/portfolio/bnevents.webp" width="1280" height="800" alt="Captura real de la pantalla pública BNevents" loading="lazy" decoding="async"></div>
-   <div class="case-copy"><span class="kind">Eventos e inscripciones</span><h2 id="p-bn">BNevents</h2><p>Calendario de actividades, inscripciones y control de plazas desde una misma herramienta.</p><ul class="features"><li>Eventos</li><li>Inscripciones</li><li>Control de aforo</li><li>Gestión</li></ul></div>
-  </article>
-  <article class="case" data-keywords="mi campo gestión agrícola invernaderos sectores tratamientos labores riegos inventario" aria-labelledby="p-campo">
-   <div class="case-media" data-tone="field">
-    <div class="media-pending" role="img" aria-label="Captura auténtica pendiente de seleccionar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 15 3-3 3 3 3-4 2 3"/></svg><span>Captura en preparación</span></div>
-   </div>
-   <div class="case-copy"><span class="kind">Gestión agrícola</span><h2 id="p-campo">Mi Campo</h2><p>Un cuaderno agrícola digital para reunir el trabajo diario y consultar las anotaciones de la explotación.</p><ul class="features"><li>Invernaderos</li><li>Labores</li><li>Inventario</li><li>Costes</li></ul></div>
-  </article>
-  <article class="case" data-keywords="mi semana agenda escolar clases asignaturas calendario exámenes deberes tareas" aria-labelledby="p-semana">
-   <div class="case-media" data-tone="study">
-    <div class="media-pending" role="img" aria-label="Captura auténtica pendiente de seleccionar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 15 3-3 3 3 3-4 2 3"/></svg><span>Captura en preparación</span></div>
-   </div>
-   <div class="case-copy"><span class="kind">Organización académica</span><h2 id="p-semana">Mi Semana</h2><p>Organización visual de las clases, tareas y exámenes en una agenda sencilla y personalizable.</p><ul class="features"><li>Calendario</li><li>Tareas</li><li>Exámenes</li><li>Asignaturas</li></ul></div>
-  </article>
-  <article class="case" data-keywords="agenda reservas citas servicios horarios calendario disponibilidad actividad profesional" aria-labelledby="p-citas">
-   <div class="case-media" data-tone="booking">
-    <div class="media-pending" role="img" aria-label="Captura auténtica pendiente de seleccionar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 15 3-3 3 3 3-4 2 3"/></svg><span>Captura en preparación</span></div>
-   </div>
-   <div class="case-copy"><span class="kind">Reservas profesionales</span><h2 id="p-citas">Agenda y reservas a medida</h2><p>Una experiencia para mostrar servicios, seleccionar citas y gestionar la agenda y la actividad interna.</p><ul class="features"><li>Servicios</li><li>Disponibilidad</li><li>Agenda</li><li>Gestión</li></ul></div>
-  </article>
- </div>
- <p id="empty" class="empty" role="status" hidden><span>No encuentro ningún proyecto con esas palabras.</span><button type="button" class="reset" id="reset">Ver todos</button></p>
+ <p class="intro">Cada app nace de una necesidad concreta y está hecha a la medida de quien la usa.</p>
+ <article class="case feature" aria-labelledby="p-bn">
+  <div class="case-media"><img src="assets/portfolio/bnevents.webp" width="1280" height="800" alt="Captura real de la pantalla pública de BNevents" decoding="async"></div>
+  <div class="case-copy">
+   <span class="kind">Eventos e inscripciones · En uso</span>
+   <h2 id="p-bn">BNevents</h2>
+   <dl class="story">
+    <div><dt>Lo que necesitaba</dt><dd>Un centro deportivo quería un sitio propio donde publicar sus eventos y que la gente pudiera apuntarse sin complicaciones.</dd></div>
+    <div><dt>Lo que hice</dt><dd>Una app con calendario de actividades, inscripciones y control de plazas, y un panel desde el que el centro lo gestiona todo.</dd></div>
+    <div><dt>Hoy</dt><dd>Está en uso: el centro publica sus eventos y gestiona las inscripciones desde ella.</dd></div>
+   </dl>
+   <ul class="features"><li>Eventos</li><li>Inscripciones</li><li>Control de aforo</li><li>Panel de gestión</li></ul>
+  </div>
+ </article>
+ <section class="more" aria-labelledby="mas">
+  <h2 id="mas">También he creado</h2>
+  <p class="more-intro">Otras apps reales que he creado. Pronto podrás verlas aquí con capturas.</p>
+  <ul class="more-list">
+   <li><span class="kind">Gestión agrícola</span><h3>Mi Campo</h3><p>Un cuaderno agrícola digital para reunir el trabajo diario: invernaderos, labores, inventario y costes.</p></li>
+   <li><span class="kind">Organización académica</span><h3>Mi Semana</h3><p>Clases, tareas y exámenes en una agenda visual, sencilla y personalizable.</p></li>
+   <li><span class="kind">Reservas profesionales</span><h3>Agenda y reservas a medida</h3><p>Servicios, citas y agenda de una profesional, con su gestión interna.</p></li>
+  </ul>
+ </section>
  <div class="below"><p>¿Quieres una herramienta pensada para tu forma de trabajar?</p><a class="cta" href="./#contacto">Cuéntame tu idea<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </main>
 <footer><nav aria-label="Información legal"><a href="./">Inicio</a><a href="aviso-legal.html">Aviso legal</a><a href="privacidad.html">Privacidad</a><a href="cookies.html">Cookies</a></nav>© 2026 táppika · Aplicaciones a medida</footer>
-<script>
-(function(){
- const search=document.getElementById('search'),cases=[...document.querySelectorAll('.case')],count=document.getElementById('count'),empty=document.getElementById('empty');
- function filter(){
-  const value=search.value.trim().toLocaleLowerCase('es');
-  let total=0;
-  for(const el of cases){const match=el.textContent.toLocaleLowerCase('es').includes(value)||el.dataset.keywords.includes(value);el.hidden=!match;if(match)total++;}
-  count.textContent=total+' '+(total===1?'proyecto':'proyectos');
-  empty.hidden=total!==0;
- }
- search.addEventListener('input',filter);
- document.getElementById('reset').addEventListener('click',function(){search.value='';filter();search.focus();});
-})();
-</script>
 </body></html>
