@@ -393,3 +393,15 @@ Encargo de la titular: hacer todo lo que no dependa de ella (foto, ciudad y capt
 - **Interacción** (revisión con las skills de Emil Kowalski, impeccable, design-taste y webapp-testing): los botones responden al pulsar; los efectos al pasar el ratón solo actúan con ratón; la barra inferior del móvil aparece en 0,3 s, se oculta en 0,2 s y oculta no se puede alcanzar con el teclado; las pestañas de «Lo que hacemos» funcionan con las flechas; las animaciones en bucle se pausan cuando su sección no está en pantalla; los puntos del proceso se mueven sin recalcular el diseño; con «reducir movimiento» se ve una notificación fija; la vista previa del generador cambia con un difuminado de 0,22 s; iconos dibujados en las preguntas frecuentes.
 - Imagen para compartir regenerada con la nueva paleta.
 - Pruebas automáticas en navegador: 34 de 34 correctas (generador, formulario, barra inferior, pestañas, preguntas, teclado, proyectos, reducir movimiento). Detector: 12 avisos, todos intencionados.
+
+## 12. Web en fondo claro y versión del logo para fondo oscuro — 21/10/2026
+
+**Motivo:** el violeta del logotipo (#6C3BFF) sobre azul noche solo alcanza 3,3:1 de contraste y la «á» y la «i» se hundían. Sobre fondo claro llega a 5,4:1. Decisión: **no rediseñar el logo; pasar la web a fondo claro.**
+
+- Fondo principal blanco cálido `#F8FAFC`; cabecera y portada claras. Botones principales en azul noche; el ámbar queda para destacar («Hablemos», «Quiero una app así», detalles) y, sobre claro, el texto destacado usa ámbar oscuro `#8A560A`.
+- Zonas oscuras solo para dar ritmo: el bloque del proceso + «Tu app trabaja», y el cierre (contacto y pie).
+- **Versión del logo para fondo oscuro:** mismo diseño, con el violeta más luminoso **`#9770FF`** en la «á», la «i» y la tilde (el mismo que ya usaba el favicon). Se usa en el pie, en la mini marca de las maquetas oscuras y en el icono de inicio del móvil. Sobre fondo claro se usa siempre el logo original `#6C3BFF`.
+- Proyectos, páginas legales y 404 pasan también a fondo claro.
+- Imagen para compartir regenerada en claro con el logo original.
+- Foco del teclado: anillo azul noche con halo ámbar, visible sobre claro y sobre oscuro.
+- Pruebas en navegador: 34/34 correctas; sin desbordes de 320 a 1024 px; detector: 12 avisos intencionados.
