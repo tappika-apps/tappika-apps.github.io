@@ -382,3 +382,14 @@ Encargo de la titular: hacer todo lo que no dependa de ella (foto, ciudad y capt
 - **Páginas legales:** mismo logotipo y tipografía Manrope que la portada; fuera la etiqueta «Información legal» sobre el título; botón «Volver a la web» y enlaces del pie con 44 px. **El texto legal no se ha tocado.**
 - **Nueva página 404** con la marca y accesos a inicio y proyectos.
 - Detector: 25 avisos (19/10) → 11, todos intencionados (texto de maquetas, recortes decorativos, sección que continúa la anterior y capturas a sangre).
+
+## 11. Nueva paleta y tipografía de la web + revisión de interacción — 21/10/2026
+
+**Decisión de la titular:** dejar de usar el violeta y Manrope en la web porque se asocian a diseños generados por IA. **El logotipo no cambia** (sigue con su violeta #6C3BFF en la «á», la «i» y la tilde, y con su letra).
+
+- **Acento nuevo: ámbar `#E8AD4A`** (tono claro `#F3CF8C` para textos sobre oscuro; `#8A560A` para textos sobre claro). Criterio: es el complementario del violeta del logo, así que lo hace destacar sin competir; no se confunde con el rojo de los errores (#B42318) ni con el verde de «correcto»; con texto azul noche encima da 9,5:1 de contraste. Base sin cambios: azul noche `#0B1020`, gris claro `#E5E7EB`, blanco cálido `#F8FAFC`.
+- **Tipografía nueva: Bricolage Grotesque** para todo el texto (variable, con tamaño óptico para que se lea bien en el móvil). Manrope solo se carga para el logotipo. Las páginas de privacidad y cookies se han actualizado para nombrar las tipografías que se cargan desde Google Fonts.
+- Eliminados los halos de color difuminados; el contacto ya no es una tarjeta dentro de otra (en móvil el formulario va directamente sobre el fondo).
+- **Interacción** (revisión con las skills de Emil Kowalski, impeccable, design-taste y webapp-testing): los botones responden al pulsar; los efectos al pasar el ratón solo actúan con ratón; la barra inferior del móvil aparece en 0,3 s, se oculta en 0,2 s y oculta no se puede alcanzar con el teclado; las pestañas de «Lo que hacemos» funcionan con las flechas; las animaciones en bucle se pausan cuando su sección no está en pantalla; los puntos del proceso se mueven sin recalcular el diseño; con «reducir movimiento» se ve una notificación fija; la vista previa del generador cambia con un difuminado de 0,22 s; iconos dibujados en las preguntas frecuentes.
+- Imagen para compartir regenerada con la nueva paleta.
+- Pruebas automáticas en navegador: 34 de 34 correctas (generador, formulario, barra inferior, pestañas, preguntas, teclado, proyectos, reducir movimiento). Detector: 12 avisos, todos intencionados.

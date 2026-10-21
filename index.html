@@ -22,21 +22,24 @@
 <link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Manrope:wght@800&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#0B1020;font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-tap-highlight-color:transparent}
-::selection{background:#6C3BFF;color:#F8FAFC}
-html{scrollbar-color:#6C3BFF #0B1020}
-input,select,textarea{caret-color:#6C3BFF;accent-color:#6C3BFF}
+body{margin:0;background:#0B1020;font-family:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-tap-highlight-color:transparent}
+::selection{background:#E8AD4A;color:#0B1020}
+:root{--c:#E8AD4A;--on-c:#0B1020;--c-ink:#0B1020;--ease-out:cubic-bezier(.23,1,.32,1)}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-optical-sizing:auto}
+html{scrollbar-color:#E8AD4A #0B1020;-webkit-text-size-adjust:100%}
+input,select,textarea{caret-color:#E8AD4A;accent-color:#E8AD4A}
 a{text-underline-offset:3px}
-a{color:#A78BFA}a:hover{opacity:.85}
+a{color:#F3CF8C}
+@media (hover:hover) and (pointer:fine){a:hover{opacity:.85}}
 summary{cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
 input,textarea,button,select{font-family:inherit}
-:focus-visible{outline:3px solid #A78BFA;outline-offset:3px}
+:focus-visible{outline:3px solid #F3CF8C;outline-offset:3px}
 @keyframes tp-ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.9);opacity:0}}
 @keyframes tp-bar{0%,12%{transform:scaleY(.15)}45%,100%{transform:scaleY(1)}}
-@keyframes tp-dot{0%{left:0%}100%{left:100%}}
+@keyframes tp-dot{from{transform:translateX(0)}to{transform:translateX(100%)}}
 @keyframes tp-toast{0%,10%{opacity:0;transform:translateY(16px) scale(.96)}18%,82%{opacity:1;transform:none}92%,100%{opacity:0;transform:translateY(-8px)}}
 @keyframes tp-pop{0%,100%{opacity:0;transform:translateY(-10px) scale(.95)}12%,70%{opacity:1;transform:none}}
 @keyframes tp-spin{to{transform:rotate(360deg)}}
@@ -63,7 +66,7 @@ input,textarea,button,select{font-family:inherit}
 .tp-span2{grid-column:1 / -1}
 .tp-pline{display:none}
 }
-@keyframes tp-vdot{0%{top:0%}100%{top:100%}}
+@keyframes tp-vdot{from{transform:translateY(0)}to{transform:translateY(100%)}}
 .tp-vdot{animation:tp-vdot 4s linear infinite}
 @media (max-width: 720px){
 .tp-sec{padding-top:64px!important;padding-bottom:64px!important}
@@ -90,7 +93,7 @@ input,textarea,button,select{font-family:inherit}
 .tp-bento{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
 .tp-bento>div{padding:18px!important;gap:10px!important;border-radius:22px!important;overflow:hidden}
 .tp-bento>div>h3{font-size:16px!important;line-height:1.2}
-.tp-contact>div{padding:28px 22px!important;gap:24px!important;border-radius:30px!important}
+.tp-contact>div{gap:28px!important}
 }
 @media (max-width: 720px){
 .tp-zoom{zoom:.8}
@@ -116,7 +119,11 @@ input,textarea,button,select{font-family:inherit}
 .tp-sol [data-sol="reservas"]>div[aria-hidden="true"],.tp-sol [data-sol="eventos"]>div[aria-hidden="true"]{margin:0 auto}
 .tp-sol[data-active="gestion"] [data-sol="gestion"],.tp-sol[data-active="reservas"] [data-sol="reservas"],.tp-sol[data-active="eventos"] [data-sol="eventos"]{display:flex!important;animation:tp-solin .45s ease-out}
 }
-@media (prefers-reduced-motion: reduce){*{animation:none!important}.tp-pop{opacity:1}.tp-absorb,.tp-rowin{opacity:1}}
+a,button{transition:transform .16s var(--ease-out)}
+a:active,button:active{transform:scale(.97)}
+.tp-soltab{transition:background .2s ease,color .2s ease,transform .16s var(--ease-out)}
+.tp-off .tp-absorb,.tp-off .tp-rowin,.tp-off .tp-hop,.tp-off .tp-ping,.tp-off .tp-bar,.tp-off .tp-dot,.tp-off .tp-vdot,.tp-off .tp-toast1,.tp-off .tp-toast2,.tp-off .tp-toast3,.tp-off .tp-pop,.tp-off .tp-orbit,.tp-off .tp-orbit>span{animation-play-state:paused!important}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}a:active,button:active{transform:none}.tp-pop{opacity:1}.tp-absorb,.tp-rowin{opacity:1}.tp-toast2,.tp-toast3{display:none!important}.tp-toast1{opacity:1!important}}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -124,7 +131,7 @@ html{scroll-behavior:smooth}
 .tp-screen[hidden]{display:none}
 #tp-call[hidden]{display:none!important}
 .tp-tbtn{min-height:44px;padding:0 10px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:700;background:#0B1020;color:#E5E7EB;border:1.5px solid rgba(229,231,235,.2);font-family:inherit}
-.tp-tbtn[aria-pressed="true"]{background:#6C3BFF;color:#F8FAFC;border-color:#6C3BFF}
+.tp-tbtn[aria-pressed="true"]{background:#E8AD4A;color:#0B1020;border-color:#E8AD4A}
 .tp-cbtn{width:44px;height:44px;border-radius:50%;cursor:pointer;border:2px solid rgba(229,231,235,.3)}
 .tp-swatches{display:grid;grid-template-columns:repeat(5,minmax(0,44px));justify-content:space-between;gap:8px;padding:3px}
 .tp-ctrl .tp-swatches button.tp-cbtn[aria-label]{width:100%!important;height:auto!important;aspect-ratio:1;max-width:44px}
@@ -134,21 +141,21 @@ html{scroll-behavior:smooth}
 
 .tp-faq{border-radius:22px;background:#FFFFFF;border:1px solid #E5E7EB}
 .tp-faq summary{min-height:64px;padding:20px 24px;font-size:18px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.tp-faq summary span{color:#6C3BFF;font-size:22px;line-height:1;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.tp-faq summary span{color:#8A560A;flex-shrink:0;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(232,173,74,.16);transition:transform .2s var(--ease-out)}
 .tp-faq[open] summary span{transform:rotate(45deg)}
 .tp-faq p{margin:0;padding:0 24px 22px;font-size:16px;line-height:1.6;color:rgba(11,16,32,.72)}
 .tp-legal a{display:inline-flex;align-items:center;min-height:44px}
 .tp-err{margin:0;display:flex;gap:8px;align-items:flex-start;font-size:14px;font-weight:700;color:#B42318}
 .tp-err svg{flex-shrink:0;margin-top:1px}
 .tp-err[hidden],#tp-made[hidden]{display:none!important}
-.tp-gencta{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:999px;background:#6C3BFF;color:#F8FAFC!important;font-size:16px;font-weight:800;text-decoration:none}
-.tp-gencta:hover{background:#5B2BEE}
+.tp-gencta{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:999px;background:#E8AD4A;color:#0B1020!important;font-size:16px;font-weight:800;text-decoration:none}
+@media (hover:hover) and (pointer:fine){.tp-gencta:hover{background:#F0BE63}}
 .tp-dock{display:none}
 @media (max-width: 720px){
-.tp-dock{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(11,16,32,.92);border:1px solid rgba(229,231,235,.16);box-shadow:0 12px 32px rgba(0,0,0,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s}
-.tp-dock[data-show="false"]{transform:translateY(140%);opacity:0;pointer-events:none}
+.tp-dock{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:flex;gap:8px;padding:8px;border-radius:999px;background:rgba(11,16,32,.92);border:1px solid rgba(229,231,235,.16);box-shadow:0 12px 32px rgba(0,0,0,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .3s var(--ease-out),opacity .3s var(--ease-out),visibility 0s}
+.tp-dock[data-show="false"]{transform:translateY(140%);opacity:0;pointer-events:none;visibility:hidden;transition:transform .2s var(--ease-out),opacity .2s var(--ease-out),visibility 0s .2s}
 .tp-dock a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:999px;font-size:16px;font-weight:800;text-decoration:none}
-.tp-dock a:first-child{flex:1;background:#6C3BFF;color:#F8FAFC}
+.tp-dock a:first-child{flex:1;background:#E8AD4A;color:#0B1020}
 .tp-dock a:last-child{width:48px;background:#F8FAFC;color:#0B1020}
 footer{padding-bottom:96px!important}
 .tp-bento>div>p{display:block!important;margin:0;font-size:14px!important;line-height:1.5!important}
@@ -166,14 +173,14 @@ footer{padding-bottom:96px!important}
 <body>
 <a href="#inicio" class="skip">Ir al contenido</a>
 
-<div style="font-family: 'Manrope', sans-serif; color: #F8FAFC; background: #0B1020; overflow: hidden">
+<div style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; color: #F8FAFC; background: #0B1020; overflow: hidden">
 
   <!-- ============ CABECERA ============ -->
   <header style="position: relative; z-index: 2; border-bottom: 1px solid rgba(229,231,235,0.1)">
     <div class="tp-head" style="max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
       <a href="#inicio" aria-label="táppika, inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #F8FAFC">
-        <span class="tp-mark" aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #0B1020; border: 1px solid rgba(229,231,235,0.22); color: #F8FAFC; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; position: relative">t<span style="position: absolute; right: 7px; top: 6px; width: 5px; height: 12px; border-radius: 3px; background: #6C3BFF; transform: rotate(35deg)"></span></span>
-        <span class="wordmark" style="font-size: 29px; font-weight: 800; letter-spacing: -0.04em">t<span style="color: #6C3BFF">á</span>pp<span style="color: #6C3BFF">i</span>ka</span>
+        <span class="tp-mark" aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #0B1020; border: 1px solid rgba(229,231,235,0.22); color: #F8FAFC; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-size: 28px; font-weight: 800; position: relative">t<span style="position: absolute; right: 7px; top: 6px; width: 5px; height: 12px; border-radius: 3px; background: #6C3BFF; transform: rotate(35deg)"></span></span>
+        <span class="wordmark" style="font-family: Manrope, sans-serif; font-size: 29px; font-weight: 800; letter-spacing: -0.04em">t<span style="color: #6C3BFF">á</span>pp<span style="color: #6C3BFF">i</span>ka</span>
       </a>
       <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; font-weight: 600">
         <a class="tp-navlink" href="#crea" style="color: rgba(229,231,235,0.8); text-decoration: none">Pruébalo</a>
@@ -190,14 +197,13 @@ footer{padding-bottom:96px!important}
 
   <!-- ============ HERO + GENERADOR ============ -->
   <section id="inicio" style="position: relative; overflow: clip">
-    <div aria-hidden="true" style="position: absolute; left: 50%; top: -260px; width: 900px; height: 900px; margin-left: -120px; border-radius: 50%; background: #6C3BFF; opacity: 0.16; filter: blur(140px)"></div>
     <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
 
       <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
-        <h1 style="margin: 0; font-size: clamp(38px, 4.2vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">Tú tienes una idea.<br>Yo la convierto en <span style="color: #A78BFA">app.</span></h1>
+        <h1 style="margin: 0; font-size: clamp(38px, 4.2vw, 60px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">Tú tienes una idea.<br>Yo la convierto en <span style="color: #F3CF8C">app.</span></h1>
         <p style="margin: 0; font-size: 19px; line-height: 1.6; color: rgba(229,231,235,0.78); max-width: 500px">Diseño y desarrollo apps a medida para negocios y personas: sencillas, bonitas y pensadas para el móvil. Prueba a crear la tuya.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 14px">
-          <a href="#contacto" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 30px; border-radius: 999px; background: #6C3BFF; color: #F8FAFC; font-size: 17px; font-weight: 700; text-decoration: none">Tengo una idea
+          <a href="#contacto" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 30px; border-radius: 999px; background: #E8AD4A; color: #0B1020; font-size: 17px; font-weight: 700; text-decoration: none">Tengo una idea
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </a>
           <a href="#soluciones" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 1.5px solid rgba(229,231,235,0.24); color: #F8FAFC; font-size: 17px; font-weight: 600; text-decoration: none">Ver qué hago</a>
@@ -211,10 +217,10 @@ footer{padding-bottom:96px!important}
           <!-- Móvil -->
           <div class="tp-phone" style="position: relative; flex: 0 0 auto">
             <div aria-hidden="true" class="tp-hide-m" style="transform: rotate(-14deg); position: absolute; left: -50px; top: 60px; width: 96px; height: 96px; border-radius: 26px; background: var(--c); opacity: 0.85"></div>
-            <div aria-hidden="true" class="tp-hide-m" style="transform: rotate(12deg); position: absolute; right: -44px; bottom: 90px; width: 80px; height: 80px; border-radius: 22px; background: #A78BFA; opacity: 0.18"></div>
+            <div aria-hidden="true" class="tp-hide-m" style="transform: rotate(12deg); position: absolute; right: -44px; bottom: 90px; width: 80px; height: 80px; border-radius: 22px; background: #F3CF8C; opacity: 0.18"></div>
 
             <div aria-hidden="true" class="tp-pop" style="position: absolute; z-index: 3; left: 38px; top: -24px; width: 240px; box-sizing: border-box; padding: 12px 14px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 10px; align-items: center; box-shadow: 0 24px 48px rgba(0,0,0,0.45)">
-              <span style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; background: var(--c); color: #F8FAFC; font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
+              <span style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; background: var(--c); color: var(--on-c); font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
               <div style="min-width: 0"><div style="font-size: 13px; font-weight: 800"><span data-t="toastTitle"></span></div><div style="font-size: 12px; color: rgba(11,16,32,0.62)"><span data-t="toastSub"></span></div></div>
             </div>
 
@@ -223,7 +229,7 @@ footer{padding-bottom:96px!important}
 
                 <div style="padding: 30px 18px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px">
                   <div style="min-width: 0; display: flex; align-items: center; gap: 10px">
-                    <span style="width: 38px; height: 38px; flex-shrink: 0; border-radius: 12px; background: var(--c); color: #F8FAFC; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
+                    <span style="width: 38px; height: 38px; flex-shrink: 0; border-radius: 12px; background: var(--c); color: var(--on-c); font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
                     <div style="min-width: 0"><div style="font-size: 11px; font-weight: 600; color: rgba(11,16,32,0.6)"><span data-t="greeting"></span></div><div style="font-size: 16px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span data-t="displayName"></span></div></div>
                   </div>
                   <span style="position: relative; width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%; background: #FFFFFF; border: 1px solid #E5E7EB; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B1020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg><span style="position: absolute; right: 8px; top: 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--c); border: 2px solid #FFFFFF"></span></span>
@@ -232,16 +238,16 @@ footer{padding-bottom:96px!important}
                 <!-- RESERVAS -->
                 <div class="tp-screen" data-screen="reservas">
                   <div style="padding: 4px 16px 0; display: flex; flex-direction: column; gap: 14px; flex-grow: 1; min-height: 0">
-                    <div style="position: relative; overflow: hidden; border-radius: 22px; background: var(--c); color: #F8FAFC; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px">
+                    <div style="position: relative; overflow: hidden; border-radius: 22px; background: var(--c); color: var(--on-c); padding: 16px 18px; display: flex; flex-direction: column; gap: 10px">
                       <span style="position: absolute; right: -24px; top: -24px; width: 96px; height: 96px; border-radius: 50%; background: rgba(248,250,252,0.14)"></span>
                       <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85">Próxima cita</span>
                       <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em">Hoy · 11:30</div>
                       <div style="display: flex; justify-content: space-between; align-items: center">
                         <span style="font-size: 13px; font-weight: 600; opacity: 0.9">Corte y peinado · 45 min</span>
-                        <span style="padding: 6px 12px; border-radius: 99px; background: #F8FAFC; color: var(--c); font-size: 12px; font-weight: 800">Ver</span>
+                        <span style="padding: 6px 12px; border-radius: 99px; background: #F8FAFC; color: var(--c-ink); font-size: 12px; font-weight: 800">Ver</span>
                       </div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 800">Octubre</span><span style="font-size: 12px; font-weight: 700; color: var(--c)">Ver mes</span></div>
+                    <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 800">Octubre</span><span style="font-size: 12px; font-weight: 700; color: var(--c-ink)">Ver mes</span></div>
                     <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px">
                       <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">LUN<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">19</div></div>
                       <div style="padding: 8px 0; border-radius: 14px; background: #0B1020; border: 1px solid #0B1020; text-align: center; font-size: 11px; font-weight: 700; color: #E5E7EB">MAR<div style="font-size: 16px; font-weight: 800; color: #F8FAFC; margin-top: 2px">20</div></div>
@@ -253,7 +259,7 @@ footer{padding-bottom:96px!important}
                     <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
                       <span style="padding: 10px 0; border-radius: 12px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 13px; font-weight: 700">09:00</span>
                       <span style="padding: 10px 0; border-radius: 12px; background: #E5E7EB; text-align: center; font-size: 13px; font-weight: 700; color: rgba(11,16,32,0.45); text-decoration: line-through">10:00</span>
-                      <span style="padding: 10px 0; border-radius: 12px; background: var(--c); color: #F8FAFC; text-align: center; font-size: 13px; font-weight: 800">11:30</span>
+                      <span style="padding: 10px 0; border-radius: 12px; background: var(--c); color: var(--on-c); text-align: center; font-size: 13px; font-weight: 800">11:30</span>
                       <span style="padding: 10px 0; border-radius: 12px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 13px; font-weight: 700">12:30</span>
                       <span style="padding: 10px 0; border-radius: 12px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 13px; font-weight: 700">16:00</span>
                       <span style="padding: 10px 0; border-radius: 12px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 13px; font-weight: 700">17:30</span>
@@ -280,7 +286,7 @@ footer{padding-bottom:96px!important}
                       <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
                         <div class="tp-prodimg" style="height: 76px; border-radius: 12px; background: #0B1020"></div>
                         <span style="font-size: 13px; font-weight: 800; padding: 0 2px">Croissant</span>
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">1,40 €</span><span style="width: 24px; height: 24px; border-radius: 8px; background: var(--c); color: #F8FAFC; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center">2</span></div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">1,40 €</span><span style="width: 24px; height: 24px; border-radius: 8px; background: var(--c); color: var(--on-c); font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center">2</span></div>
                       </div>
                       <div style="border-radius: 18px; background: #FFFFFF; border: 1px solid #E5E7EB; padding: 8px; display: flex; flex-direction: column; gap: 6px">
                         <div class="tp-prodimg" style="height: 76px; border-radius: 12px; background: var(--c); opacity: 0.45"></div>
@@ -293,7 +299,7 @@ footer{padding-bottom:96px!important}
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 0 2px"><span style="font-size: 12px; font-weight: 700; color: rgba(11,16,32,0.6)">1,60 €</span><span style="width: 24px; height: 24px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center">+</span></div>
                       </div>
                     </div>
-                    <div style="position: absolute; left: 16px; right: 16px; bottom: 10px; padding: 12px 14px; border-radius: 18px; background: var(--c); color: #F8FAFC; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 12px 24px rgba(11,16,32,0.25)">
+                    <div style="position: absolute; left: 16px; right: 16px; bottom: 10px; padding: 12px 14px; border-radius: 18px; background: var(--c); color: var(--on-c); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 12px 24px rgba(11,16,32,0.25)">
                       <span style="font-size: 13px; font-weight: 700"><span style="padding: 3px 8px; border-radius: 8px; background: rgba(248,250,252,0.22); margin-right: 8px">3</span>productos</span>
                       <span style="font-size: 13px; font-weight: 800">Ver pedido<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -2px; margin-left: 4px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
                     </div>
@@ -303,18 +309,18 @@ footer{padding-bottom:96px!important}
                 <!-- EVENTOS -->
                 <div class="tp-screen" data-screen="eventos" hidden>
                   <div style="padding: 4px 16px 0; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; min-height: 0">
-                    <div style="position: relative; overflow: hidden; border-radius: 22px; background: var(--c); color: #F8FAFC; padding: 16px 18px; display: flex; align-items: center; gap: 16px">
+                    <div style="position: relative; overflow: hidden; border-radius: 22px; background: var(--c); color: var(--on-c); padding: 16px 18px; display: flex; align-items: center; gap: 16px">
                       <span style="position: absolute; left: -30px; bottom: -40px; width: 110px; height: 110px; border-radius: 50%; background: rgba(248,250,252,0.12)"></span>
-                      <div style="position: relative; width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; background: conic-gradient(#F8FAFC 0 70%, rgba(248,250,252,0.25) 70% 100%); display: flex; align-items: center; justify-content: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--c); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800">70%</span></div>
+                      <div style="position: relative; width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; background: conic-gradient(var(--on-c) 0 70%, rgba(127,127,127,0.25) 70% 100%); display: flex; align-items: center; justify-content: center"><span style="width: 56px; height: 56px; border-radius: 50%; background: var(--c); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800">70%</span></div>
                       <div style="position: relative"><div style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85">Aforo</div><div style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1">42 / 60</div><div style="font-size: 12px; font-weight: 600; opacity: 0.9">Quedan 18 plazas</div></div>
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
-                      <div style="padding: 10px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB"><div style="font-size: 18px; font-weight: 800">42</div><div style="font-size: 11px; font-weight: 700; color: var(--c)">Inscritos</div></div>
+                      <div style="padding: 10px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB"><div style="font-size: 18px; font-weight: 800">42</div><div style="font-size: 11px; font-weight: 700; color: var(--c-ink)">Inscritos</div></div>
                       <div style="padding: 10px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB"><div style="font-size: 18px; font-weight: 800">9</div><div style="font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">En espera</div></div>
                       <div style="padding: 10px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB"><div style="font-size: 18px; font-weight: 800">18</div><div style="font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">Libres</div></div>
                     </div>
-                    <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 800">Últimas inscripciones</span><span style="font-size: 12px; font-weight: 700; color: var(--c)">Ver todas</span></div>
-                    <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: var(--c); color: #F8FAFC; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">LM</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Lucía Martín</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Turno de mañana · 2 plazas</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">Confirmada</span></div>
+                    <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 800">Últimas inscripciones</span><span style="font-size: 12px; font-weight: 700; color: var(--c-ink)">Ver todas</span></div>
+                    <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: var(--c); color: var(--on-c); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">LM</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Lucía Martín</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Turno de mañana · 2 plazas</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">Confirmada</span></div>
                     <div style="padding: 10px 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: #0B1020; color: #F8FAFC; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">CR</span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Carlos Ruiz</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Turno de tarde · 1 plaza</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #0B1020; color: #F8FAFC; font-size: 11px; font-weight: 800">Confirmado</span></div>
                   </div>
                 </div>
@@ -324,24 +330,24 @@ footer{padding-bottom:96px!important}
                   <div style="position: relative; padding: 4px 16px 0; display: flex; flex-direction: column; gap: 12px; flex-grow: 1; min-height: 0">
                     <div style="border-radius: 22px; background: #0B1020; color: #F8FAFC; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px">
                       <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 800">Progreso de hoy</span><span style="font-size: 22px; font-weight: 800">66%</span></div>
-                      <div style="height: 8px; border-radius: 99px; background: rgba(229,231,235,0.18); overflow: hidden"><div style="width: 66%; height: 100%; border-radius: 99px; background: #A78BFA"></div></div>
+                      <div style="height: 8px; border-radius: 99px; background: rgba(229,231,235,0.18); overflow: hidden"><div style="width: 66%; height: 100%; border-radius: 99px; background: #F3CF8C"></div></div>
                       <div style="display: flex; align-items: center">
-                        <span style="width: 26px; height: 26px; border-radius: 50%; background: var(--c); border: 2px solid #0B1020; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center">AM</span>
+                        <span style="width: 26px; height: 26px; border-radius: 50%; background: var(--c); color: var(--on-c); border: 2px solid #0B1020; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center">AM</span>
                         <span style="width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: #E5E7EB; color: #0B1020; border: 2px solid #0B1020; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center">JR</span>
                         <span style="width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: #F8FAFC; color: #0B1020; border: 2px solid #0B1020; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center">+2</span>
                         <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: rgba(229,231,235,0.8)">8 de 12 tareas hechas</span>
                       </div>
                     </div>
                     <span style="font-size: 14px; font-weight: 800">Pendientes</span>
-                    <div style="padding: 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; flex-shrink: 0; border-radius: 7px; border: 2px solid var(--c); box-sizing: border-box"></span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Hacer inventario</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Almacén · AM</div></div><span style="padding: 4px 8px; border-radius: 8px; background: var(--c); color: #F8FAFC; font-size: 11px; font-weight: 800">Hoy</span></div>
+                    <div style="padding: 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; flex-shrink: 0; border-radius: 7px; border: 2px solid var(--c); box-sizing: border-box"></span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Hacer inventario</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Almacén · AM</div></div><span style="padding: 4px 8px; border-radius: 8px; background: var(--c); color: var(--on-c); font-size: 11px; font-weight: 800">Hoy</span></div>
                     <div style="padding: 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px"><span style="width: 22px; height: 22px; flex-shrink: 0; border-radius: 7px; border: 2px solid #E5E7EB; box-sizing: border-box"></span><div style="flex-grow: 1"><div style="font-size: 13px; font-weight: 800">Llamar a proveedor</div><div style="font-size: 11px; color: rgba(11,16,32,0.6)">Compras · JR</div></div><span style="padding: 4px 8px; border-radius: 8px; background: #E5E7EB; font-size: 11px; font-weight: 800">Mañana</span></div>
-                    <div style="padding: 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px; opacity: 0.6"><span style="width: 22px; height: 22px; flex-shrink: 0; border-radius: 7px; background: var(--c); color: #F8FAFC; display: flex; align-items: center; justify-content: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div style="flex-grow: 1; font-size: 13px; font-weight: 700; text-decoration: line-through">Abrir caja</div></div>
-                    <span style="position: absolute; right: 18px; bottom: 8px; width: 50px; height: 50px; border-radius: 17px; background: var(--c); color: #F8FAFC; font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 24px rgba(11,16,32,0.25)">+</span>
+                    <div style="padding: 12px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 10px; opacity: 0.6"><span style="width: 22px; height: 22px; flex-shrink: 0; border-radius: 7px; background: var(--c); color: var(--on-c); display: flex; align-items: center; justify-content: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div style="flex-grow: 1; font-size: 13px; font-weight: 700; text-decoration: line-through">Abrir caja</div></div>
+                    <span style="position: absolute; right: 18px; bottom: 8px; width: 50px; height: 50px; border-radius: 17px; background: var(--c); color: var(--on-c); font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 24px rgba(11,16,32,0.25)">+</span>
                   </div>
                 </div>
 
                 <div style="margin-top: auto; padding: 10px 22px 16px; background: #FFFFFF; border-top: 1px solid #E5E7EB; display: flex; justify-content: space-between; align-items: center">
-                  <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--c)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span style="width: 5px; height: 5px; border-radius: 50%; background: var(--c)"></span></span>
+                  <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--c-ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"></path></svg><span style="width: 5px; height: 5px; border-radius: 50%; background: var(--c)"></span></span>
                   <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: rgba(11,16,32,0.38)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span style="width: 5px; height: 5px"></span></span>
                   <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: rgba(11,16,32,0.38)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg><span style="width: 5px; height: 5px"></span></span>
                   <span style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: rgba(11,16,32,0.38)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg><span style="width: 5px; height: 5px"></span></span>
@@ -353,7 +359,7 @@ footer{padding-bottom:96px!important}
           <!-- Controles -->
           <div class="tp-ctrl" style="flex: 1 1 220px; min-width: 0; max-width: 300px; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12)">
             <div style="display: flex; justify-content: space-between; align-items: center">
-              <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #A78BFA">Crea tu app</span>
+              <span style="font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #F3CF8C">Crea tu app</span>
               <span style="font-size: 12px; font-weight: 600; color: rgba(229,231,235,0.65)">en 3 toques</span>
             </div>
             <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 10px">
@@ -365,7 +371,7 @@ footer{padding-bottom:96px!important}
             <fieldset style="margin: 0; padding: 0; border: none">
               <legend style="padding: 0; margin-bottom: 10px; font-size: 14px; font-weight: 700; color: #E5E7EB">2 · Color de tu marca</legend>
               <div class="tp-swatches">
-                <button type="button" class="tp-cbtn" data-color="#6C3BFF" aria-label="Color Violeta táppika" aria-pressed="true" style="background: #6C3BFF"></button><button type="button" class="tp-cbtn" data-color="#0B1020" aria-label="Color Azul noche" aria-pressed="false" style="background: #0B1020"></button><button type="button" class="tp-cbtn" data-color="#D93A26" aria-label="Color Coral" aria-pressed="false" style="background: #D93A26"></button><button type="button" class="tp-cbtn" data-color="#0F7F6F" aria-label="Color Verde" aria-pressed="false" style="background: #0F7F6F"></button><button type="button" class="tp-cbtn" data-color="#B5179E" aria-label="Color Magenta" aria-pressed="false" style="background: #B5179E"></button>
+                <button type="button" class="tp-cbtn" data-color="#E8AD4A" aria-label="Color Ámbar" aria-pressed="true" style="background: #E8AD4A"></button><button type="button" class="tp-cbtn" data-color="#0B1020" aria-label="Color Azul noche" aria-pressed="false" style="background: #0B1020"></button><button type="button" class="tp-cbtn" data-color="#D93A26" aria-label="Color Coral" aria-pressed="false" style="background: #D93A26"></button><button type="button" class="tp-cbtn" data-color="#0F7F6F" aria-label="Color Verde" aria-pressed="false" style="background: #0F7F6F"></button><button type="button" class="tp-cbtn" data-color="#B5179E" aria-label="Color Magenta" aria-pressed="false" style="background: #B5179E"></button>
               </div>
             </fieldset>
             <div style="display: flex; flex-direction: column; gap: 10px">
@@ -373,9 +379,9 @@ footer{padding-bottom:96px!important}
               <input id="tp-nombre" type="text" maxlength="22" placeholder="Peluquería Ana" style="min-height: 48px; padding: 0 16px; border-radius: 14px; border: 1.5px solid rgba(229,231,235,0.2); background: #0B1020; color: #F8FAFC; font-size: 16px; font-weight: 600">
             </div>
             <div aria-hidden="true" class="tp-hide-m" style="display: flex; flex-direction: column; gap: 6px; padding-top: 14px; border-top: 1px solid rgba(229,231,235,0.12); font-size: 13px; font-weight: 600; color: rgba(229,231,235,0.78)">
-              <span style="display: flex; gap: 8px; align-items: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Pantallas generadas</span>
-              <span style="display: flex; gap: 8px; align-items: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Color aplicado</span>
-              <span style="display: flex; gap: 8px; align-items: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Lista para usar</span>
+              <span style="display: flex; gap: 8px; align-items: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F3CF8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Pantallas generadas</span>
+              <span style="display: flex; gap: 8px; align-items: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F3CF8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Color aplicado</span>
+              <span style="display: flex; gap: 8px; align-items: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F3CF8C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg>Lista para usar</span>
             </div>
             <a href="#contacto" class="tp-gencta" id="tp-gencta">Quiero una app así
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
@@ -406,7 +412,6 @@ footer{padding-bottom:96px!important}
 
         <!-- GESTIÓN: tarjeta grande con panel -->
         <div data-sol="gestion" style="flex: 1.25 1 560px; min-width: 0; border-radius: 32px; background: #0B1020; color: #F8FAFC; padding: clamp(28px, 3.4vw, 44px); display: flex; flex-direction: column; gap: 26px; position: relative; overflow: hidden">
-          <div aria-hidden="true" style="position: absolute; right: -140px; top: -140px; width: 420px; height: 420px; border-radius: 50%; background: #6C3BFF; opacity: 0.22; filter: blur(80px)"></div>
           <div style="position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 18px">
             <div style="display: flex; flex-direction: column; gap: 12px; max-width: 380px">
               <h3 style="margin: 0; font-size: clamp(26px, 2.6vw, 34px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1">Gestión más sencilla</h3>
@@ -417,7 +422,7 @@ footer{padding-bottom:96px!important}
           <!-- mini panel -->
           <div aria-hidden="true" class="tp-zoom" style="position: relative; border-radius: 22px; background: rgba(229,231,235,0.06); border: 1px solid rgba(229,231,235,0.14); padding: 14px; display: flex; gap: 14px">
             <div class="tp-hide-m" style="width: 52px; flex-shrink: 0; border-radius: 14px; background: #0B1020; padding: 12px 0; display: flex; flex-direction: column; align-items: center; gap: 14px">
-              <span style="width: 26px; height: 26px; border-radius: 8px; background: #6C3BFF"></span>
+              <span style="width: 26px; height: 26px; border-radius: 8px; background: #E8AD4A"></span>
               <span style="width: 20px; height: 6px; border-radius: 6px; background: rgba(229,231,235,0.3)"></span>
               <span style="width: 20px; height: 6px; border-radius: 6px; background: rgba(229,231,235,0.3)"></span>
               <span style="width: 20px; height: 6px; border-radius: 6px; background: rgba(229,231,235,0.3)"></span>
@@ -425,8 +430,8 @@ footer{padding-bottom:96px!important}
             <div style="flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 12px">
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px">
                 <div style="border-radius: 14px; background: #0B1020; padding: 12px"><div style="font-size: 11px; font-weight: 700; color: rgba(229,231,235,0.65)">Pendientes</div><div class="tp-count" style="font-size: 26px; font-weight: 800; transform-origin: left">08</div></div>
-                <div style="border-radius: 14px; background: #0B1020; padding: 12px"><div style="font-size: 11px; font-weight: 700; color: rgba(229,231,235,0.65)">Completadas</div><div style="font-size: 26px; font-weight: 800; color: #A78BFA">24</div></div>
-                <div style="border-radius: 14px; background: #6C3BFF; padding: 12px"><div style="font-size: 11px; font-weight: 700; color: #F8FAFC">Esta semana</div><div style="font-size: 26px; font-weight: 800">12</div></div>
+                <div style="border-radius: 14px; background: #0B1020; padding: 12px"><div style="font-size: 11px; font-weight: 700; color: rgba(229,231,235,0.65)">Completadas</div><div style="font-size: 26px; font-weight: 800; color: #F3CF8C">24</div></div>
+                <div style="border-radius: 14px; background: #E8AD4A; color: #0B1020; padding: 12px"><div style="font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.75)">Esta semana</div><div style="font-size: 26px; font-weight: 800">12</div></div>
               </div>
               <div style="display: flex; flex-wrap: wrap; gap: 12px">
                 <div style="flex: 1.3 1 200px; min-width: 0; border-radius: 14px; background: #0B1020; padding: 14px; display: flex; flex-direction: column; gap: 10px">
@@ -436,15 +441,15 @@ footer{padding-bottom:96px!important}
                     <span class="tp-bar" style="flex: 1; height: 55%; border-radius: 6px; background: rgba(229,231,235,0.18); animation-delay: .15s"></span>
                     <span class="tp-bar" style="flex: 1; height: 45%; border-radius: 6px; background: rgba(229,231,235,0.18); animation-delay: .3s"></span>
                     <span class="tp-bar" style="flex: 1; height: 72%; border-radius: 6px; background: rgba(229,231,235,0.18); animation-delay: .45s"></span>
-                    <span class="tp-bar" style="flex: 1; height: 60%; border-radius: 6px; background: #A78BFA; animation-delay: .6s"></span>
+                    <span class="tp-bar" style="flex: 1; height: 60%; border-radius: 6px; background: #F3CF8C; animation-delay: .6s"></span>
                     <span class="tp-bar" style="flex: 1; height: 88%; border-radius: 6px; background: rgba(229,231,235,0.18); animation-delay: .75s"></span>
-                    <span class="tp-bar" style="flex: 1; height: 100%; border-radius: 6px; background: #6C3BFF; animation-delay: .9s"></span>
+                    <span class="tp-bar" style="flex: 1; height: 100%; border-radius: 6px; background: #E8AD4A; animation-delay: .9s"></span>
                   </div>
                 </div>
                 <div class="tp-hide-m" style="flex: 1 1 170px; min-width: 0; border-radius: 14px; background: #0B1020; padding: 14px; display: flex; flex-direction: column; gap: 9px; font-size: 12px; font-weight: 700">
-                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; background: #6C3BFF"></span><span style="text-decoration: line-through; color: rgba(229,231,235,0.55)">Revisar stock</span></div>
-                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; background: #6C3BFF"></span><span style="text-decoration: line-through; color: rgba(229,231,235,0.55)">Turnos de la semana</span></div>
-                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; border: 2px solid #A78BFA; box-sizing: border-box"></span>Pedido a proveedor</div>
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; background: #E8AD4A"></span><span style="text-decoration: line-through; color: rgba(229,231,235,0.55)">Revisar stock</span></div>
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; background: #E8AD4A"></span><span style="text-decoration: line-through; color: rgba(229,231,235,0.55)">Turnos de la semana</span></div>
+                  <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; border: 2px solid #F3CF8C; box-sizing: border-box"></span>Pedido a proveedor</div>
                   <div style="display: flex; align-items: center; gap: 8px"><span style="width: 14px; height: 14px; border-radius: 5px; border: 2px solid rgba(229,231,235,0.35); box-sizing: border-box"></span>Cierre de caja</div>
                 </div>
               </div>
@@ -473,19 +478,19 @@ footer{padding-bottom:96px!important}
               <p style="margin: 0; font-size: 13px; font-weight: 700; color: rgba(11,16,32,0.6)">Citas · Agenda · Recordatorios · Huecos libres</p>
             </div>
             <div aria-hidden="true" style="flex: 0 0 auto; width: 176px; border-radius: 20px; background: #F8FAFC; border: 1px solid #E5E7EB; padding: 14px; display: flex; flex-direction: column; gap: 10px">
-              <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800"><span>Octubre</span><span style="color: #6C3BFF">›</span></div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800"><span>Octubre</span><span style="color: #8A560A">›</span></div>
               <div style="position: relative; display: grid; grid-template-columns: repeat(4, 32px); grid-auto-rows: 32px; gap: 6px">
-                <span class="tp-hop" style="position: absolute; left: 38px; top: 0; width: 32px; height: 32px; border-radius: 10px; background: #6C3BFF"></span>
+                <span class="tp-hop" style="position: absolute; left: 38px; top: 0; width: 32px; height: 32px; border-radius: 10px; background: #E8AD4A"></span>
                 <span style="border-radius: 10px; background: #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: #0B1020"></span>
                 <span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: #E5E7EB"></span>
-                <span style="border-radius: 10px; background: #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: #A78BFA"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span>
+                <span style="border-radius: 10px; background: #E5E7EB"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span><span style="border-radius: 10px; background: #F3CF8C"></span><span style="border-radius: 10px; background: transparent; border: 1px solid #E5E7EB"></span>
               </div>
               <div style="padding: 8px; border-radius: 10px; background: #0B1020; color: #F8FAFC; text-align: center; font-size: 11px; font-weight: 800">Reservar</div>
             </div>
           </div>
 
           <!-- EVENTOS -->
-          <div data-sol="eventos" style="flex-grow: 1; border-radius: 32px; background: #A78BFA; color: #0B1020; padding: 30px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
+          <div data-sol="eventos" style="flex-grow: 1; border-radius: 32px; background: #F3CF8C; color: #0B1020; padding: 30px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center">
             <div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
               <h3 style="margin: 0; font-size: 25px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1">Experiencias que conectan</h3>
               <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #0B1020">Eventos, inscripciones y servicios digitales pensados para que cada interacción resulte fácil.</p>
@@ -493,12 +498,12 @@ footer{padding-bottom:96px!important}
             </div>
             <div aria-hidden="true" style="flex: 0 0 auto; width: 176px; display: flex; flex-direction: column; align-items: center; gap: 12px">
               <div style="width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(#0B1020 0 70%, rgba(11,16,32,0.18) 70% 100%); display: flex; align-items: center; justify-content: center">
-                <span style="width: 94px; height: 94px; border-radius: 50%; background: #A78BFA; display: flex; flex-direction: column; align-items: center; justify-content: center"><span class="tp-count" style="font-size: 28px; font-weight: 800; line-height: 1">42</span><span style="font-size: 11px; font-weight: 800">de 60</span></span>
+                <span style="width: 94px; height: 94px; border-radius: 50%; background: #F3CF8C; display: flex; flex-direction: column; align-items: center; justify-content: center"><span class="tp-count" style="font-size: 28px; font-weight: 800; line-height: 1">42</span><span style="font-size: 11px; font-weight: 800">de 60</span></span>
               </div>
               <div style="display: flex; align-items: center">
-                <span style="width: 30px; height: 30px; border-radius: 50%; background: #0B1020; border: 2px solid #A78BFA"></span>
-                <span style="width: 30px; height: 30px; margin-left: -9px; border-radius: 50%; background: #6C3BFF; border: 2px solid #A78BFA"></span>
-                <span style="width: 30px; height: 30px; margin-left: -9px; border-radius: 50%; background: #F8FAFC; border: 2px solid #A78BFA"></span>
+                <span style="width: 30px; height: 30px; border-radius: 50%; background: #0B1020; border: 2px solid #F3CF8C"></span>
+                <span style="width: 30px; height: 30px; margin-left: -9px; border-radius: 50%; background: #E8AD4A; border: 2px solid #F3CF8C"></span>
+                <span style="width: 30px; height: 30px; margin-left: -9px; border-radius: 50%; background: #F8FAFC; border: 2px solid #F3CF8C"></span>
                 <span style="margin-left: 8px; font-size: 13px; font-weight: 800">+39</span>
               </div>
             </div>
@@ -508,7 +513,7 @@ footer{padding-bottom:96px!important}
 
       <div class="tp-compact" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 18px; padding: 24px 28px; border-radius: 24px; border: 1.5px dashed #E5E7EB; background: #FFFFFF">
         <p style="margin: 0; font-size: 17px; font-weight: 700">¿Tu idea no encaja en ninguna? <span style="font-weight: 500; color: rgba(11,16,32,0.7)">Creo la herramienta que necesites, aunque nadie la haya pedido antes.</span></p>
-        <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #6C3BFF; color: #F8FAFC; font-size: 15px; font-weight: 700; text-decoration: none">Cuéntamela
+        <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #E8AD4A; color: #0B1020; font-size: 15px; font-weight: 700; text-decoration: none">Cuéntamela
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </a>
       </div>
@@ -520,10 +525,9 @@ footer{padding-bottom:96px!important}
   <section id="quien" class="tp-secb" style="background: #F8FAFC; color: #0B1020; padding: 0 24px 120px">
     <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
       <div aria-hidden="true" class="tp-art" style="flex: 1 1 420px; min-width: 0; min-height: 480px; border-radius: 32px; background: #0B1020; position: relative; overflow: hidden; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
-        <div style="position: absolute; right: -160px; bottom: -160px; width: 460px; height: 460px; border-radius: 50%; background: #6C3BFF; opacity: 0.22; filter: blur(90px)"></div>
         <div style="position: relative; display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase">
           <span style="color: rgba(229,231,235,0.6)">Cómo trabajas hoy</span>
-          <span style="color: #A78BFA">Con tu app</span>
+          <span style="color: #F3CF8C">Con tu app</span>
         </div>
         <div class="tp-artrow" style="position: relative; flex-grow: 1; display: flex; align-items: center; gap: 14px">
 
@@ -531,22 +535,22 @@ footer{padding-bottom:96px!important}
           <div class="tp-notes" style="position: relative; flex: 1 1 0; min-width: 0; height: 300px">
             <span class="tp-absorb" style="--r: -8deg; --dx: 230px; --dy: 80px; animation-delay: 0s; position: absolute; left: 0; top: 10px; width: 132px; padding: 12px; border-radius: 12px; background: #E5E7EB; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box">Libreta<span style="display: block; margin-top: 8px; height: 5px; width: 80%; border-radius: 5px; background: rgba(11,16,32,0.25)"></span><span style="display: block; margin-top: 5px; height: 5px; width: 60%; border-radius: 5px; background: rgba(11,16,32,0.25)"></span></span>
             <span class="tp-absorb" style="--r: 7deg; --dx: 140px; --dy: 30px; animation-delay: 1s; position: absolute; right: 0; top: 70px; width: 120px; padding: 12px; border-radius: 12px; background: #F8FAFC; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box">Hoja de cálculo<span style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; margin-top: 8px"><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span><span style="height: 6px; background: #E5E7EB"></span></span></span>
-            <span class="tp-absorb" style="--r: 5deg; --dx: 220px; --dy: -20px; position: absolute; left: 12px; top: 150px; width: 128px; padding: 12px; border-radius: 12px; background: #A78BFA; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box; animation-delay: 2s">Mensajes<span style="display: block; margin-top: 8px; height: 5px; width: 70%; border-radius: 5px; background: rgba(11,16,32,0.3)"></span></span>
+            <span class="tp-absorb" style="--r: 5deg; --dx: 220px; --dy: -20px; position: absolute; left: 12px; top: 150px; width: 128px; padding: 12px; border-radius: 12px; background: #F3CF8C; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box; animation-delay: 2s">Mensajes<span style="display: block; margin-top: 8px; height: 5px; width: 70%; border-radius: 5px; background: rgba(11,16,32,0.3)"></span></span>
             <span class="tp-absorb" style="--r: -6deg; --dx: 150px; --dy: -80px; position: absolute; right: 8px; top: 214px; width: 110px; padding: 12px; border-radius: 12px; background: #E5E7EB; color: #0B1020; font-size: 12px; font-weight: 800; box-sizing: border-box; animation-delay: 3s">Llamadas<span style="display: block; margin-top: 8px; height: 5px; width: 55%; border-radius: 5px; background: rgba(11,16,32,0.25)"></span></span>
           </div>
 
           <!-- Flecha -->
-          <span class="tp-arrow" style="flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: #6C3BFF; color: #F8FAFC; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 8px rgba(108,59,255,0.18)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          <span class="tp-arrow" style="flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: #E8AD4A; color: #0B1020; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 8px rgba(232,173,74,0.2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
 
           <!-- Después: app ordenada -->
           <div class="tp-mini" style="flex: 0 0 auto; width: 150px; height: 300px; border-radius: 28px; background: #F8FAFC; padding: 7px; box-sizing: border-box; box-shadow: 0 24px 50px rgba(0,0,0,0.45)">
             <div style="height: 100%; border-radius: 22px; background: #FFFFFF; padding: 14px 10px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; color: #0B1020">
               <div style="display: flex; align-items: center; gap: 6px"><span style="position: relative; width: 22px; height: 22px; border-radius: 7px; background: #0B1020; color: #F8FAFC; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center">t<span style="position: absolute; right: 3px; top: 2px; width: 3px; height: 6px; border-radius: 2px; background: #6C3BFF; transform: rotate(35deg)"></span></span><span style="font-size: 11px; font-weight: 800">Todo en orden</span></div>
-              <div class="tp-rowin" style="padding: 9px; border-radius: 11px; background: #6C3BFF; color: #F8FAFC; animation-delay: 0s"><div style="font-size: 9px; font-weight: 700; opacity: 0.85">Hoy</div><div style="font-size: 15px; font-weight: 800">3 citas</div></div>
-              <div class="tp-rowin" style="animation-delay: 1s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #6C3BFF"></span>Clientes</div>
-              <div class="tp-rowin" style="animation-delay: 2s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #A78BFA"></span>Pedidos</div>
+              <div class="tp-rowin" style="padding: 9px; border-radius: 11px; background: #E8AD4A; color: #0B1020; animation-delay: 0s"><div style="font-size: 9px; font-weight: 700; opacity: 0.85">Hoy</div><div style="font-size: 15px; font-weight: 800">3 citas</div></div>
+              <div class="tp-rowin" style="animation-delay: 1s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #E8AD4A"></span>Clientes</div>
+              <div class="tp-rowin" style="animation-delay: 2s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #F3CF8C"></span>Pedidos</div>
               <div class="tp-rowin" style="animation-delay: 3s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0B1020"></span>Avisos</div>
-              <div style="margin-top: auto; height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div style="width: 80%; height: 100%; background: #6C3BFF"></div></div>
+              <div style="margin-top: auto; height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div style="width: 80%; height: 100%; background: #E8AD4A"></div></div>
             </div>
           </div>
         </div>
@@ -560,9 +564,9 @@ footer{padding-bottom:96px!important}
         <h2 style="margin: 0; font-size: clamp(34px, 4.2vw, 54px); line-height: 1.05; font-weight: 800; letter-spacing: -0.04em; text-wrap: balance">Detrás de táppika hay una persona, no una plantilla.</h2>
         <p style="margin: 0; font-size: 17px; line-height: 1.7; color: rgba(11,16,32,0.72); max-width: 60ch">Me escribes a mí y te respondo yo. Escucho cómo trabajas hoy, diseño la app contigo y la construyo hasta que la tienes en tu móvil, sin intermediarios.</p>
         <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
-          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #6C3BFF; color: #F8FAFC; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Tu manera de trabajar, primero.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.72)">Parto de tu problema real, no de una plantilla prefabricada.</div></div></li>
-          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #6C3BFF; color: #F8FAFC; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Trato directo.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.72)">Hablas siempre con la persona que diseña y construye tu app.</div></div></li>
-          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #6C3BFF; color: #F8FAFC; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Solo lo que necesitas.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.72)">Pantallas claras, sin funciones de relleno.</div></div></li>
+          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #E8AD4A; color: #0B1020; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Tu manera de trabajar, primero.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.72)">Parto de tu problema real, no de una plantilla prefabricada.</div></div></li>
+          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #E8AD4A; color: #0B1020; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Trato directo.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.72)">Hablas siempre con la persona que diseña y construye tu app.</div></div></li>
+          <li style="display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid #E5E7EB; border-bottom: 1px solid #E5E7EB"><span style="width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; background: #E8AD4A; color: #0B1020; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span><div><div style="font-size: 18px; font-weight: 800">Solo lo que necesitas.</div><div style="font-size: 15px; line-height: 1.6; color: rgba(11,16,32,0.72)">Pantallas claras, sin funciones de relleno.</div></div></li>
         </ul>
       </div>
     </div>
@@ -573,36 +577,36 @@ footer{padding-bottom:96px!important}
     <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 64px">
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
         <div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px">
-          <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">De «¿y si…?» a <span style="color: #A78BFA">«ya funciona».</span></h2>
+          <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">De «¿y si…?» a <span style="color: #F3CF8C">«ya funciona».</span></h2>
         </div>
         <p style="margin: 0; max-width: 400px; font-size: 17px; line-height: 1.65; color: rgba(229,231,235,0.78)">Un proceso claro para transformar una necesidad concreta en una herramienta que apetezca utilizar.</p>
       </div>
       <div style="position: relative">
-        <div aria-hidden="true" class="tp-vline" style="display: none; position: absolute; left: 25px; top: 26px; bottom: 60px; width: 2px; background: rgba(229,231,235,0.16)"><span class="tp-vdot" style="position: absolute; left: -5px; width: 12px; height: 12px; border-radius: 50%; background: #A78BFA; "></span></div>
+        <div aria-hidden="true" class="tp-vline" style="display: none; position: absolute; left: 25px; top: 26px; bottom: 60px; width: 2px; background: rgba(229,231,235,0.16)"><span class="tp-vdot" style="position: absolute; inset: 0"><span style="position: absolute; top: 0; left: -5px; width: 12px; height: 12px; border-radius: 50%; background: #F3CF8C"></span></span></div>
         <div aria-hidden="true" class="tp-pline" style="position: absolute; left: 4%; right: 4%; top: 38px; height: 2px; background: rgba(229,231,235,0.14)">
-          <span class="tp-dot" style="position: absolute; top: -5px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: #A78BFA; "></span>
+          <span class="tp-dot" style="position: absolute; inset: 0"><span style="position: absolute; left: 0; top: -5px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: #F3CF8C"></span></span>
         </div>
         <ol class="tp-steps" style="position: relative; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px">
           <li style="display: flex; flex-direction: column; gap: 16px">
-            <span style="animation-delay: 0s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #A78BFA"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"></path></svg></span>
+            <span style="animation-delay: 0s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #F3CF8C"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"></path></svg></span>
             <span style="font-size: 13px; font-weight: 800; color: rgba(229,231,235,0.65)">1 · Escuchar</span>
             <h3 style="margin: 0; font-size: 22px; font-weight: 800">Entiendo tu idea</h3>
             <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Qué quieres resolver, para quién y cómo trabajas hoy.</p>
           </li>
           <li style="display: flex; flex-direction: column; gap: 16px">
-            <span style="animation-delay: 1s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #A78BFA"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg></span>
+            <span style="animation-delay: 1s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #F3CF8C"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg></span>
             <span style="font-size: 13px; font-weight: 800; color: rgba(229,231,235,0.65)">2 · Diseñar</span>
             <h3 style="margin: 0; font-size: 22px; font-weight: 800">Le doy forma</h3>
             <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Ordeno cada pantalla y te enseño cómo quedará antes de construirla.</p>
           </li>
           <li style="display: flex; flex-direction: column; gap: 16px">
-            <span style="animation-delay: 2s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #A78BFA"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"></path></svg></span>
+            <span style="animation-delay: 2s; width: 76px; height: 76px; border-radius: 24px; background: #0B1020; border: 1px solid rgba(229,231,235,0.2); display: flex; align-items: center; justify-content: center; color: #F3CF8C"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"></path></svg></span>
             <span style="font-size: 13px; font-weight: 800; color: rgba(229,231,235,0.65)">3 · Construir</span>
             <h3 style="margin: 0; font-size: 22px; font-weight: 800">La hago real</h3>
             <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">La desarrollo y compruebo que todo funciona en tu móvil.</p>
           </li>
           <li style="display: flex; flex-direction: column; gap: 16px">
-            <span style="animation-delay: 3s; width: 76px; height: 76px; border-radius: 24px; background: #6C3BFF; display: flex; align-items: center; justify-content: center; color: #F8FAFC"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"></rect><path d="M9.5 12l2 2 3.5-4"></path></svg></span>
+            <span style="animation-delay: 3s; width: 76px; height: 76px; border-radius: 24px; background: #E8AD4A; display: flex; align-items: center; justify-content: center; color: #0B1020"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"></rect><path d="M9.5 12l2 2 3.5-4"></path></svg></span>
             <span style="font-size: 13px; font-weight: 800; color: rgba(229,231,235,0.65)">4 · Entregar</span>
             <h3 style="margin: 0; font-size: 22px; font-weight: 800">Lista para usar</h3>
             <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Te la entrego lista y te explico cómo sacarle partido.</p>
@@ -616,7 +620,7 @@ footer{padding-bottom:96px!important}
   <section id="todo" class="tp-secb" style="padding: 0 24px 120px">
     <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
       <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
-        <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">Tu app trabaja. <span style="color: #A78BFA">Tú te ocupas de lo importante.</span></h2>
+        <h2 style="margin: 0; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.04; font-weight: 800; letter-spacing: -0.045em">Tu app trabaja. <span style="color: #F3CF8C">Tú te ocupas de lo importante.</span></h2>
         <p style="margin: 0; font-size: 18px; line-height: 1.6; color: rgba(229,231,235,0.78)">Sin menús infinitos ni funciones que nunca usarás. Solo lo que necesitas, con el acabado de una gran app.</p>
       </div>
       <div class="tp-bento" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
@@ -627,18 +631,18 @@ footer{padding-bottom:96px!important}
             <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Automatizo las tareas repetitivas: avisos, recordatorios y confirmaciones pueden salir sin que tengas que hacer nada.</p>
           </div>
           <div aria-hidden="true" style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
-            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #0B1020; border: 1px solid rgba(229,231,235,0.18); font-size: 15px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: #A78BFA"></span>Llega una reserva nueva</div>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #0B1020; border: 1px solid rgba(229,231,235,0.18); font-size: 15px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: #F3CF8C"></span>Llega una reserva nueva</div>
             <div style="margin-left: 26px; width: 2px; height: 14px; background: rgba(229,231,235,0.18)"></div>
-            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #0B1020; border: 1px solid rgba(229,231,235,0.18); font-size: 15px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: #A78BFA"></span>Se envía la confirmación</div>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #0B1020; border: 1px solid rgba(229,231,235,0.18); font-size: 15px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: #F3CF8C"></span>Se envía la confirmación</div>
             <div style="margin-left: 26px; width: 2px; height: 14px; background: rgba(229,231,235,0.18)"></div>
-            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #6C3BFF; font-size: 15px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: #F8FAFC"></span>Recordatorio el día antes</div>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: #E8AD4A; color: #0B1020; font-size: 15px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 50%; background: #0B1020"></span>Recordatorio el día antes</div>
           </div>
         </div>
 
         <div style="min-width: 0; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12); padding: 36px; display: flex; flex-direction: column; gap: 22px">
           <div aria-hidden="true" class="tp-vis" style="position: relative; height: 150px">
-            <div class="tp-toast1" style="position: absolute; left: 0; right: 0; top: 20px; padding: 14px 16px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.35)"><span style="width: 36px; height: 36px; border-radius: 11px; background: #6C3BFF; flex-shrink: 0"></span><div><div style="font-size: 14px; font-weight: 800">Nueva reserva</div><div style="font-size: 13px; color: rgba(11,16,32,0.62)">Martes · 11:30</div></div></div>
-            <div class="tp-toast2" style="position: absolute; left: 0; right: 0; top: 20px; padding: 14px 16px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.35); opacity: 0"><span style="width: 36px; height: 36px; border-radius: 11px; background: #A78BFA; flex-shrink: 0"></span><div><div style="font-size: 14px; font-weight: 800">Pedido recibido</div><div style="font-size: 13px; color: rgba(11,16,32,0.62)">3 productos</div></div></div>
+            <div class="tp-toast1" style="position: absolute; left: 0; right: 0; top: 20px; padding: 14px 16px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.35)"><span style="width: 36px; height: 36px; border-radius: 11px; background: #E8AD4A; flex-shrink: 0"></span><div><div style="font-size: 14px; font-weight: 800">Nueva reserva</div><div style="font-size: 13px; color: rgba(11,16,32,0.62)">Martes · 11:30</div></div></div>
+            <div class="tp-toast2" style="position: absolute; left: 0; right: 0; top: 20px; padding: 14px 16px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.35); opacity: 0"><span style="width: 36px; height: 36px; border-radius: 11px; background: #F3CF8C; flex-shrink: 0"></span><div><div style="font-size: 14px; font-weight: 800">Pedido recibido</div><div style="font-size: 13px; color: rgba(11,16,32,0.62)">3 productos</div></div></div>
             <div class="tp-toast3" style="position: absolute; left: 0; right: 0; top: 20px; padding: 14px 16px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 12px; align-items: center; box-shadow: 0 20px 40px rgba(0,0,0,0.35); opacity: 0"><span style="width: 36px; height: 36px; border-radius: 11px; background: #0B1020; flex-shrink: 0"></span><div><div style="font-size: 14px; font-weight: 800">Nueva inscripción</div><div style="font-size: 13px; color: rgba(11,16,32,0.62)">Quedan 17 plazas</div></div></div>
           </div>
           <h3 style="margin: 0; font-size: 22px; font-weight: 800">Avisos al momento</h3>
@@ -650,8 +654,8 @@ footer{padding-bottom:96px!important}
             <span class="tp-bar" style="flex: 1; height: 40%; border-radius: 10px; background: rgba(229,231,235,0.16)"></span>
             <span class="tp-bar" style="flex: 1; height: 62%; border-radius: 10px; background: rgba(229,231,235,0.16); animation-delay: .2s"></span>
             <span class="tp-bar" style="flex: 1; height: 50%; border-radius: 10px; background: rgba(229,231,235,0.16); animation-delay: .4s"></span>
-            <span class="tp-bar" style="flex: 1; height: 82%; border-radius: 10px; background: #A78BFA; animation-delay: .6s"></span>
-            <span class="tp-bar" style="flex: 1; height: 100%; border-radius: 10px; background: #6C3BFF; animation-delay: .8s"></span>
+            <span class="tp-bar" style="flex: 1; height: 82%; border-radius: 10px; background: #F3CF8C; animation-delay: .6s"></span>
+            <span class="tp-bar" style="flex: 1; height: 100%; border-radius: 10px; background: #E8AD4A; animation-delay: .8s"></span>
           </div>
           <h3 style="margin: 0; font-size: 22px; font-weight: 800">Todo a la vista</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Resúmenes claros para saber cómo va todo de un vistazo.</p>
@@ -660,21 +664,21 @@ footer{padding-bottom:96px!important}
         <div style="min-width: 0; border-radius: 28px; background: rgba(229,231,235,0.05); border: 1px solid rgba(229,231,235,0.12); padding: 36px; display: flex; flex-direction: column; gap: 22px">
           <div aria-hidden="true" class="tp-vis" style="height: 150px; display: flex; align-items: center; justify-content: center">
             <span style="width: 92px; height: 92px; border-radius: 26px; background: #E5E7EB; transform: rotate(-10deg) translateX(30px)"></span>
-            <span style="width: 92px; height: 92px; border-radius: 26px; background: #A78BFA; transform: rotate(4deg); position: relative; z-index: 1"></span>
-            <span style="width: 92px; height: 92px; border-radius: 26px; background: #6C3BFF; transform: rotate(14deg) translateX(-30px); position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; color: #F8FAFC; font-size: 40px; font-weight: 800">t</span>
+            <span style="width: 92px; height: 92px; border-radius: 26px; background: #F3CF8C; transform: rotate(4deg); position: relative; z-index: 1"></span>
+            <span style="width: 92px; height: 92px; border-radius: 26px; background: #E8AD4A; transform: rotate(14deg) translateX(-30px); position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; color: #0B1020; font-size: 40px; font-weight: 800">t</span>
           </div>
           <h3 style="margin: 0; font-size: 22px; font-weight: 800">Con tu marca</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(229,231,235,0.78)">Tus colores, tu logo y tu nombre. Se nota que es tuya.</p>
         </div>
 
-        <div style="min-width: 0; border-radius: 28px; background: #6C3BFF; padding: 36px; display: flex; flex-direction: column; gap: 22px">
+        <div style="min-width: 0; border-radius: 28px; background: #E8AD4A; color: #0B1020; padding: 36px; display: flex; flex-direction: column; gap: 22px">
           <div aria-hidden="true" class="tp-vis" style="height: 150px; display: flex; align-items: flex-end; justify-content: center; gap: 12px">
-            <span style="width: 54px; height: 100px; border-radius: 14px; border: 3px solid #F8FAFC; box-sizing: border-box"></span>
-            <span style="width: 96px; height: 128px; border-radius: 16px; border: 3px solid #F8FAFC; box-sizing: border-box"></span>
-            <span style="width: 150px; height: 96px; border-radius: 12px; border: 3px solid #F8FAFC; box-sizing: border-box; opacity: 0.7"></span>
+            <span style="width: 54px; height: 100px; border-radius: 14px; border: 3px solid #0B1020; box-sizing: border-box"></span>
+            <span style="width: 96px; height: 128px; border-radius: 16px; border: 3px solid #0B1020; box-sizing: border-box"></span>
+            <span style="width: 150px; height: 96px; border-radius: 12px; border: 3px solid #0B1020; box-sizing: border-box; opacity: 0.7"></span>
           </div>
           <h3 style="margin: 0; font-size: 22px; font-weight: 800">Móvil, tablet u ordenador</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #F8FAFC">Pensada primero para el móvil, se adapta a cualquier pantalla.</p>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: rgba(11,16,32,0.8)">Pensada primero para el móvil, se adapta a cualquier pantalla.</p>
         </div>
       </div>
     </div>
@@ -688,23 +692,23 @@ footer{padding-bottom:96px!important}
       </div>
       <div style="flex: 1.6 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
         <details class="tp-faq">
-          <summary>¿Cuánto cuesta una app?<span aria-hidden="true">+</span></summary>
+          <summary>¿Cuánto cuesta una app?<span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <p>Depende de lo que necesites, por eso no hay tarifa fija. Antes de empezar te envío un presupuesto cerrado y sin compromiso, con lo que incluye y lo que cuesta. Sin sorpresas después.</p>
         </details>
         <details class="tp-faq">
-          <summary>¿Cuánto tardas en entregarla?<span aria-hidden="true">+</span></summary>
+          <summary>¿Cuánto tardas en entregarla?<span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <p>Cada proyecto es distinto, así que te doy una fecha concreta en el presupuesto, antes de empezar.</p>
         </details>
         <details class="tp-faq">
-          <summary>¿Qué tipo de apps haces?<span aria-hidden="true">+</span></summary>
+          <summary>¿Qué tipo de apps haces?<span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <p>Apps centradas en resolver una necesidad concreta: reservas, pedidos, eventos, gestión… Sin funciones de relleno y con un diseño cuidado.</p>
         </details>
         <details class="tp-faq">
-          <summary>¿Necesito saber de tecnología?<span aria-hidden="true">+</span></summary>
+          <summary>¿Necesito saber de tecnología?<span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <p>No. Empieza por el problema que te gustaría resolver, con tus palabras. Del resto me encargo yo.</p>
         </details>
         <details class="tp-faq">
-          <summary>¿Puedo pedir cambios después?<span aria-hidden="true">+</span></summary>
+          <summary>¿Puedo pedir cambios después?<span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
           <p>Sí. Las apps están pensadas para crecer contigo y adaptarse cuando lo necesites.</p>
         </details>
       </div>
@@ -713,22 +717,22 @@ footer{padding-bottom:96px!important}
 
   <!-- ============ CONTACTO ============ -->
   <section id="contacto" class="tp-sec tp-contact" style="padding: 120px 24px">
-    <div style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; border-radius: 40px; background: #6C3BFF; padding: clamp(28px, 5vw, 72px); display: flex; flex-wrap: wrap; gap: 48px; overflow: hidden">
+    <div style="position: relative; box-sizing: border-box; max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 48px">
       <div style="position: relative; flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
-        <h2 style="margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1; font-weight: 800; letter-spacing: -0.045em">¿Tienes una idea?<br>Hagámosla app.</h2>
-        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #F8FAFC">Contesta tres preguntas rápidas y envíamelas con un toque, por email o por WhatsApp. Te respondo yo.</p>
-        <div id="tp-made" hidden style="align-self: flex-start; display: flex; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: 20px; background: rgba(11,16,32,0.28)">
-          <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 13px; background: var(--c); box-shadow: 0 0 0 3px #F8FAFC, 0 0 0 5px #0B1020; color: #F8FAFC; font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
-          <div><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #F8FAFC">La app que has creado</div><div style="font-size: 17px; font-weight: 800"><span data-t="displayName"></span> · <span data-t="typeLabel"></span></div></div>
+        <h2 style="margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1; font-weight: 800; letter-spacing: -0.045em">¿Tienes una idea?<br>Hagámosla <span style="color: #F3CF8C">app.</span></h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: rgba(229,231,235,0.8); max-width: 460px">Contesta tres preguntas rápidas y envíamelas con un toque, por email o por WhatsApp. Te respondo yo.</p>
+        <div id="tp-made" hidden style="align-self: flex-start; display: flex; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: 20px; background: rgba(229,231,235,0.06); border: 1px solid rgba(229,231,235,0.14)">
+          <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 13px; background: var(--c); box-shadow: 0 0 0 3px #F8FAFC, 0 0 0 5px #0B1020; color: var(--on-c); font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
+          <div><div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(229,231,235,0.7)">La app que has creado</div><div style="font-size: 17px; font-weight: 800"><span data-t="displayName"></span> · <span data-t="typeLabel"></span></div></div>
         </div>
       </div>
 
       <form id="tp-form" style="position: relative; flex: 1 1 420px; min-width: 0; background: #F8FAFC; color: #0B1020; border-radius: 28px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px">
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
           <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em">Cuéntame en 3 toques</span>
-          <span style="font-size: 13px; font-weight: 800; color: #6C3BFF"><span data-t="answered"></span>/3</span>
+          <span style="font-size: 13px; font-weight: 800; color: #8A560A"><span data-t="answered"></span>/3</span>
         </div>
-        <div aria-hidden="true" style="height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div id="tp-prog" style="width: 100%; height: 100%; background: #6C3BFF; transform-origin: left center; transform: scaleX(.33); transition: transform .45s cubic-bezier(.16,1,.3,1)"></div></div>
+        <div aria-hidden="true" style="height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div id="tp-prog" style="width: 100%; height: 100%; background: #E8AD4A; transform-origin: left center; transform: scaleX(.33); transition: transform .45s cubic-bezier(.16,1,.3,1)"></div></div>
 
         <div style="display: flex; flex-direction: column; gap: 7px">
           <label for="q-tipo" style="font-size: 14px; font-weight: 700">1 · ¿Qué tipo de app necesitas?</label>
@@ -767,10 +771,10 @@ footer{padding-bottom:96px!important}
         </div>
 
         <label for="q-llamar" style="display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 0 16px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer">
-          <input id="q-llamar" type="checkbox" style="width: 24px; height: 24px; margin: 0; accent-color: #6C3BFF; flex-shrink: 0">
+          <input id="q-llamar" type="checkbox" style="width: 24px; height: 24px; margin: 0; accent-color: #E8AD4A; flex-shrink: 0">
           ¿Prefieres que te llame?
         </label>
-        <div id="tp-call" hidden style="display: flex; flex-wrap: wrap; gap: 12px; padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px dashed #A78BFA">
+        <div id="tp-call" hidden style="display: flex; flex-wrap: wrap; gap: 12px; padding: 14px; border-radius: 16px; background: #FFFFFF; border: 1px dashed #F3CF8C">
             <div style="flex: 1 1 160px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
               <label for="q-tel" style="font-size: 14px; font-weight: 700">Tu teléfono <span style="font-weight: 500; color: rgba(11,16,32,0.65)">(obligatorio)</span></label>
               <input id="q-tel" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="tp-tel-err" placeholder="600 000 000" style="min-height: 50px; padding: 0 14px; border-radius: 14px; border: 1.5px solid #E5E7EB; background: #F8FAFC; font-size: 16px">
@@ -791,9 +795,9 @@ footer{padding-bottom:96px!important}
         <p style="margin: 0; font-size: 14px; line-height: 1.5; color: rgba(11,16,32,0.72)">Se abrirá tu correo o WhatsApp con el mensaje ya escrito; solo tienes que pulsar enviar.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 10px">
           <a id="tp-mail" href="mailto:info@tappika.es" style="flex: 1 1 180px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 999px; background: #0B1020; color: #F8FAFC; font-size: 16px; font-weight: 800; text-decoration: none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M3 7l9 6 9-6"></path></svg>Enviar por email</a>
-          <a id="tp-wa" href="https://wa.me/34620843264?text=Hola%2C%20t%C3%A1ppika." target="_blank" rel="noopener" style="flex: 1 1 180px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 999px; background: #6C3BFF; color: #F8FAFC; font-size: 16px; font-weight: 800; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"></path><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"></path></svg>Enviar por WhatsApp</a>
+          <a id="tp-wa" href="https://wa.me/34620843264?text=Hola%2C%20t%C3%A1ppika." target="_blank" rel="noopener" style="flex: 1 1 180px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 999px; background: #E8AD4A; color: #0B1020; font-size: 16px; font-weight: 800; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"></path><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-1 .8a4 4 0 0 1-2.1-2.1l.8-1-1-2z"></path></svg>Enviar por WhatsApp</a>
         </div>
-        <p style="margin: 0; font-size: 12px; line-height: 1.5; color: rgba(11,16,32,0.6)">Responsable: María del Pilar Rodríguez Bonilla. Esta página prepara tu mensaje, pero no guarda tus respuestas. Si decides enviarlo por email o WhatsApp, trataré tus datos para responderte. <a href="privacidad.html" style="color: #4124BC; font-weight: 700; text-underline-offset: 2px">Política de privacidad</a>.</p>
+        <p style="margin: 0; font-size: 12px; line-height: 1.5; color: rgba(11,16,32,0.6)">Responsable: María del Pilar Rodríguez Bonilla. Esta página prepara tu mensaje, pero no guarda tus respuestas. Si decides enviarlo por email o WhatsApp, trataré tus datos para responderte. <a href="privacidad.html" style="color: #8A560A; font-weight: 700; text-underline-offset: 2px">Política de privacidad</a>.</p>
       </form>
     </div>
   </section>
@@ -807,13 +811,13 @@ footer{padding-bottom:96px!important}
   <footer style="border-top: 1px solid rgba(229,231,235,0.1); padding: 56px 24px">
     <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px">
       <div style="display: flex; align-items: center; gap: 14px">
-        <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 13px; background: #0B1020; border: 1px solid rgba(229,231,235,0.22); color: #F8FAFC; display: flex; align-items: center; justify-content: center; font-size: 29px; font-weight: 800; position: relative">t<span style="position: absolute; right: 7px; top: 6px; width: 5px; height: 12px; border-radius: 3px; background: #6C3BFF; transform: rotate(35deg)"></span></span>
+        <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 13px; background: #0B1020; border: 1px solid rgba(229,231,235,0.22); color: #F8FAFC; display: flex; align-items: center; justify-content: center; font-family: Manrope, sans-serif; font-size: 29px; font-weight: 800; position: relative">t<span style="position: absolute; right: 7px; top: 6px; width: 5px; height: 12px; border-radius: 3px; background: #6C3BFF; transform: rotate(35deg)"></span></span>
         <div style="display: inline-flex; flex-direction: column; align-items: center; gap: 7px">
-          <span style="font-size: 46px; font-weight: 800; letter-spacing: -0.04em; line-height: 1">t<span style="color: #6C3BFF">á</span>pp<span style="color: #6C3BFF">i</span>ka</span>
+          <span class="wordmark" style="font-family: Manrope, sans-serif; font-size: 46px; font-weight: 800; letter-spacing: -0.04em; line-height: 1">t<span style="color: #6C3BFF">á</span>pp<span style="color: #6C3BFF">i</span>ka</span>
           <span style="width: 0; min-width: 100%; text-align: center; white-space: nowrap; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(229,231,235,0.7)">Aplicaciones a medida</span>
         </div>
       </div>
-      <nav class="tp-legal" aria-label="Información legal de táppika" style="display: flex; flex-wrap: wrap; column-gap: 18px; align-items: center; font-size: 14px"><a href="aviso-legal.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Aviso legal</a><a href="privacidad.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Privacidad</a><a href="cookies.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Cookies</a><a href="#inicio" style="color: rgba(229,231,235,0.85); text-decoration: none">Volver arriba<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left: 6px"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a></nav>
+      <nav class="tp-legal" aria-label="Información legal de táppika" style="display: flex; flex-wrap: wrap; column-gap: 18px; align-items: center; font-size: 14px"><a href="aviso-legal.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Aviso legal</a><a href="privacidad.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Privacidad</a><a href="cookies.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Cookies</a><a href="#inicio" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center">Volver arriba<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left: 6px"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a></nav>
       <span style="font-size: 14px; color: rgba(229,231,235,0.65)">© 2026 táppika</span>
     </div>
   </footer>
@@ -828,7 +832,7 @@ footer{padding-bottom:96px!important}
     eventos:  {label:'Eventos', def:'Taller de otoño', greet:'Tu evento', tt:'Nueva inscripción', ts:'Quedan 17 plazas', tipo:'Eventos e inscripciones'},
     gestion:  {label:'Gestión', def:'Equipo Tienda', greet:'Hola, equipo', tt:'Tarea completada', ts:'Abrir caja · AM', tipo:'Gestión y organización'}
   };
-  var state = {type:'reservas', color:'#6C3BFF', name:''};
+  var state = {type:'reservas', color:'#E8AD4A', name:''};
   var $ = function(sel, root){ return (root||document).querySelector(sel); };
   var $$ = function(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); };
   var tipoSel = $('#q-tipo'), quienSel = $('#q-quien'), plazoSel = $('#q-plazo'), nombreIn = $('#q-nombre');
@@ -855,10 +859,14 @@ footer{padding-bottom:96px!important}
 
   function setText(key, val){ $$('[data-t="'+key+'"]').forEach(function(el){ el.textContent = val; }); }
 
+  function isLight(hex){ var n = parseInt(hex.slice(1),16), r = n>>16&255, g = n>>8&255, b = n&255; return (0.299*r + 0.587*g + 0.114*b) > 150; }
   function renderApp(){
     var cur = TYPES[state.type];
     var name = state.name.trim() || cur.def;
-    document.documentElement.style.setProperty('--c', state.color);
+    var rs = document.documentElement.style, light = isLight(state.color);
+    rs.setProperty('--c', state.color);
+    rs.setProperty('--on-c', light ? '#0B1020' : '#F8FAFC');
+    rs.setProperty('--c-ink', light ? '#0B1020' : state.color);
     setText('displayName', name);
     setText('initial', name.charAt(0).toUpperCase());
     setText('greeting', cur.greet);
@@ -893,8 +901,10 @@ footer{padding-bottom:96px!important}
 
   var made = $('#tp-made');
   function touched(){ made.hidden = false; }
-  $$('.tp-tbtn').forEach(function(b){ b.addEventListener('click', function(){ state.type = b.getAttribute('data-type'); touched(); renderApp(); }); });
-  $$('.tp-cbtn').forEach(function(b){ b.addEventListener('click', function(){ state.color = b.getAttribute('data-color'); touched(); renderApp(); }); });
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function morph(){ var pv = $('#tp-preview'); if (reduceMotion || !pv.animate) return; pv.animate([{filter:'blur(3px)', opacity:0.7, transform:'scale(.985)'},{filter:'blur(0)', opacity:1, transform:'none'}], {duration:220, easing:'cubic-bezier(.23,1,.32,1)'}); }
+  $$('.tp-tbtn').forEach(function(b){ b.addEventListener('click', function(){ if (state.type === b.getAttribute('data-type')) return; state.type = b.getAttribute('data-type'); touched(); renderApp(); morph(); }); });
+  $$('.tp-cbtn').forEach(function(b){ b.addEventListener('click', function(){ if (state.color === b.getAttribute('data-color')) return; state.color = b.getAttribute('data-color'); touched(); renderApp(); morph(); }); });
   $('#tp-nombre').addEventListener('input', function(e){ state.name = e.target.value; touched(); renderApp(); });
   $('#tp-gencta').addEventListener('click', function(){ touched(); tipoTouched = false; renderApp(); });
   tipoSel.addEventListener('change', function(){ tipoTouched = true; renderContact(); });
@@ -917,14 +927,30 @@ footer{padding-bottom:96px!important}
     sol.setAttribute('data-active', k);
     solTabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.getAttribute('data-sol-tab') === k)); });
   }
-  solTabs.forEach(function(t){ t.addEventListener('click', function(){ setSol(t.getAttribute('data-sol-tab')); }); });
+  function syncTabIndex(){ solTabs.forEach(function(t){ t.tabIndex = t.getAttribute('aria-selected') === 'true' ? 0 : -1; }); }
+  solTabs.forEach(function(t, i){
+    t.addEventListener('click', function(){ setSol(t.getAttribute('data-sol-tab')); syncTabIndex(); });
+    t.addEventListener('keydown', function(e){
+      var n = solTabs.length, j = null;
+      if (e.key === 'ArrowRight') j = (i + 1) % n; else if (e.key === 'ArrowLeft') j = (i - 1 + n) % n; else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1;
+      if (j === null) return;
+      e.preventDefault(); setSol(solTabs[j].getAttribute('data-sol-tab')); syncTabIndex(); solTabs[j].focus();
+    });
+  });
+  syncTabIndex();
   // Barra fija en móvil: aparece tras la portada y se oculta al llegar al contacto
   var dock = $('#tp-dock');
   if ('IntersectionObserver' in window) {
     var heroIn = true, contactIn = false;
-    var upd = function(){ dock.setAttribute('data-show', String(!heroIn && !contactIn)); };
+    var upd = function(){ var show = !heroIn && !contactIn; dock.setAttribute('data-show', String(show)); dock.inert = !show; };
+    dock.inert = true;
     new IntersectionObserver(function(es){ heroIn = es[0].isIntersecting; upd(); }).observe($('#crea'));
     new IntersectionObserver(function(es){ contactIn = es[0].isIntersecting; upd(); }).observe($('#contacto'));
+  }
+  // Animaciones decorativas: solo se mueven cuando su zona está en pantalla
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(en){ en.target.classList.toggle('tp-off', !en.isIntersecting); }); }, {rootMargin: '120px 0px'});
+    $$('section').forEach(function(sec){ io.observe(sec); });
   }
   renderApp();
 })();
