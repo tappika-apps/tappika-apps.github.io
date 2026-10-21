@@ -410,7 +410,7 @@ Encargo de la titular: hacer todo lo que no dependa de ella (foto, ciudad y capt
 
 Revisión independiente (skill impeccable, evaluación de diseño aislada): 29/40. Decisiones de la titular: mantener la voz en primera persona, mostrar precio orientativo y aplicar todas las mejoras.
 
-- **Precio:** «Apps desde 150 €» (es un precio de partida; el final se da en presupuesto cerrado y sin compromiso). Aparece en la pregunta «¿Cuánto cuesta una app?» y junto al formulario de contacto. Pendiente que la titular confirme si el precio se indica con IVA incluido.
+- **Precio:** «Apps desde 150 €» (es un precio de partida; el final se da en presupuesto cerrado y sin compromiso). Aparece en la pregunta «¿Cuánto cuesta una app?» y junto al formulario de contacto. Confirmado por la titular: «desde 150 € (IVA incluido)».
 - **Compromiso del «yo»:** «Te respondo en 24-48 h y acepto pocos proyectos a la vez».
 - **Acción principal unificada:** «Cuéntame tu idea» (en móvil, «Cuéntame»). Se mantienen «Quiero una app así» (generador) y «Cuéntamela» por ser contextuales.
 - **Formulario:** fuera el contador «1/3» y su barra; correo visible como plan B («¿No se abre? Escríbeme a info@tappika.es»); la primera capa de privacidad indica «Responsable: Pilar R. B. (táppika)» con enlace a la política completa (conformidad de la titular).
