@@ -10,13 +10,23 @@
 <meta property="og:title" content="táppika — Aplicaciones a medida">
 <meta property="og:type" content="website">
 <meta property="og:description" content="Tú tienes una idea. Yo la convierto en app.">
+<meta property="og:url" content="https://tappika-apps.github.io/">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="táppika">
+<meta property="og:image" content="https://tappika-apps.github.io/assets/og/tappika-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="táppika, aplicaciones a medida: Tú tienes una idea. Yo la convierto en app.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="assets/og/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#0B1020;font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-tap-highlight-color:transparent}
 ::selection{background:#6C3BFF;color:#F8FAFC}
+html{scrollbar-color:#6C3BFF #0B1020}
 input,select,textarea{caret-color:#6C3BFF;accent-color:#6C3BFF}
 a{text-underline-offset:3px}
 a{color:#A78BFA}a:hover{opacity:.85}
@@ -24,27 +34,19 @@ summary{cursor:pointer;list-style:none}
 summary::-webkit-details-marker{display:none}
 input,textarea,button,select{font-family:inherit}
 :focus-visible{outline:3px solid #A78BFA;outline-offset:3px}
-@keyframes tp-float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(var(--r,0deg))}}
-@keyframes tp-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes tp-log{0%,8%{opacity:0;transform:translateY(6px)}14%,88%{opacity:1;transform:none}100%{opacity:0}}
 @keyframes tp-ping{0%{transform:scale(.6);opacity:.7}100%{transform:scale(1.9);opacity:0}}
 @keyframes tp-bar{0%,12%{transform:scaleY(.15)}45%,100%{transform:scaleY(1)}}
 @keyframes tp-dot{0%{left:0%}100%{left:100%}}
 @keyframes tp-toast{0%,10%{opacity:0;transform:translateY(16px) scale(.96)}18%,82%{opacity:1;transform:none}92%,100%{opacity:0;transform:translateY(-8px)}}
 @keyframes tp-pop{0%,100%{opacity:0;transform:translateY(-10px) scale(.95)}12%,70%{opacity:1;transform:none}}
-@keyframes tp-blink{0%,100%{opacity:1}50%{opacity:.25}}
 @keyframes tp-spin{to{transform:rotate(360deg)}}
 @keyframes tp-hop{0%,22%{transform:translate(0,0)}25%,47%{transform:translate(calc(100% + 6px),0)}50%,72%{transform:translate(calc(100% + 6px),calc(100% + 6px))}75%,97%{transform:translate(0,calc(100% + 6px))}100%{transform:translate(0,0)}}
-@keyframes tp-count{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 @keyframes tp-absorb{0%,6%{transform:translate(0,0) rotate(var(--r,0deg)) scale(1);opacity:1}22%{transform:translate(var(--dx,0),var(--dy,0)) rotate(0deg) scale(.25);opacity:0}23%,84%{transform:translate(0,0) rotate(var(--r,0deg)) scale(.92);opacity:0}96%,100%{transform:translate(0,0) rotate(var(--r,0deg)) scale(1);opacity:1}}
 @keyframes tp-rowin{0%,18%{opacity:.25;transform:translateX(-6px)}26%,84%{opacity:1;transform:none}96%,100%{opacity:.25;transform:translateX(-6px)}}
 .tp-absorb{animation:tp-absorb 8s cubic-bezier(.5,0,.3,1) infinite}
 .tp-rowin{animation:tp-rowin 8s ease-out infinite}
 .tp-hop{animation:tp-hop 8s ease-in-out infinite}
-.tp-count{animation:none}
 @keyframes tp-unspin{to{transform:rotate(-360deg)}}
-.tp-float{animation:tp-float 7s ease-in-out infinite}
-.tp-float2{animation:tp-float 9s ease-in-out infinite reverse}
 .tp-ping{animation:tp-ping 1.8s ease-out infinite}
 .tp-bar{transform-origin:bottom;animation:tp-bar 6s ease-in-out infinite alternate}
 .tp-dot{animation:tp-dot 4s linear infinite}
@@ -72,7 +74,7 @@ input,textarea,button,select{font-family:inherit}
 .tp-ctrl{max-width:none!important;flex:1 1 100%!important;padding:14px!important;gap:10px!important;border-radius:20px!important}
 .tp-typegrid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important}
 .tp-typegrid button,.tp-tbtn{min-height:44px!important;padding:0 2px!important;font-size:13px!important}
-.tp-ctrl fieldset button[aria-label],.tp-cbtn{width:44px!important;height:44px!important}
+.tp-ctrl fieldset button[aria-label]{width:44px!important;height:44px!important}
 .tp-ctrl legend{margin-bottom:6px!important;font-size:13px!important}
 .tp-phoneframe{height:540px!important}
 .tp-prodimg{height:46px!important}
@@ -90,7 +92,6 @@ input,textarea,button,select{font-family:inherit}
 .tp-bento>div>h3{font-size:16px!important;line-height:1.2}
 .tp-contact>div{padding:28px 22px!important;gap:24px!important;border-radius:30px!important}
 }
-@keyframes tp-glow{0%,100%{box-shadow:0 0 0 0 rgba(167,139,250,0);transform:scale(1)}8%{box-shadow:0 0 0 8px rgba(167,139,250,.35);transform:scale(1.08)}22%{box-shadow:0 0 0 14px rgba(167,139,250,0);transform:scale(1)}}
 @media (max-width: 720px){
 .tp-zoom{zoom:.8}
 .tp-art{min-height:0!important;padding:20px 16px!important;gap:14px!important}
@@ -125,6 +126,8 @@ html{scroll-behavior:smooth}
 .tp-tbtn{min-height:44px;padding:0 10px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:700;background:#0B1020;color:#E5E7EB;border:1.5px solid rgba(229,231,235,.2);font-family:inherit}
 .tp-tbtn[aria-pressed="true"]{background:#6C3BFF;color:#F8FAFC;border-color:#6C3BFF}
 .tp-cbtn{width:44px;height:44px;border-radius:50%;cursor:pointer;border:2px solid rgba(229,231,235,.3)}
+.tp-swatches{display:grid;grid-template-columns:repeat(5,minmax(0,44px));justify-content:space-between;gap:8px;padding:3px}
+.tp-ctrl .tp-swatches button.tp-cbtn[aria-label]{width:100%!important;height:auto!important;aspect-ratio:1;max-width:44px}
 .tp-cbtn[aria-pressed="true"]{border:3px solid #0B1020;box-shadow:0 0 0 3px #F8FAFC}
 .skip{position:absolute;left:12px;top:-60px;z-index:50;background:#F8FAFC;color:#0B1020;padding:10px 14px;border-radius:10px;font-weight:700}
 .skip:focus{top:12px}
@@ -156,7 +159,8 @@ footer{padding-bottom:96px!important}
 }
 
 .tp-project-menu{white-space:nowrap}
-@media(max-width:720px){.tp-navlink.tp-project-menu{display:inline-flex!important;align-items:center;min-height:44px;padding:0 6px;font-size:15px}}
+.tp-navlink{padding:13px 0}.tp-head>a{min-height:44px}
+@media(max-width:720px){.tp-navlink.tp-project-menu{display:inline-flex!important;align-items:center;min-height:44px;padding:0 4px;font-size:15px}.tp-head{flex-wrap:nowrap!important;padding:14px 16px!important;gap:10px!important}.tp-head nav{flex-wrap:nowrap!important;gap:10px!important}.tp-head .tp-mark{width:36px!important;height:36px!important;font-size:24px!important;border-radius:11px!important}.tp-head .wordmark{font-size:25px!important}.tp-head>a{gap:9px!important}.tp-head .tp-hcta{padding:0 16px!important}.tp-head .tp-hcta svg{display:none}}@media(max-width:350px){.tp-head .tp-mark{display:none!important}}
 </style>
 </head>
 <body>
@@ -166,9 +170,9 @@ footer{padding-bottom:96px!important}
 
   <!-- ============ CABECERA ============ -->
   <header style="position: relative; z-index: 2; border-bottom: 1px solid rgba(229,231,235,0.1)">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+    <div class="tp-head" style="max-width: 1240px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
       <a href="#inicio" aria-label="táppika, inicio" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #F8FAFC">
-        <span aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #0B1020; border: 1px solid rgba(229,231,235,0.22); color: #F8FAFC; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; position: relative">t<span style="position: absolute; right: 7px; top: 6px; width: 5px; height: 12px; border-radius: 3px; background: #6C3BFF; transform: rotate(35deg)"></span></span>
+        <span class="tp-mark" aria-hidden="true" style="width: 42px; height: 42px; border-radius: 13px; background: #0B1020; border: 1px solid rgba(229,231,235,0.22); color: #F8FAFC; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; position: relative">t<span style="position: absolute; right: 7px; top: 6px; width: 5px; height: 12px; border-radius: 3px; background: #6C3BFF; transform: rotate(35deg)"></span></span>
         <span class="wordmark" style="font-size: 29px; font-weight: 800; letter-spacing: -0.04em">t<span style="color: #6C3BFF">á</span>pp<span style="color: #6C3BFF">i</span>ka</span>
       </a>
       <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; font-weight: 600">
@@ -177,7 +181,7 @@ footer{padding-bottom:96px!important}
         <a class="tp-navlink tp-project-menu" href="proyectos.html" style="color: rgba(229,231,235,0.8); text-decoration: none">Proyectos</a>
         <a class="tp-navlink" href="#quien" style="color: rgba(229,231,235,0.8); text-decoration: none">Quién soy</a>
         <a class="tp-navlink" href="#como" style="color: rgba(229,231,235,0.8); text-decoration: none">Cómo trabajo</a>
-        <a href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; background: #F8FAFC; color: #0B1020; text-decoration: none; font-weight: 700"><span>Hablemos<span class="tp-long">&nbsp;de tu idea</span></span>
+        <a class="tp-hcta" href="#contacto" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; background: #F8FAFC; color: #0B1020; text-decoration: none; font-weight: 700"><span>Hablemos<span class="tp-long">&nbsp;de tu idea</span></span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </a>
       </nav>
@@ -206,8 +210,8 @@ footer{padding-bottom:96px!important}
 
           <!-- Móvil -->
           <div class="tp-phone" style="position: relative; flex: 0 0 auto">
-            <div aria-hidden="true" class="tp-float tp-hide-m" style="--r: -14deg; position: absolute; left: -50px; top: 60px; width: 96px; height: 96px; border-radius: 26px; background: var(--c); opacity: 0.85"></div>
-            <div aria-hidden="true" class="tp-float2 tp-hide-m" style="--r: 12deg; position: absolute; right: -44px; bottom: 90px; width: 80px; height: 80px; border-radius: 22px; background: #A78BFA; opacity: 0.18"></div>
+            <div aria-hidden="true" class="tp-hide-m" style="transform: rotate(-14deg); position: absolute; left: -50px; top: 60px; width: 96px; height: 96px; border-radius: 26px; background: var(--c); opacity: 0.85"></div>
+            <div aria-hidden="true" class="tp-hide-m" style="transform: rotate(12deg); position: absolute; right: -44px; bottom: 90px; width: 80px; height: 80px; border-radius: 22px; background: #A78BFA; opacity: 0.18"></div>
 
             <div aria-hidden="true" class="tp-pop" style="position: absolute; z-index: 3; left: 38px; top: -24px; width: 240px; box-sizing: border-box; padding: 12px 14px; border-radius: 18px; background: #F8FAFC; color: #0B1020; display: flex; gap: 10px; align-items: center; box-shadow: 0 24px 48px rgba(0,0,0,0.45)">
               <span style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; background: var(--c); color: #F8FAFC; font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center"><span data-t="initial"></span></span>
@@ -239,11 +243,11 @@ footer{padding-bottom:96px!important}
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 800">Octubre</span><span style="font-size: 12px; font-weight: 700; color: var(--c)">Ver mes</span></div>
                     <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px">
-                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 10px; font-weight: 700; color: rgba(11,16,32,0.6)">LUN<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">19</div></div>
-                      <div style="padding: 8px 0; border-radius: 14px; background: #0B1020; border: 1px solid #0B1020; text-align: center; font-size: 10px; font-weight: 700; color: #E5E7EB">MAR<div style="font-size: 16px; font-weight: 800; color: #F8FAFC; margin-top: 2px">20</div></div>
-                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 10px; font-weight: 700; color: rgba(11,16,32,0.6)">MIÉ<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">21</div></div>
-                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 10px; font-weight: 700; color: rgba(11,16,32,0.6)">JUE<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">22</div></div>
-                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 10px; font-weight: 700; color: rgba(11,16,32,0.6)">VIE<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">23</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">LUN<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">19</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #0B1020; border: 1px solid #0B1020; text-align: center; font-size: 11px; font-weight: 700; color: #E5E7EB">MAR<div style="font-size: 16px; font-weight: 800; color: #F8FAFC; margin-top: 2px">20</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">MIÉ<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">21</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">JUE<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">22</div></div>
+                      <div style="padding: 8px 0; border-radius: 14px; background: #FFFFFF; border: 1px solid #E5E7EB; text-align: center; font-size: 11px; font-weight: 700; color: rgba(11,16,32,0.6)">VIE<div style="font-size: 16px; font-weight: 800; color: #0B1020; margin-top: 2px">23</div></div>
                     </div>
                     <span style="font-size: 14px; font-weight: 800">Huecos libres</span>
                     <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
@@ -291,7 +295,7 @@ footer{padding-bottom:96px!important}
                     </div>
                     <div style="position: absolute; left: 16px; right: 16px; bottom: 10px; padding: 12px 14px; border-radius: 18px; background: var(--c); color: #F8FAFC; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 12px 24px rgba(11,16,32,0.25)">
                       <span style="font-size: 13px; font-weight: 700"><span style="padding: 3px 8px; border-radius: 8px; background: rgba(248,250,252,0.22); margin-right: 8px">3</span>productos</span>
-                      <span style="font-size: 13px; font-weight: 800">Ver pedido →</span>
+                      <span style="font-size: 13px; font-weight: 800">Ver pedido<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align: -2px; margin-left: 4px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
                     </div>
                   </div>
                 </div>
@@ -322,9 +326,9 @@ footer{padding-bottom:96px!important}
                       <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; font-weight: 800">Progreso de hoy</span><span style="font-size: 22px; font-weight: 800">66%</span></div>
                       <div style="height: 8px; border-radius: 99px; background: rgba(229,231,235,0.18); overflow: hidden"><div style="width: 66%; height: 100%; border-radius: 99px; background: #A78BFA"></div></div>
                       <div style="display: flex; align-items: center">
-                        <span style="width: 26px; height: 26px; border-radius: 50%; background: var(--c); border: 2px solid #0B1020; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center">AM</span>
-                        <span style="width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: #E5E7EB; color: #0B1020; border: 2px solid #0B1020; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center">JR</span>
-                        <span style="width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: #F8FAFC; color: #0B1020; border: 2px solid #0B1020; font-size: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center">+2</span>
+                        <span style="width: 26px; height: 26px; border-radius: 50%; background: var(--c); border: 2px solid #0B1020; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center">AM</span>
+                        <span style="width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: #E5E7EB; color: #0B1020; border: 2px solid #0B1020; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center">JR</span>
+                        <span style="width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: #F8FAFC; color: #0B1020; border: 2px solid #0B1020; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center">+2</span>
                         <span style="margin-left: 10px; font-size: 12px; font-weight: 600; color: rgba(229,231,235,0.8)">8 de 12 tareas hechas</span>
                       </div>
                     </div>
@@ -360,7 +364,7 @@ footer{padding-bottom:96px!important}
             </fieldset>
             <fieldset style="margin: 0; padding: 0; border: none">
               <legend style="padding: 0; margin-bottom: 10px; font-size: 14px; font-weight: 700; color: #E5E7EB">2 · Color de tu marca</legend>
-              <div style="display: flex; flex-wrap: wrap; gap: 10px">
+              <div class="tp-swatches">
                 <button type="button" class="tp-cbtn" data-color="#6C3BFF" aria-label="Color Violeta táppika" aria-pressed="true" style="background: #6C3BFF"></button><button type="button" class="tp-cbtn" data-color="#0B1020" aria-label="Color Azul noche" aria-pressed="false" style="background: #0B1020"></button><button type="button" class="tp-cbtn" data-color="#D93A26" aria-label="Color Coral" aria-pressed="false" style="background: #D93A26"></button><button type="button" class="tp-cbtn" data-color="#0F7F6F" aria-label="Color Verde" aria-pressed="false" style="background: #0F7F6F"></button><button type="button" class="tp-cbtn" data-color="#B5179E" aria-label="Color Magenta" aria-pressed="false" style="background: #B5179E"></button>
               </div>
             </fieldset>
@@ -539,9 +543,9 @@ footer{padding-bottom:96px!important}
             <div style="height: 100%; border-radius: 22px; background: #FFFFFF; padding: 14px 10px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; color: #0B1020">
               <div style="display: flex; align-items: center; gap: 6px"><span style="position: relative; width: 22px; height: 22px; border-radius: 7px; background: #0B1020; color: #F8FAFC; font-size: 14px; font-weight: 800; display: flex; align-items: center; justify-content: center">t<span style="position: absolute; right: 3px; top: 2px; width: 3px; height: 6px; border-radius: 2px; background: #6C3BFF; transform: rotate(35deg)"></span></span><span style="font-size: 11px; font-weight: 800">Todo en orden</span></div>
               <div class="tp-rowin" style="padding: 9px; border-radius: 11px; background: #6C3BFF; color: #F8FAFC; animation-delay: 0s"><div style="font-size: 9px; font-weight: 700; opacity: 0.85">Hoy</div><div style="font-size: 15px; font-weight: 800">3 citas</div></div>
-              <div class="tp-rowin" style="animation-delay: 1s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #6C3BFF"></span>Clientes</div>
-              <div class="tp-rowin" style="animation-delay: 2s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #A78BFA"></span>Pedidos</div>
-              <div class="tp-rowin" style="animation-delay: 3s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0B1020"></span>Avisos</div>
+              <div class="tp-rowin" style="animation-delay: 1s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #6C3BFF"></span>Clientes</div>
+              <div class="tp-rowin" style="animation-delay: 2s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #A78BFA"></span>Pedidos</div>
+              <div class="tp-rowin" style="animation-delay: 3s; padding: 8px; border-radius: 10px; border: 1px solid #E5E7EB; display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0B1020"></span>Avisos</div>
               <div style="margin-top: auto; height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div style="width: 80%; height: 100%; background: #6C3BFF"></div></div>
             </div>
           </div>
@@ -724,7 +728,7 @@ footer{padding-bottom:96px!important}
           <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em">Cuéntame en 3 toques</span>
           <span style="font-size: 13px; font-weight: 800; color: #6C3BFF"><span data-t="answered"></span>/3</span>
         </div>
-        <div aria-hidden="true" style="height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div id="tp-prog" style="width: 33%; height: 100%; border-radius: 6px; background: #6C3BFF; transition: width .4s ease"></div></div>
+        <div aria-hidden="true" style="height: 6px; border-radius: 6px; background: #E5E7EB; overflow: hidden"><div id="tp-prog" style="width: 100%; height: 100%; background: #6C3BFF; transform-origin: left center; transform: scaleX(.33); transition: transform .45s cubic-bezier(.16,1,.3,1)"></div></div>
 
         <div style="display: flex; flex-direction: column; gap: 7px">
           <label for="q-tipo" style="font-size: 14px; font-weight: 700">1 · ¿Qué tipo de app necesitas?</label>
@@ -809,7 +813,7 @@ footer{padding-bottom:96px!important}
           <span style="width: 0; min-width: 100%; text-align: center; white-space: nowrap; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(229,231,235,0.7)">Aplicaciones a medida</span>
         </div>
       </div>
-      <nav class="tp-legal" aria-label="Información legal de táppika" style="display: flex; flex-wrap: wrap; column-gap: 18px; align-items: center; font-size: 14px"><a href="aviso-legal.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Aviso legal</a><a href="privacidad.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Privacidad</a><a href="cookies.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Cookies</a><a href="#inicio" style="color: rgba(229,231,235,0.85); text-decoration: none">Volver arriba ↑</a></nav>
+      <nav class="tp-legal" aria-label="Información legal de táppika" style="display: flex; flex-wrap: wrap; column-gap: 18px; align-items: center; font-size: 14px"><a href="aviso-legal.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Aviso legal</a><a href="privacidad.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Privacidad</a><a href="cookies.html" style="color: rgba(229,231,235,0.85); text-decoration: underline; text-underline-offset: 3px">Cookies</a><a href="#inicio" style="color: rgba(229,231,235,0.85); text-decoration: none">Volver arriba<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-left: 6px"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a></nav>
       <span style="font-size: 14px; color: rgba(229,231,235,0.65)">© 2026 táppika</span>
     </div>
   </footer>
@@ -874,7 +878,7 @@ footer{padding-bottom:96px!important}
     var tipo = tipoSel.value, quien = quienSel.value, plazo = plazoSel.value, nombre = nombreIn.value.trim();
     var answered = (tipo?1:0) + (quien?1:0) + (plazo?1:0);
     setText('answered', String(answered));
-    $('#tp-prog').style.width = Math.round(answered/3*100) + '%';
+    $('#tp-prog').style.transform = 'scaleX(' + Math.max(answered,1)/3 + ')';
     var msg = 'Hola, táppika.';
     if (nombre) msg += ' Soy ' + nombre + '.';
     if (tipo) msg += ' Me interesa una app de ' + tipo.toLowerCase() + (quien ? ' para ' + quien : '') + '.';

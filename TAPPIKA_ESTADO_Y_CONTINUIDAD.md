@@ -371,3 +371,14 @@ Se localizaron archivos de las aplicaciones en la Biblioteca, sin acceder a cuen
 
 **Verificador público** actualizado a los nuevos textos (llamada en singular).
 **Pendiente:** foto de Pilar (sustituiría la «P»), confirmar si se quiere mencionar la ciudad, og:image para compartir por WhatsApp.
+
+## 10. Pulido general con la skill impeccable — 21/10/2026
+
+Encargo de la titular: hacer todo lo que no dependa de ella (foto, ciudad y capturas de proyectos quedan pendientes).
+
+- **Portada (`index.html`):** cabecera móvil en una sola línea (logo + «Proyectos» + «Hablemos»); los 5 colores del generador en una fila; los mosaicos decorativos del escritorio ya no flotan; la barra de progreso del cuestionario se anima sin recalcular el diseño; flechas dibujadas en SVG en lugar de caracteres («Volver arriba», «Ver pedido»); textos de las maquetas a 11 px; enlaces del menú de escritorio con zona pulsable de 44 px; barra de desplazamiento con colores de marca; eliminadas animaciones sin uso.
+- **Compartir:** imagen para WhatsApp y redes (`assets/og/tappika-og.png`, 1200×630, con el logotipo y «Tú tienes una idea. Yo la convierto en app.») e icono para la pantalla de inicio del móvil (`assets/og/apple-touch-icon.png`). Se mantiene `noindex, nofollow`.
+- **Proyectos (`proyectos.html`):** logotipo igual que la portada (sin punto, á/i en violeta); fuera la etiqueta «Portfolio»; introducción en primera persona; buscador con icono y mensaje «No encuentro…» con botón «Ver todos»; los fondos de las capturas pendientes usan la paleta de marca; corregido que la captura de BNevents tapara el título en escritorio; zonas táctiles de 44 px; sin desbordes a 320 px.
+- **Páginas legales:** mismo logotipo y tipografía Manrope que la portada; fuera la etiqueta «Información legal» sobre el título; botón «Volver a la web» y enlaces del pie con 44 px. **El texto legal no se ha tocado.**
+- **Nueva página 404** con la marca y accesos a inicio y proyectos.
+- Detector: 25 avisos (19/10) → 11, todos intencionados (texto de maquetas, recortes decorativos, sección que continúa la anterior y capturas a sangre).
