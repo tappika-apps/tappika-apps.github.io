@@ -107,7 +107,7 @@ jobs:
               assert wa.startswith("https://wa.me/34620843264?text=Hola%2C%20t%C3%A1ppika."), f"{device}: whatsapp text"
               assert "mi%20negocio" in wa, f"{device}: whatsapp answers"
               assert page.locator('#tp-mail').get_attribute('href').startswith("mailto:info@tappika.es?subject="), f"{device}: mail link"
-              assert page.locator('[data-t="answered"]').inner_text() == "3", f"{device}: questionnaire progress"
+              assert page.locator('#tp-form a[href="mailto:info@tappika.es"]').count() == 1, f"{device}: visible email fallback"
               page.locator('#tp-wa').scroll_into_view_if_needed()
               assert page.locator('#tp-wa').is_visible() and page.locator('#tp-mail').is_visible(), f"{device}: contact buttons"
               page.locator('#tp-wa').click()
