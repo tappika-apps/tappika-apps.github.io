@@ -417,3 +417,5 @@ Revisión independiente (skill impeccable, evaluación de diseño aislada): 29/4
 - **Móvil más corto:** se oculta en móvil el bloque «Tu app trabaja» (repetía mensajes); sigue visible en escritorio.
 - **Proyectos:** solo se muestra BNevents como caso desarrollado (lo que necesitaba → lo que hice → hoy, en uso) sin identificar al cliente; Mi Campo, Mi Semana y Agenda y reservas aparecen como texto en «También he creado», sin cajas vacías. Fuera el buscador y el contador. La comprobación automática de proyectos se ha actualizado a esta estructura.
 - **Pendiente:** testimonio del cliente de BNevents (borrador entregado a la titular; se publicará solo con su texto aprobado y su permiso para nombrarlo), foto de manos/espacio de trabajo, dominio propio tappika.es para la web.
+
+- 21/10/2026: a petición de la titular se sustituye «acepto pocos proyectos a la vez» (transmitía falta de capacidad) por «llevo cada proyecto yo misma, de principio a fin».
