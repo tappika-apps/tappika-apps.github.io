@@ -419,3 +419,12 @@ Revisión independiente (skill impeccable, evaluación de diseño aislada): 29/4
 - **Pendiente:** testimonio del cliente de BNevents (borrador entregado a la titular; se publicará solo con su texto aprobado y su permiso para nombrarlo), foto de manos/espacio de trabajo, dominio propio tappika.es para la web.
 
 - 21/10/2026: a petición de la titular se sustituye «acepto pocos proyectos a la vez» (transmitía falta de capacidad) por «llevo cada proyecto yo misma, de principio a fin».
+
+## 14. Oferta simplificada: micro apps — 21/10/2026
+
+Estudio de mercado hecho (documento aparte en Claude Docs): una app sencilla a medida en España se presupuesta entre 4.900 € y 25.000 €; las apps de reservas cuestan unos 420 € + IVA al año (Booksy, 1 profesional). La titular decide centrarse en micro apps.
+
+- Oferta pública: **micro app desde 150 € (IVA incluido)** = una función principal, hasta 3 pantallas, nombre y colores propios, una ronda de cambios. Más alcance = presupuesto cerrado y sin compromiso.
+- **Mantenimiento opcional desde 10 €/mes** (alojamiento, copias de seguridad y pequeños cambios).
+- Mensaje: «Tu propia app por menos de lo que cuesta un año de muchas apps de suscripción».
+- Nivel intermedio orientativo (desde 450 €) aprobado como referencia interna; no se publica por ahora para mantener la oferta simple.
