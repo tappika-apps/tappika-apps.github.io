@@ -76,5 +76,72 @@ article.append(label,title);
 for(const [name,value] of fields){if(!value)continue;const p=document.createElement('p');const strong=document.createElement('strong');strong.textContent=name+': ';p.append(strong,document.createTextNode(value));article.append(p)}out.append(article);
 }}
 function updateMass(){const ids=['olive','coco','shea'],g=ids.map(id=>Number($('g-'+id).value));if(g.some(n=>!Number.isFinite(n)||n<0||n>99999)){$('grams').textContent='Revisa las cantidades';ids.forEach(id=>$('p-'+id).value='');return;}const total=g.reduce((a,b)=>a+b,0);$('grams').textContent=total.toLocaleString('es-ES',{maximumFractionDigits:1})+' g';ids.forEach((id,i)=>$('p-'+id).value=total?((g[i]/total)*100).toLocaleString('es-ES',{maximumFractionDigits:1})+' %':'—');}
-['olive','coco','shea'].forEach(id=>$('g-'+id).addEventListener('input',updateMass));fillCards();compare();updateMass();section(location.hash.replace('#','')||'inicio');
+['olive','coco','shea'].forEach(id=>$('g-'+id).addEventListener('input',updateMass));
+let MATERIALS=[];
+function normalise(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+function renderMaterialCards(){
+ const target=$('material-grid');target.textContent='';
+ const query=normalise($('material-search').value),family=$('material-family').value;let n=0;
+ MATERIALS.forEach((m,i)=>{
+  if(family!=='Todas'&&m.family!==family)return;
+  if(!normalise([m.name,m.inciDraft,m.role,m.focus].join(' ')).includes(query))return;
+  const b=document.createElement('button');b.type='button';b.className='card';
+  const top=document.createElement('div');top.className='card-top';
+  const icon=document.createElement('span');icon.setAttribute('aria-hidden','true');icon.style.cssText='font:45px Georgia,serif;color:#4b8d86';icon.textContent='◉';top.append(icon);
+  const content=document.createElement('div');content.className='card-body';
+  const tag=document.createElement('small');tag.textContent=m.family||'Materia funcional';
+  const title=document.createElement('h3');title.textContent=m.name;
+  const desc=document.createElement('p');desc.textContent=m.role||m.focus||'Consultar ficha';
+  content.append(tag,title,desc);b.append(top,content);
+  b.addEventListener('click',()=>openMaterial(i));target.append(b);n++;
+ });
+ $('material-status').textContent=n+' de '+MATERIALS.length+' fichas de formulación';
+ $('material-empty').hidden=n>0;
+}
+function openMaterial(i){
+ const m=MATERIALS[i],target=$('detail-extended');target.textContent='';
+ $('detail-title').textContent=m.name;
+ $('detail-inci').textContent='INCI provisional: '+(m.inciDraft||'Pendiente');
+ $('detail-body').textContent=m.role||'Materia de estudio';
+ $('detail-orb').style.background='#d0e6e1';$('detail-go').hidden=true;
+ showBlock(target,'Familia de ingrediente',m.family);
+ showBlock(target,'Función',m.role);
+ showBlock(target,'Limitaciones y contexto de investigación',m.focus);
+ showBlock(target,'Qué comprobar antes de utilizar',m.checks);
+ showBlock(target,'Estado de la ficha','Información orientativa. INCI, proveedor, lote y seguridad de formulación pendientes de validar.');
+ $('detail').showModal();
+}
+function renderColorAndAroma(){
+ for(const key of ['color-grid','aroma-grid']){
+  const target=$(key);target.textContent='';
+  BOTANICALS.forEach((b,i)=>{
+   const card=document.createElement('button');card.type='button';card.className='card';
+   const top=document.createElement('div');top.className='card-top';
+   const circle=document.createElement('div');circle.className='swatch';circle.style.background=/^#[a-f0-9]{6}$/i.test(b.colorHex||'')?b.colorHex:'#d8e7e1';top.append(circle);
+   const body=document.createElement('div');body.className='card-body';
+   const tag=document.createElement('small');tag.textContent=b.category;
+   const name=document.createElement('h3');name.textContent=b.name;
+   const notes=document.createElement('p');notes.textContent=key==='color-grid'?(b.colorName||'Sin tono definido')+' · conceptual':(b.scent||b.aroma||'Sin datos de aroma');
+   body.append(tag,name,notes);card.append(top,body);
+   card.addEventListener('click',()=>openDetail(i));target.append(card);
+  });
+ }
+}
+$('material-search').addEventListener('input',renderMaterialCards);
+$('material-family').addEventListener('change',renderMaterialCards);
+renderColorAndAroma();
+if(window.TDS_MATERIALS_READY){
+ window.TDS_MATERIALS_READY.then(data=>{
+  MATERIALS=data;
+  for(const family of [...new Set(data.map(m=>m.family))].sort()){
+   const option=document.createElement('option');option.value=family;option.textContent=family;$('material-family').append(option);
+  }
+  renderMaterialCards();
+ }).catch(e=>{
+  $('material-status').textContent='No ha sido posible cargar las materias primas en este navegador.';
+  $('material-empty').hidden=false;console.warn('Fichas de materias:',e.message);
+ });
+}else {$('material-status').textContent='La materioteca no se ha cargado';$('material-empty').hidden=false;}
+
+fillCards();compare();updateMass();section(location.hash.replace('#','')||'inicio');
 </script></body></html>
