@@ -1,0 +1,24 @@
+name: The Daily Dish Soap · preview QA
+on:
+  push:
+    paths:
+      - 'preview/the-daily-dish-soap-2026/**'
+      - '.github/workflows/tds-preview-qa.yml'
+  pull_request:
+    paths:
+      - 'preview/the-daily-dish-soap-2026/**'
+      - '.github/workflows/tds-preview-qa.yml'
+  workflow_dispatch:
+jobs:
+  check-demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate catalog, preview and JavaScript
+        run: node preview/the-daily-dish-soap-2026/qa.cjs
